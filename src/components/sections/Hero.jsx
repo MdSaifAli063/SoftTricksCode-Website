@@ -12,7 +12,7 @@ export default function Hero() {
   const { openBooking } = useBooking();
 
   return (
-    <section className="hero-flytech relative pt-24 pb-0 sm:pt-28">
+    <section className="hero-flytech relative pb-0 pt-[calc(5.5rem+env(safe-area-inset-top,0px))] sm:pt-[calc(7rem+env(safe-area-inset-top,0px))]">
       <div className="container-page relative z-10 pb-8 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 28 }}

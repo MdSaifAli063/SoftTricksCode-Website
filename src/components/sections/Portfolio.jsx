@@ -30,17 +30,18 @@ export default function Portfolio({ limit, showAllLink = true, pageMode = false 
             actionTo="/portfolio"
           />
 
+          <div className="overflow-hidden">
           <Swiper
             modules={[Navigation, Autoplay]}
-            spaceBetween={24}
+            spaceBetween={16}
             slidesPerView={1}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             navigation={{
               prevEl: '.portfolio-prev',
               nextEl: '.portfolio-next',
             }}
-            breakpoints={{ 768: { slidesPerView: 1.15 }, 1024: { slidesPerView: 1.25 } }}
-            className="!overflow-visible pb-4"
+            breakpoints={{ 640: { spaceBetween: 24 } }}
+            className="!overflow-hidden pb-4"
           >
             {carouselItems.map((project) => (
               <SwiperSlide key={project.id}>
@@ -84,6 +85,7 @@ export default function Portfolio({ limit, showAllLink = true, pageMode = false 
               </SwiperSlide>
             ))}
           </Swiper>
+          </div>
 
           <div className="mt-8 flex justify-center gap-3">
             <button

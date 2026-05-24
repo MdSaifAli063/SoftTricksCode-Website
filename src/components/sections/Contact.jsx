@@ -234,7 +234,7 @@ export default function Contact({ showHeading = true, pageMode = false }) {
   }
 
   return (
-    <section id="contact" className="relative min-h-[600px]">
+    <section id="contact" className="relative min-h-0 sm:min-h-[520px] lg:min-h-[600px]">
       <img
         src={BG_IMAGE}
         alt=""
@@ -243,7 +243,7 @@ export default function Contact({ showHeading = true, pageMode = false }) {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-stc-black/80 via-stc-black/60 to-stc-black/40" />
 
-      <div className="container-page relative z-10 flex min-h-[600px] items-center justify-end py-16 sm:py-20">
+      <div className="container-page relative z-10 flex min-h-0 items-stretch justify-center py-14 sm:min-h-[520px] sm:items-center sm:justify-end sm:py-20 lg:min-h-[600px]">
         <motion.div
           initial={{ opacity: 0, x: 24 }}
           whileInView={{ opacity: 1, x: 0 }}
