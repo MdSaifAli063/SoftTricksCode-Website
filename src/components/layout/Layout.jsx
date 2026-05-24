@@ -20,7 +20,11 @@ export default function Layout() {
       <CustomCursor />
       <ScrollProgress />
       <Navbar onChatOpen={() => setChatOpen(true)} />
-      <main className={`min-h-screen bg-stc-black ${isHome ? '' : 'pt-[4.5rem] sm:pt-20'}`}>
+      <main
+        className={`min-h-screen overflow-x-clip bg-stc-black ${
+          isHome ? '' : 'pt-[calc(4.5rem+env(safe-area-inset-top,0px))] sm:pt-[calc(5rem+env(safe-area-inset-top,0px))]'
+        }`}
+      >
         <Outlet />
       </main>
       <Footer />

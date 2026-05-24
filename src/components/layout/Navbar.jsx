@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 import BrandLogo from '../ui/BrandLogo';
 import { useBooking } from '../../context/BookingContext';
 import clsx from 'clsx';
@@ -31,6 +31,15 @@ export default function Navbar({ onChatOpen }) {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
   }, [mobileOpen]);
 
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setMobileOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [mobileOpen]);
+
   const navLinkClass = ({ isActive }) =>
     clsx(
       'px-3 py-2 text-sm font-medium transition-colors',
@@ -41,14 +50,14 @@ export default function Navbar({ onChatOpen }) {
     <>
       <header
         className={clsx(
-          'fixed left-0 right-0 top-0 z-50 transition-all duration-300',
+          'safe-top-nav fixed left-0 right-0 top-0 z-50 transition-all duration-300',
           scrolled
             ? 'border-b border-white/10 bg-stc-black/90 backdrop-blur-xl'
             : 'bg-transparent'
         )}
       >
         <nav
-          className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6"
+          className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4"
           aria-label="Main"
         >
           <BrandLogo className="shrink-0" />
@@ -61,7 +70,23 @@ export default function Navbar({ onChatOpen }) {
             ))}
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3">
+            <button
+              type="button"
+              onClick={() => onChatOpen?.()}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition hover:bg-white/10 sm:hidden"
+              aria-label="Open chat"
+            >
+              <MessageCircle size={20} />
+            </button>
+            <button
+              type="button"
+              onClick={openBooking}
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-stc-primary text-white transition hover:bg-stc-primary-light sm:hidden"
+              aria-label="Book a consultation"
+            >
+              <Phone size={20} />
+            </button>
             <button
               type="button"
               onClick={() => {
@@ -118,16 +143,28 @@ export default function Navbar({ onChatOpen }) {
                   </NavLink>
                 </motion.div>
               ))}
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileOpen(false);
-                  openBooking();
-                }}
-                className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-stc-primary py-3.5 font-semibold text-white"
-              >
-                Let&apos;s Talk <Phone size={18} />
-              </button>
+              <div className="mt-4 flex flex-col gap-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileOpen(false);
+                    openBooking();
+                  }}
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-stc-primary py-3.5 font-semibold text-white"
+                >
+                  Let&apos;s Talk <Phone size={18} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileOpen(false);
+                    onChatOpen?.();
+                  }}
+                  className="flex w-full items-center justify-center gap-2 rounded-full border border-white/20 py-3.5 font-semibold text-white"
+                >
+                  Live Chat <MessageCircle size={18} />
+                </button>
+              </div>
             </div>
           </motion.div>
         )}
