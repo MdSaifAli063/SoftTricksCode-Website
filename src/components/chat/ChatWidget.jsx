@@ -102,7 +102,8 @@ export default function ChatWidget({ open, onOpenChange }) {
   return (
     <>
       <div
-        className="fixed bottom-5 right-4 z-50 flex flex-col items-center gap-3 safe-bottom sm:bottom-6 sm:right-6"
+        className="fixed bottom-5 z-50 flex flex-col items-center gap-3 safe-bottom sm:bottom-6"
+        style={{ right: 'max(1rem, env(safe-area-inset-right))' }}
         aria-label="Quick actions"
       >
         <BackToTopButton hidden={open} />

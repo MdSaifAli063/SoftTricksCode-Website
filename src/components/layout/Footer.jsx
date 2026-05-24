@@ -60,24 +60,26 @@ export default function Footer() {
     <footer className="relative mt-20 bg-stc-black">
       {/* Overlapping consultation CTA */}
       <div className="container-page relative z-20 -translate-y-1/2">
-        <div className="flex flex-col items-center justify-between gap-6 rounded-2xl bg-stc-primary px-6 py-6 shadow-fly-lg sm:flex-row sm:px-10 sm:py-7">
+        <div className="flex flex-col items-center justify-between gap-6 rounded-2xl bg-stc-primary px-4 py-6 shadow-fly-lg sm:flex-row sm:px-10 sm:py-7">
           <button
             type="button"
             onClick={openBooking}
-            className="text-center font-serif text-xl font-bold text-white sm:text-left sm:text-2xl"
+            className="max-w-full text-center font-serif text-lg font-bold leading-snug text-white sm:text-left sm:text-2xl"
           >
             Do you need free Consultation?
           </button>
           <a
             href={`mailto:${SITE.email}`}
-            className="flex items-center gap-4 transition hover:opacity-90"
+            className="flex w-full max-w-full items-center gap-3 transition hover:opacity-90 sm:w-auto sm:gap-4"
           >
-            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-stc-primary">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-stc-primary sm:h-14 sm:w-14">
               <Mail size={24} />
             </span>
-            <div className="text-left">
+            <div className="min-w-0 text-left">
               <span className="block text-xs text-blue-100">send E-mail</span>
-              <span className="text-base font-semibold text-white sm:text-lg">{SITE.email}</span>
+              <span className="break-anywhere text-sm font-semibold text-white sm:text-lg">
+                {SITE.email}
+              </span>
             </div>
           </a>
         </div>
