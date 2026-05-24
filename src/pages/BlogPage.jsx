@@ -12,7 +12,7 @@ export default function BlogPage() {
         <meta name="description" content="Web dev, AI, tips, and case studies from SoftTricksCode." />
       </Helmet>
 
-      <section className="blog-hub-bg border-b border-slate-200/60 pt-28 pb-12 sm:pt-32 sm:pb-16">
+      <section className="blog-hub-bg border-b border-slate-200/60 pb-12 pt-[calc(7rem+env(safe-area-inset-top,0px))] sm:pb-16 sm:pt-32">
         <div className="container-page text-center">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
             <SectionBadge className="mb-4">Our Blog</SectionBadge>

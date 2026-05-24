@@ -23,10 +23,10 @@ export default function NotFound() {
         <div className="container-page relative z-10">
           <SectionBadge className="mb-6">Error 404</SectionBadge>
 
-          <p className="font-serif text-[7rem] font-bold leading-none text-white/10 sm:text-[9rem]">
+          <p className="font-serif text-[5.5rem] font-bold leading-none text-white/10 xs:text-[7rem] sm:text-[9rem]">
             404
           </p>
-          <h1 className="-mt-12 font-serif text-3xl font-bold text-white sm:-mt-16 sm:text-4xl md:text-5xl">
+          <h1 className="-mt-10 font-serif text-2xl font-bold text-white xs:-mt-12 xs:text-3xl sm:-mt-16 sm:text-4xl md:text-5xl">
             Page Not Found
           </h1>
           <p className="mx-auto mt-4 max-w-md text-base text-stc-gray">

@@ -35,14 +35,14 @@ export default function SectionHeading({
             {title}
           </h2>
         </div>
-        <div className="flex max-w-md flex-col gap-4 sm:flex-row sm:items-center lg:justify-end">
+        <div className="flex w-full max-w-md flex-col gap-4 sm:flex-row sm:items-center lg:w-auto lg:justify-end">
           {subtitle && (
             <p className={clsx('text-sm leading-relaxed sm:text-base', isLight ? 'text-stc-muted' : 'text-stc-gray')}>
               {subtitle}
             </p>
           )}
           {actionLabel && actionTo && (
-            <div className="flex shrink-0 items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <Link
                 to={actionTo}
                 className="inline-flex items-center gap-3 rounded-full bg-stc-primary px-5 py-2.5 text-sm font-semibold text-white"

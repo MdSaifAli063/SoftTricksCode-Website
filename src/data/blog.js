@@ -1,3 +1,12 @@
+import { founders } from './founders';
+
+const saif = founders.find((f) => f.id === 'saif');
+
+export const defaultAuthor = {
+  name: saif?.name ?? 'Md Saif Ali',
+  avatar: saif?.photo ?? '/founder-saif.png',
+};
+
 export const blogPosts = [
   {
     slug: 'react-best-practices-2025',
@@ -9,7 +18,8 @@ export const blogPosts = [
       'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=450&fit=crop',
     date: '2025-03-15',
     readTime: '8 min read',
-    author: 'Md Saif Ali',
+    author: defaultAuthor.name,
+    authorAvatar: defaultAuthor.avatar,
     content: `
 ## Introduction
 
@@ -42,7 +52,8 @@ Following these practices will help you ship faster and maintain code quality lo
       'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=450&fit=crop',
     date: '2025-02-28',
     readTime: '6 min read',
-    author: 'Md Saif Ali',
+    author: defaultAuthor.name,
+    authorAvatar: defaultAuthor.avatar,
     content: `
 ## Why AI Chatbots?
 
@@ -67,7 +78,8 @@ Businesses see 30–50% reduction in support tickets within the first quarter.
       'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=450&fit=crop',
     date: '2025-01-20',
     readTime: '10 min read',
-    author: 'Md Saif Ali',
+    author: defaultAuthor.name,
+    authorAvatar: defaultAuthor.avatar,
     content: `
 ## Compliance First
 
@@ -92,7 +104,8 @@ Balance security with intuitive UX for patients and healthcare staff.
       'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=450&fit=crop',
     date: '2025-01-05',
     readTime: '5 min read',
-    author: 'Md Saif Ali',
+    author: defaultAuthor.name,
+    authorAvatar: defaultAuthor.avatar,
     content: `
 ## Speed
 

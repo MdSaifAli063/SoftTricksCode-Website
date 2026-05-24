@@ -5,7 +5,7 @@ export default function ExploreBadge({ to = '/portfolio' }) {
   return (
     <Link
       to={to}
-      className="group absolute -right-2 top-1/2 z-20 flex h-24 w-24 -translate-y-1/2 items-center justify-center sm:-right-4 sm:h-28 sm:w-28"
+      className="group absolute bottom-3 right-3 z-20 flex h-20 w-20 items-center justify-center sm:bottom-auto sm:right-[-1rem] sm:top-1/2 sm:h-28 sm:w-28 sm:-translate-y-1/2"
       aria-label="Explore our work"
     >
       <span
@@ -23,7 +23,7 @@ export default function ExploreBadge({ to = '/portfolio' }) {
           </text>
         </svg>
       </span>
-      <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-stc-primary text-white shadow-fly transition group-hover:scale-110 sm:h-14 sm:w-14">
+      <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-stc-primary text-white shadow-fly transition group-hover:scale-110 sm:h-14 sm:w-14">
         <ArrowUpRight size={22} />
       </span>
     </Link>

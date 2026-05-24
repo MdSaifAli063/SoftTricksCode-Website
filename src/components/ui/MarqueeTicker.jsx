@@ -30,8 +30,9 @@ function Tape({ items, reverse, dark }) {
 
   return (
     <div
-      className={`overflow-hidden py-3.5 ${dark ? 'bg-stc-black text-white' : 'bg-stc-primary text-white'}`}
-      style={{ transform: reverse ? 'rotate(-2.5deg)' : 'rotate(2.5deg)' }}
+      className={`overflow-hidden py-3.5 max-sm:rotate-0 sm:py-4 ${
+        reverse ? 'sm:-rotate-[2deg]' : 'sm:rotate-[2deg]'
+      } ${dark ? 'bg-stc-black text-white' : 'bg-stc-primary text-white'}`}
     >
       <div className={`flex w-max ${reverse ? 'animate-marquee-reverse' : 'animate-marquee'}`}>
         {content}

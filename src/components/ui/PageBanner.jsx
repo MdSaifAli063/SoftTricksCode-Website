@@ -5,7 +5,7 @@ import SectionBadge from './SectionBadge';
 
 export default function PageBanner({ badge, title, subtitle, breadcrumbs = [] }) {
   return (
-    <section className="hero-flytech border-b border-white/10 pt-28 pb-14 sm:pt-32 sm:pb-16">
+    <section className="hero-flytech border-b border-white/10 pb-12 pt-[calc(7rem+env(safe-area-inset-top,0px))] sm:pb-16 sm:pt-[calc(8rem+env(safe-area-inset-top,0px))]">
       <div className="container-page relative z-10">
         {breadcrumbs.length > 0 && (
           <nav

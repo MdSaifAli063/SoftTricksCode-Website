@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
-import { blogPosts } from '../data/blog';
+import { blogPosts, defaultAuthor } from '../data/blog';
 import SectionBadge from '../components/ui/SectionBadge';
 import NotFound from './NotFound';
 
@@ -20,7 +20,7 @@ export default function BlogDetail() {
         <title>{post.title} — SoftTricksCode Blog</title>
         <meta name="description" content={post.excerpt} />
       </Helmet>
-      <article className="blog-hub-bg section-padding mx-auto max-w-3xl pt-28 sm:pt-32">
+      <article className="blog-hub-bg mx-auto w-full max-w-3xl px-4 py-14 pt-[calc(7rem+env(safe-area-inset-top,0px))] sm:px-6 sm:py-20 sm:pt-32">
         <Link
           to="/blog"
           className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-stc-primary hover:underline"
@@ -32,7 +32,7 @@ export default function BlogDetail() {
             <img
               src={post.cover}
               alt=""
-              className="max-h-[420px] w-full object-cover"
+              className="aspect-[16/10] max-h-[280px] w-full object-cover sm:aspect-auto sm:max-h-[420px]"
             />
             <span className="absolute bottom-4 left-4 rounded-full bg-stc-primary px-3 py-1 text-xs font-semibold text-white">
               {post.category}
@@ -42,12 +42,21 @@ export default function BlogDetail() {
           <h1 className="mt-4 font-serif text-3xl font-bold text-stc-black sm:text-4xl">
             {post.title}
           </h1>
-          <div className="mt-4 flex flex-wrap gap-4 border-b border-slate-200 pb-6 text-sm text-stc-muted">
-            <span>By {post.author}</span>
-            <span>·</span>
-            <span>{post.date}</span>
-            <span>·</span>
-            <span>{post.readTime}</span>
+          <div className="mt-6 flex flex-wrap items-center gap-4 border-b border-slate-200 pb-6">
+            <div className="flex items-center gap-3">
+              <img
+                src={post.authorAvatar || defaultAuthor.avatar}
+                alt={post.author}
+                className="h-11 w-11 rounded-full border-2 border-stc-primary/25 object-cover object-top"
+              />
+              <span className="text-sm text-stc-muted">
+                By <span className="font-semibold text-stc-black">{post.author}</span>
+              </span>
+            </div>
+            <span className="hidden text-stc-muted sm:inline">·</span>
+            <span className="text-sm text-stc-muted">{post.date}</span>
+            <span className="text-stc-muted">·</span>
+            <span className="text-sm text-stc-muted">{post.readTime}</span>
           </div>
           <div className="mt-8">
             {sections.map((section, i) => {
@@ -57,7 +66,7 @@ export default function BlogDetail() {
               return (
                 <div key={i} className="mb-8">
                   {i > 0 && (
-                    <h2 className="mb-4 font-serif text-2xl font-bold text-stc-black">
+                    <h2 className="mb-4 font-serif text-xl font-bold text-stc-black sm:text-2xl">
                       {heading}
                     </h2>
                   )}
