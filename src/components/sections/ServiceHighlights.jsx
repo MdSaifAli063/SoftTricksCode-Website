@@ -33,7 +33,7 @@ export default function ServiceHighlights() {
   return (
     <section className="relative z-20 -mt-6 px-4 pb-4 sm:px-6 md:px-8">
       <div className="pointer-events-none absolute inset-0 bg-rays opacity-40" aria-hidden />
-      <div className="relative mx-auto grid max-w-7xl gap-4 sm:grid-cols-3 sm:gap-5">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-4 xs:grid-cols-2 sm:grid-cols-3 sm:gap-5">
         {highlights.map((item, i) => (
           <motion.div
             key={item.num}

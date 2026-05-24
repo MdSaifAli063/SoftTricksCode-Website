@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { Share2, ChevronLeft, ChevronRight, Phone } from 'lucide-react';
@@ -24,13 +24,21 @@ const SOCIAL_ICONS = [
   { key: 'twitter', Icon: FaXTwitter },
 ];
 
+function getPhotoClass(variant) {
+  if (variant === 'cutout') {
+    return 'object-contain object-bottom px-4 pt-6';
+  }
+  return 'object-cover object-[center_22%]';
+}
+
 function TeamCard({ member }) {
   const [hover, setHover] = useState(false);
+  const [imgError, setImgError] = useState(false);
   const socials = SOCIAL_ICONS.filter(({ key }) => member.social?.[key]?.trim());
 
   if (member.hiring) {
     return (
-      <div className="flex h-full min-h-[380px] flex-col items-center justify-center rounded-4xl border-2 border-dashed border-stc-primary/30 bg-stc-light p-8 text-center">
+      <div className="flex h-full min-h-[300px] flex-col items-center justify-center rounded-4xl border-2 border-dashed border-stc-primary/30 bg-stc-light p-8 text-center sm:min-h-[360px] lg:min-h-[420px]">
         <div className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-dashed border-stc-primary text-3xl text-stc-primary">
           +
         </div>
@@ -43,59 +51,77 @@ function TeamCard({ member }) {
 
   return (
     <article
-      className="group relative overflow-hidden rounded-4xl"
+      className="group relative min-h-[300px] overflow-hidden rounded-4xl bg-slate-200 shadow-md sm:min-h-[360px] lg:min-h-[420px]"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
       <img
         src={member.avatar}
         alt={member.name}
-        className="h-[380px] w-full object-cover object-top transition duration-500 group-hover:scale-105"
+        onError={() => setImgError(true)}
+        className={clsx(
+          'h-[300px] w-full transition duration-500 group-hover:scale-[1.03] sm:h-[360px] lg:h-[420px]',
+          imgError ? 'hidden' : getPhotoClass(member.imageVariant)
+        )}
         loading="lazy"
+        decoding="async"
       />
+
+      {imgError && (
+        <div className="flex h-[300px] items-center justify-center bg-slate-300 text-sm text-stc-muted sm:h-[360px] lg:h-[420px]">
+          Photo unavailable
+        </div>
+      )}
+
       <button
         type="button"
-        className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-stc-black/80 text-white backdrop-blur-sm"
-        aria-label="Share profile"
+        className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-stc-black/75 text-white backdrop-blur-sm transition hover:bg-stc-primary"
+        aria-label={`Share ${member.name}`}
       >
         <Share2 size={18} />
       </button>
 
-      {hover && socials.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="absolute right-4 top-16 flex flex-col gap-2"
-        >
-          {socials.map(({ key, Icon }) => (
-            <a
-              key={key}
-              href={member.social[key]}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-stc-primary text-white"
-              aria-label={key}
-            >
-              <Icon size={16} />
-            </a>
-          ))}
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {hover && socials.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            className="absolute right-4 top-16 z-20 flex flex-col gap-2"
+          >
+            {socials.map(({ key, Icon }) => (
+              <a
+                key={key}
+                href={member.social[key]}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-stc-primary text-white shadow-fly"
+                aria-label={key}
+              >
+                <Icon size={16} />
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <div
-        className={clsx(
-          'absolute inset-x-0 bottom-0 bg-gradient-to-t from-stc-primary/95 to-transparent p-6 transition',
-          hover ? 'opacity-100' : 'opacity-0 sm:opacity-100'
-        )}
-      >
-        <h3 className="font-serif text-xl font-bold text-white">{member.name}</h3>
-        <p className="text-sm text-blue-100">{member.role}</p>
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[55%] bg-gradient-to-t from-stc-primary via-stc-primary/85 to-transparent"
+        aria-hidden
+      />
+
+      <div className="absolute inset-x-0 bottom-0 z-20 p-6 pt-16">
+        <h3 className="font-serif text-xl font-bold leading-tight text-white sm:text-2xl">{member.name}</h3>
+        <p className="mt-1 text-sm font-medium text-blue-100">{member.role}</p>
         {member.phone && (
           <a
             href={`tel:${member.phoneTel}`}
-            className="mt-2 inline-flex items-center gap-1 text-xs text-white/90 hover:text-white"
+            className="pointer-events-auto mt-3 inline-flex items-center gap-2 text-sm text-white/95 transition hover:text-white"
           >
-            <Phone size={12} /> {member.phone}
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15">
+              <Phone size={14} />
+            </span>
+            {member.phone}
           </a>
         )}
       </div>
@@ -146,7 +172,7 @@ export default function Team() {
           }}
         >
           {team.map((member) => (
-            <SwiperSlide key={member.id}>
+            <SwiperSlide key={member.id} className="!h-auto">
               <TeamCard member={member} />
             </SwiperSlide>
           ))}

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { defaultAuthor } from '../../data/blog';
 
 function parseDate(dateStr) {
   const d = new Date(dateStr);
@@ -9,11 +10,10 @@ function parseDate(dateStr) {
   };
 }
 
-const AUTHOR_AVATAR =
-  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop';
-
 export default function BlogCard({ post }) {
   const { day, month } = parseDate(post.date);
+  const avatar = post.authorAvatar || defaultAuthor.avatar;
+  const authorName = post.author || defaultAuthor.name;
 
   return (
     <article className="group">
@@ -38,13 +38,14 @@ export default function BlogCard({ post }) {
 
         <div className="mt-5 flex items-center gap-3 border-b border-slate-200 pb-4">
           <img
-            src={post.authorAvatar || AUTHOR_AVATAR}
-            alt={post.author}
-            className="h-9 w-9 rounded-full object-cover"
+            src={avatar}
+            alt={authorName}
+            className="h-10 w-10 shrink-0 rounded-full border-2 border-stc-primary/20 object-cover object-top"
             loading="lazy"
+            decoding="async"
           />
           <span className="text-sm text-stc-muted">
-            By <span className="font-medium text-stc-black">{post.author}</span>
+            By <span className="font-semibold text-stc-black">{authorName}</span>
           </span>
         </div>
 
