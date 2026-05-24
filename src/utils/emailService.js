@@ -28,4 +28,7 @@ export const TEMPLATE_IDS = {
   contact: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
   booking: import.meta.env.VITE_EMAILJS_BOOKING_TEMPLATE_ID || import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
   newsletter: import.meta.env.VITE_EMAILJS_NEWSLETTER_TEMPLATE_ID || import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  hiring:
+    import.meta.env.VITE_EMAILJS_HIRING_TEMPLATE_ID ||
+    import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
 };

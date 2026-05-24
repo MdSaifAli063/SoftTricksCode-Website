@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { Share2, ChevronLeft, ChevronRight, Phone } from 'lucide-react';
+import { Share2, ChevronLeft, ChevronRight, Phone, ArrowUpRight } from 'lucide-react';
 import {
   FaGithub,
   FaYoutube,
@@ -37,15 +38,24 @@ function TeamCard({ member }) {
   const socials = SOCIAL_ICONS.filter(({ key }) => member.social?.[key]?.trim());
 
   if (member.hiring) {
+    const careersPath = member.hiringPath || '/careers';
     return (
-      <div className="flex h-full min-h-[300px] flex-col items-center justify-center rounded-4xl border-2 border-dashed border-stc-primary/30 bg-stc-light p-8 text-center sm:min-h-[360px] lg:min-h-[420px]">
-        <div className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-dashed border-stc-primary text-3xl text-stc-primary">
+      <Link
+        to={careersPath}
+        className="group flex h-full min-h-[300px] flex-col items-center justify-center rounded-4xl border-2 border-dashed border-stc-primary/30 bg-stc-light p-8 text-center transition hover:border-stc-primary hover:bg-white hover:shadow-fly-card sm:min-h-[360px] lg:min-h-[420px]"
+        aria-label="View open roles and apply"
+      >
+        <div className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-dashed border-stc-primary text-3xl text-stc-primary transition group-hover:scale-105 group-hover:bg-stc-primary/10">
           +
         </div>
         <h3 className="mt-6 font-serif text-xl font-bold text-stc-black">{member.name}</h3>
         <p className="mt-1 font-medium text-stc-primary">{member.role}</p>
         <p className="mt-3 text-sm text-stc-muted">{member.bio}</p>
-      </div>
+        <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-stc-primary px-4 py-2 text-sm font-semibold text-white transition group-hover:bg-stc-primary-light">
+          View roles & apply
+          <ArrowUpRight size={16} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </span>
+      </Link>
     );
   }
 

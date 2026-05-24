@@ -19,10 +19,11 @@ export const team = [
   {
     id: 'hire-1',
     name: "We're Hiring",
-    role: 'Full-Stack Developer',
-    bio: 'Join our team and build the future of software with us.',
-    skills: ['React', 'Node.js'],
+    role: 'Frontend · Backend · UI/UX & more',
+    bio: 'Tap to view open roles and apply — we review every application.',
+    skills: ['React', 'Node.js', 'Figma'],
     avatar: null,
     hiring: true,
+    hiringPath: '/careers',
   },
 ];
