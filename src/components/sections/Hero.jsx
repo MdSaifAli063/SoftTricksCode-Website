@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion';
-import { Phone } from 'lucide-react';
 import GlowButton from '../ui/GlowButton';
 import ExploreBadge from '../ui/ExploreBadge';
 import { useBooking } from '../../context/BookingContext';
-import { SITE } from '../../constants/site';
 
 const HERO_IMAGE =
   'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1400&h=700&fit=crop';
@@ -47,18 +45,6 @@ export default function Hero() {
           </GlowButton>
         </motion.div>
 
-        <motion.a
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          href={`tel:${SITE.phoneTel}`}
-          className="mt-6 inline-flex items-center gap-2 text-sm text-stc-gray transition hover:text-white"
-        >
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5">
-            <Phone size={16} />
-          </span>
-          {SITE.phone}
-        </motion.a>
       </div>
 
       <motion.div
