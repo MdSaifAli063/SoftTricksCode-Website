@@ -1,38 +1,25 @@
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 
-function LogoMark({ size = 36, className = '' }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 64 64"
-      className={clsx('shrink-0', className)}
-      aria-hidden
-    >
-      <path
-        d="M12 44 L32 12 L52 44"
-        stroke="#00f5ff"
-        strokeWidth="2.5"
-        fill="none"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="32" cy="38" r="5" fill="#0066ff" />
-    </svg>
-  );
-}
+// Put your logo image in public/stc-logo.png, or replace this with a hosted image URL.
+const LOGO_SRC = 'https://ik.imagekit.io/77nsbwefl/SoftTricksCodecopy.png';
 
-/** Original SoftTricksCode lockup: triangle mark + gradient wordmark */
 export default function BrandLogo({
   className = '',
   textClassName = '',
-  iconSize = 36,
+  imgClassName = '',
+  iconSize = 50,
   asLink = true,
 }) {
   const content = (
     <>
-      <LogoMark size={iconSize} />
+      <img
+        src={LOGO_SRC}
+        alt=""
+        className={clsx('shrink-0 object-contain', imgClassName)}
+        style={{ width: iconSize, height: iconSize }}
+        aria-hidden
+      />
       <span
         className={clsx(
           'truncate font-heading font-extrabold logo-wordmark',
