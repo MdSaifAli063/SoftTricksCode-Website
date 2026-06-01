@@ -58,6 +58,7 @@ Update `public/robots.txt` sitemap URL to your real domain.
 
 ## EmailJS (local)
 
+
 Copy `.env.example` → `.env` and fill in keys from [emailjs.com](https://www.emailjs.com).
 
 ## Build locally
