@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaGithub, FaYoutube, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaYoutube, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { Mail, Send } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { sendEmail, TEMPLATE_IDS } from '../../utils/emailService';
@@ -103,6 +103,7 @@ export default function Footer() {
                     label: 'YouTube',
                     highlight: true,
                   },
+                  { href: 'https://twitter.com/SoftTricksCode', icon: FaTwitter, label: 'Twitter' },
                   { href: 'https://linkedin.com', icon: FaLinkedin, label: 'LinkedIn' },
                   { href: 'https://instagram.com', icon: FaInstagram, label: 'Instagram' },
                 ].map(({ href, icon: Icon, label, highlight }) => (
