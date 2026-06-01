@@ -9,6 +9,7 @@ npm install
 npm run dev
 ```
 
+
 ## Deploy on Vercel
 
 ### 1. Push to GitHub
@@ -25,6 +26,7 @@ If your repo root is the parent folder (`SoftTricsCode Website`), set this in Ve
 | **Output Directory** | `dist` |
 
 `vercel.json` in this folder already configures SPA routing for React Router.
+
 
 ### 2. Import in Vercel
 
@@ -56,9 +58,11 @@ Update `public/robots.txt` sitemap URL to your real domain.
 
 ## EmailJS (local)
 
+
 Copy `.env.example` → `.env` and fill in keys from [emailjs.com](https://www.emailjs.com).
 
 ## Build locally
+
 
 ```bash
 npm run build
