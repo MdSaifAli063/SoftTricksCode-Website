@@ -96,7 +96,7 @@ export default function Footer() {
               </p>
               <div className="mt-6 flex gap-2">
                 {[
-                  { href: 'https://github.com/MdSaifAli063', icon: FaGithub, label: 'GitHub' },
+                  { href: 'https://github.com/Soft-Tricks-Code', icon: FaGithub, label: 'GitHub' },
                   {
                     href: 'https://www.youtube.com/@SoftTricksCode',
                     icon: FaYoutube,
