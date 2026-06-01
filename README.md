@@ -27,6 +27,7 @@ If your repo root is the parent folder (`SoftTricsCode Website`), set this in Ve
 
 `vercel.json` in this folder already configures SPA routing for React Router.
 
+
 ### 2. Import in Vercel
 
 1. Go to [vercel.com/new](https://vercel.com/new)
