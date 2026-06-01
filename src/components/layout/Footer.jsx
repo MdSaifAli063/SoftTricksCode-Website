@@ -105,7 +105,7 @@ export default function Footer() {
                   },
                   { href: 'https://twitter.com/SoftTricksCode', icon: FaTwitter, label: 'Twitter' },
                   { href: 'https://linkedin.com', icon: FaLinkedin, label: 'LinkedIn' },
-                  { href: 'https://instagram.com', icon: FaInstagram, label: 'Instagram' },
+                  { href: 'https://www.instagram.com/softtrickscode', icon: FaInstagram, label: 'Instagram' },
                 ].map(({ href, icon: Icon, label, highlight }) => (
                   <a
                     key={label}
