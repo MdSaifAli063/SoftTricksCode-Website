@@ -18,9 +18,9 @@ export const founders = [
     social: {
       github: 'https://github.com/MdSaifAli063',
       youtube: 'https://www.youtube.com/@SoftTricksCode',
-      linkedin: '', // e.g. https://linkedin.com/in/your-profile
+      linkedin: 'https://www.linkedin.com/in/mdsaifali063', // e.g. https://linkedin.com/in/your-profile
       instagram: '',
-      twitter: '',
+      twitter: 'https://x.com/Md_Saif_Ali_063',
     },
   },
   {
