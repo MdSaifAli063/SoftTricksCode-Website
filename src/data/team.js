@@ -9,6 +9,7 @@ export const team = [
     skills: f.skills,
     avatar: f.photo,
     imageVariant: f.imageVariant,
+    cropPosition: f.cropPosition,
     phone: f.phone,
     phoneTel: f.phoneTel,
     social: f.social,
@@ -24,6 +25,7 @@ export const team = [
     skills: ["AI Engineering", "Backend Development", "APIs", "Automation"],
     avatar: "/dawal-malik.png",
     imageVariant: "portrait",
+    cropPosition: "center 18%",
     phone: "+91 84465 48235",
     phoneTel: "+918446548235",
     social: {
@@ -45,6 +47,7 @@ export const team = [
     skills: ["Frontend Development", "DevOps", "Operations", "CI/CD"],
     avatar: "/faraz-akram.png",
     imageVariant: "portrait",
+    cropPosition: "center 28%",
     phone: "+91 86037 78367",
     phoneTel: "+918603778367",
     social: {

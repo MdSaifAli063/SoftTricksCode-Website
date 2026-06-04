@@ -29,7 +29,7 @@ function getPhotoClass(variant) {
   if (variant === 'cutout') {
     return 'object-contain object-bottom px-4 pt-6';
   }
-  return 'object-cover object-[center_22%]';
+  return 'object-cover';
 }
 
 function TeamCard({ member }) {
@@ -73,6 +73,7 @@ function TeamCard({ member }) {
           'h-[300px] w-full transition duration-500 group-hover:scale-[1.03] sm:h-[360px] lg:h-[420px]',
           imgError ? 'hidden' : getPhotoClass(member.imageVariant)
         )}
+        style={{ objectPosition: member.cropPosition || 'center 32%' }}
         loading="lazy"
         decoding="async"
       />
