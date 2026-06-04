@@ -84,7 +84,7 @@ export default function About({ showTeamLink = true, pageMode = false }) {
                     <div className="min-w-0">
                       <p className="text-sm font-semibold text-stc-black">{founder.name}</p>
                       <p className="text-xs text-stc-muted">
-                        {founder.id === 'saif' ? 'Founder' : 'Co-Founder'}, SoftTricksCode
+                        {founder.id === 'saif' ? 'Founder & CEO' : 'Co-Founder'}, SoftTricksCode
                       </p>
                     </div>
                   </div>
