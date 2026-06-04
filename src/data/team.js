@@ -1,4 +1,4 @@
-import { founders } from './founders';
+import { founders } from "./founders";
 
 export const team = [
   ...founders.map((f) => ({
@@ -17,13 +17,55 @@ export const team = [
     hiring: false,
   })),
   {
-    id: 'hire-1',
+    id: "dawal-malik",
+    name: "Dawal Malik",
+    role: "CTO, AI Engineer & Backend Developer",
+    bio: "Leading AI engineering and backend architecture for scalable, intelligent products at SoftTricksCode.",
+    skills: ["AI Engineering", "Backend Development", "APIs", "Automation"],
+    avatar: "/dawal-malik.png",
+    imageVariant: "portrait",
+    phone: "+91 84465 48235",
+    phoneTel: "+918446548235",
+    social: {
+      github: "",
+      youtube: "",
+      linkedin: "",
+      instagram: "",
+      twitter: "",
+    },
+    github: null,
+    youtube: null,
+    hiring: false,
+  },
+  {
+    id: "faraz-akram",
+    name: "Faraz Akram",
+    role: "COO, Frontend & DevOps Engineer",
+    bio: "Managing operations while building polished frontend experiences and reliable DevOps workflows.",
+    skills: ["Frontend Development", "DevOps", "Operations", "CI/CD"],
+    avatar: "/faraz-akram.png",
+    imageVariant: "portrait",
+    phone: "+91 86037 78367",
+    phoneTel: "+918603778367",
+    social: {
+      github: "",
+      youtube: "",
+      linkedin: "",
+      instagram: "",
+      twitter: "",
+    },
+    github: null,
+    youtube: null,
+    hiring: false,
+  },
+  {
+    id: "hire-1",
     name: "We're Hiring",
-    role: 'Frontend · Backend · UI/UX & more',
-    bio: 'Tap to view open roles and apply — we review every application.',
-    skills: ['React', 'Node.js', 'Figma'],
+    role: "Frontend · Backend · UI/UX & more",
+    bio: "Tap to view open roles and apply — we review every application.",
+    skills: ["React", "Node.js", "Figma"],
     avatar: null,
     hiring: true,
-    hiringPath: '/careers',
+    hiringPath: "/careers",
   },
 ];
