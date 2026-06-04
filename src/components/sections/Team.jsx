@@ -70,10 +70,14 @@ function TeamCard({ member }) {
         alt={member.name}
         onError={() => setImgError(true)}
         className={clsx(
-          'h-[300px] w-full transition duration-500 group-hover:scale-[1.03] sm:h-[360px] lg:h-[420px]',
+          'h-[300px] w-full object-[var(--team-photo-mobile-position)] transition duration-500 group-hover:scale-[1.03] sm:h-[360px] sm:object-[var(--team-photo-position)] lg:h-[420px]',
           imgError ? 'hidden' : getPhotoClass(member.imageVariant)
         )}
-        style={{ objectPosition: member.cropPosition || 'center 32%' }}
+        style={{
+          '--team-photo-mobile-position':
+            member.mobileCropPosition || member.cropPosition || 'center 32%',
+          '--team-photo-position': member.cropPosition || 'center 32%',
+        }}
         loading="lazy"
         decoding="async"
       />

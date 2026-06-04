@@ -10,6 +10,7 @@ export const founders = [
     photo: '/founder-saif.png',
     avatar: '/founder-saif-avatar.png',
     imageVariant: 'portrait',
+    mobileCropPosition: 'center 30%',
     cropPosition: 'center 70%',
     phone: '+91 90312 28966',
     phoneTel: '+919031228966',

@@ -9,6 +9,7 @@ export const team = [
     skills: f.skills,
     avatar: f.photo,
     imageVariant: f.imageVariant,
+    mobileCropPosition: f.mobileCropPosition,
     cropPosition: f.cropPosition,
     phone: f.phone,
     phoneTel: f.phoneTel,
