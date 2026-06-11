@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/ui/Seo';
 import { motion } from 'framer-motion';
 import { blogPosts } from '../data/blog';
 import BlogCard from '../components/ui/BlogCard';
@@ -7,10 +7,12 @@ import SectionBadge from '../components/ui/SectionBadge';
 export default function BlogPage() {
   return (
     <>
-      <Helmet>
-        <title>Blog — SoftTricksCode</title>
-        <meta name="description" content="Web dev, AI, tips, and case studies from SoftTricksCode." />
-      </Helmet>
+      <Seo
+        title="Blog — Soft Tricks Code"
+        description="Read about web development, AI solutions, full-stack product strategy, and software best practices from Soft Tricks Code."
+        pathname="/blog"
+        image="/favicon.svg"
+      />
 
       <section className="blog-hub-bg border-b border-slate-200/60 pb-12 pt-[calc(7rem+env(safe-area-inset-top,0px))] sm:pb-16 sm:pt-32">
         <div className="container-page text-center">
