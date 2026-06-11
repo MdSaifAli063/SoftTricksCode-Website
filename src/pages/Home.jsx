@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/ui/Seo';
 import Hero from '../components/sections/Hero';
 import ServiceHighlights from '../components/sections/ServiceHighlights';
 import About from '../components/sections/About';
@@ -15,13 +15,12 @@ import Contact from '../components/sections/Contact';
 export default function Home() {
   return (
     <>
-      <Helmet>
-        <title>SoftTricksCode — Smart Software Solutions</title>
-        <meta
-          name="description"
-          content="Innovate with smart IT solutions for business growth. Web, mobile, AI, and custom software by SoftTricksCode."
-        />
-      </Helmet>
+      <Seo
+        title="Soft Tricks Code | Web Development, AI Solutions & Software Services"
+        description="Soft Tricks Code delivers modern web applications, AI-powered solutions, software consulting, cloud services, and full-stack development for businesses and startups."
+        pathname="/"
+        image="/favicon.svg"
+      />
       <Hero />
       <ServiceHighlights />
       <About />
