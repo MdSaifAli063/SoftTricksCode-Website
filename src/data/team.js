@@ -1,4 +1,4 @@
-import { founders } from "./founders";
+import { founders } from "./founders.js";
 
 export const team = [
   ...founders.map((f) => ({
