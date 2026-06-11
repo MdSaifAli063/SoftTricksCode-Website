@@ -1,23 +1,23 @@
-import { founders } from './founders';
+import { founders } from "./founders.js";
 
-const saif = founders.find((f) => f.id === 'saif');
+const saif = founders.find((f) => f.id === "saif");
 
 export const defaultAuthor = {
-  name: saif?.name ?? 'Md Saif Ali',
-  avatar: saif?.photo ?? '/founder-saif.png',
+  name: saif?.name ?? "Md Saif Ali",
+  avatar: saif?.photo ?? "/founder-saif.png",
 };
 
 export const blogPosts = [
   {
-    slug: 'react-best-practices-2025',
-    title: 'React Best Practices for Production Apps in 2025',
+    slug: "react-best-practices-2025",
+    title: "React Best Practices for Production Apps in 2025",
     excerpt:
-      'Essential patterns, performance tips, and architecture decisions for building scalable React applications.',
-    category: 'Web Dev',
+      "Essential patterns, performance tips, and architecture decisions for building scalable React applications.",
+    category: "Web Dev",
     cover:
-      'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=450&fit=crop',
-    date: '2025-03-15',
-    readTime: '8 min read',
+      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=450&fit=crop",
+    date: "2025-03-15",
+    readTime: "8 min read",
     author: defaultAuthor.name,
     authorAvatar: defaultAuthor.avatar,
     content: `
@@ -43,15 +43,15 @@ Following these practices will help you ship faster and maintain code quality lo
     `.trim(),
   },
   {
-    slug: 'ai-chatbots-for-business',
-    title: 'How AI Chatbots Transform Customer Support',
+    slug: "ai-chatbots-for-business",
+    title: "How AI Chatbots Transform Customer Support",
     excerpt:
-      'Learn how custom GPT-powered chatbots reduce response times and improve customer satisfaction.',
-    category: 'AI',
+      "Learn how custom GPT-powered chatbots reduce response times and improve customer satisfaction.",
+    category: "AI",
     cover:
-      'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=450&fit=crop',
-    date: '2025-02-28',
-    readTime: '6 min read',
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=450&fit=crop",
+    date: "2025-02-28",
+    readTime: "6 min read",
     author: defaultAuthor.name,
     authorAvatar: defaultAuthor.avatar,
     content: `
@@ -69,15 +69,15 @@ Businesses see 30–50% reduction in support tickets within the first quarter.
     `.trim(),
   },
   {
-    slug: 'healthcare-software-guide',
-    title: 'Building HIPAA-Aware Healthcare Software',
+    slug: "healthcare-software-guide",
+    title: "Building HIPAA-Aware Healthcare Software",
     excerpt:
-      'A practical guide to security, compliance, and architecture for healthcare applications.',
-    category: 'Case Studies',
+      "A practical guide to security, compliance, and architecture for healthcare applications.",
+    category: "Case Studies",
     cover:
-      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=450&fit=crop',
-    date: '2025-01-20',
-    readTime: '10 min read',
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=450&fit=crop",
+    date: "2025-01-20",
+    readTime: "10 min read",
     author: defaultAuthor.name,
     authorAvatar: defaultAuthor.avatar,
     content: `
@@ -95,15 +95,15 @@ Balance security with intuitive UX for patients and healthcare staff.
     `.trim(),
   },
   {
-    slug: 'vite-vs-webpack-2025',
-    title: 'Why We Choose Vite Over Webpack in 2025',
+    slug: "vite-vs-webpack-2025",
+    title: "Why We Choose Vite Over Webpack in 2025",
     excerpt:
-      'Faster dev server, smaller bundles, and better DX — here is why Vite wins for modern projects.',
-    category: 'Tips & Tricks',
+      "Faster dev server, smaller bundles, and better DX — here is why Vite wins for modern projects.",
+    category: "Tips & Tricks",
     cover:
-      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=450&fit=crop',
-    date: '2025-01-05',
-    readTime: '5 min read',
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=450&fit=crop",
+    date: "2025-01-05",
+    readTime: "5 min read",
     author: defaultAuthor.name,
     authorAvatar: defaultAuthor.avatar,
     content: `
