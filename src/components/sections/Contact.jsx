@@ -237,9 +237,10 @@ export default function Contact({ showHeading = true, pageMode = false }) {
     <section id="contact" className="relative min-h-0 sm:min-h-[520px] lg:min-h-[600px]">
       <img
         src={BG_IMAGE}
-        alt=""
+        alt="Background graphic for contact section"
         className="absolute inset-0 h-full w-full object-cover"
-        aria-hidden
+        loading="lazy"
+        aria-hidden="true"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-stc-black/80 via-stc-black/60 to-stc-black/40" />
 
