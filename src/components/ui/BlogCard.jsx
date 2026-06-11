@@ -21,7 +21,7 @@ export default function BlogCard({ post }) {
         <div className="relative overflow-hidden rounded-2xl">
           <img
             src={post.cover}
-            alt=""
+            alt={post.title}
             className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
             loading="lazy"
           />
