@@ -1,17 +1,16 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/ui/Seo';
 import PageBanner from '../components/ui/PageBanner';
 import Services from '../components/sections/Services';
 
 export default function ServicesPage() {
   return (
     <>
-      <Helmet>
-        <title>Services — SoftTricksCode</title>
-        <meta
-          name="description"
-          content="Web development, mobile apps, AI/ML, healthcare, agriculture, EdTech, cloud, and cybersecurity services."
-        />
-      </Helmet>
+      <Seo
+        title="Services — Soft Tricks Code"
+        description="Comprehensive web development, AI solutions, full-stack, SaaS, UI/UX, and cloud services from Soft Tricks Code."
+        pathname="/services"
+        image="/favicon.svg"
+      />
       <PageBanner
         badge="Services"
         title="Full-Stack Software Solutions"

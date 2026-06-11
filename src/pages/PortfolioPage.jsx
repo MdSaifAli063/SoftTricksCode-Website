@@ -1,17 +1,16 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/ui/Seo';
 import PageBanner from '../components/ui/PageBanner';
 import Portfolio from '../components/sections/Portfolio';
 
 export default function PortfolioPage() {
   return (
     <>
-      <Helmet>
-        <title>Portfolio — SoftTricksCode</title>
-        <meta
-          name="description"
-          content="Explore our projects across healthcare, AI, EdTech, mobile, and web development."
-        />
-      </Helmet>
+      <Seo
+        title="Portfolio — Soft Tricks Code"
+        description="See Soft Tricks Code website, AI, SaaS, and product design case studies delivering measurable business impact."
+        pathname="/portfolio"
+        image="/favicon.svg"
+      />
       <PageBanner
         badge="Portfolio"
         title="Projects That Deliver Results"

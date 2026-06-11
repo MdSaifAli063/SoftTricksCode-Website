@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/ui/Seo';
 import { Home, Mail } from 'lucide-react';
 import GlowButton from '../components/ui/GlowButton';
 import SectionBadge from '../components/ui/SectionBadge';
@@ -14,10 +14,13 @@ const quickLinks = [
 export default function NotFound() {
   return (
     <>
-      <Helmet>
-        <title>404 — SoftTricksCode</title>
-        <meta name="description" content="Page not found. Return to SoftTricksCode homepage." />
-      </Helmet>
+      <Seo
+        title="404 — Soft Tricks Code"
+        description="Page not found — return to the Soft Tricks Code homepage for software development, AI, and cloud solutions."
+        pathname="/404"
+        image="/favicon.svg"
+        robots="noindex, follow"
+      />
 
       <section className="hero-flytech flex min-h-[85vh] flex-col items-center justify-center px-4 pt-28 pb-16 text-center">
         <div className="container-page relative z-10">

@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/ui/Seo';
 import PageBanner from '../components/ui/PageBanner';
 import Pricing from '../components/sections/Pricing';
 
@@ -18,13 +18,12 @@ const PLANS = [
 export default function PricingPage() {
   return (
     <>
-      <Helmet>
-        <title>Pricing — SoftTricksCode</title>
-        <meta
-          name="description"
-          content="Starter ₹15,000 | Professional ₹45,000 | Enterprise custom. Transparent, negotiable pricing."
-        />
-      </Helmet>
+      <Seo
+        title="Pricing — Soft Tricks Code"
+        description="Discover transparent pricing for web development, AI, SaaS, and custom software from Soft Tricks Code."
+        pathname="/pricing"
+        image="/favicon.svg"
+      />
       <PageBanner
         badge="Pricing"
         title="Plans That Scale With You"
