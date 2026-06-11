@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/ui/Seo';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { blogPosts, defaultAuthor } from '../data/blog';
@@ -16,10 +16,16 @@ export default function BlogDetail() {
 
   return (
     <>
-      <Helmet>
-        <title>{post.title} — SoftTricksCode Blog</title>
-        <meta name="description" content={post.excerpt} />
-      </Helmet>
+      <Seo
+        title={`${post.title} — Soft Tricks Code Blog`}
+        description={post.excerpt}
+        pathname={`/blog/${post.slug}`}
+        image={post.cover}
+        type="article"
+        author={post.author}
+        articlePublishedTime={new Date(post.date).toISOString()}
+        articleModifiedTime={new Date(post.date).toISOString()}
+      />
       <article className="blog-hub-bg mx-auto w-full max-w-3xl px-4 py-14 pt-[calc(7rem+env(safe-area-inset-top,0px))] sm:px-6 sm:py-20 sm:pt-32">
         <Link
           to="/blog"
@@ -31,8 +37,9 @@ export default function BlogDetail() {
           <div className="relative overflow-hidden rounded-3xl">
             <img
               src={post.cover}
-              alt=""
+              alt={`${post.title} cover image`}
               className="aspect-[16/10] max-h-[280px] w-full object-cover sm:aspect-auto sm:max-h-[420px]"
+              loading="lazy"
             />
             <span className="absolute bottom-4 left-4 rounded-full bg-stc-primary px-3 py-1 text-xs font-semibold text-white">
               {post.category}
@@ -48,6 +55,8 @@ export default function BlogDetail() {
                 src={post.authorAvatar || defaultAuthor.avatar}
                 alt={post.author}
                 className="h-11 w-11 rounded-full border-2 border-stc-primary/25 object-cover object-top"
+                loading="lazy"
+                decoding="async"
               />
               <span className="text-sm text-stc-muted">
                 By <span className="font-semibold text-stc-black">{post.author}</span>
