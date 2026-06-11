@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/ui/Seo';
 import PageBanner from '../components/ui/PageBanner';
 import About from '../components/sections/About';
 import Team from '../components/sections/Team';
@@ -6,13 +6,12 @@ import Team from '../components/sections/Team';
 export default function AboutPage() {
   return (
     <>
-      <Helmet>
-        <title>About — SoftTricksCode</title>
-        <meta
-          name="description"
-          content="Meet Md Saif Ali, Ashwini T Gadad, and the SoftTricksCode team."
-        />
-      </Helmet>
+      <Seo
+        title="About — Soft Tricks Code"
+        description="Meet the Soft Tricks Code founders and team behind modern web, AI, and full-stack software solutions."
+        pathname="/about"
+        image="/favicon.svg"
+      />
       <PageBanner
         badge="About"
         title="Meet SoftTricksCode"
