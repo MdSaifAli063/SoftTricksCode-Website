@@ -1,17 +1,16 @@
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/ui/Seo';
 import PageBanner from '../components/ui/PageBanner';
 import Contact from '../components/sections/Contact';
 
 export default function ContactPage() {
   return (
     <>
-      <Helmet>
-        <title>Contact — SoftTricksCode</title>
-        <meta
-          name="description"
-          content="Get in touch with SoftTricksCode for a free consultation. Call Md Saif Ali or Ashwini T Gadad."
-        />
-      </Helmet>
+      <Seo
+        title="Contact — Soft Tricks Code"
+        description="Contact Soft Tricks Code for website development, AI solutions, SaaS, and software consulting with fast response times."
+        pathname="/contact"
+        image="/favicon.svg"
+      />
       <PageBanner
         badge="Contact"
         title="Let's Build Something Great"
