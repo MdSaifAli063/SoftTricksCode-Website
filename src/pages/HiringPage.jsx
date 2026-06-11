@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/ui/Seo';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -90,14 +90,13 @@ export default function HiringPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Careers — SoftTricksCode</title>
-        <meta
-          name="description"
-          content="Join SoftTricksCode. We're hiring frontend, backend, UI/UX, mobile, DevOps, and AI developers."
-        />
-        <meta name="robots" content="noindex, follow" />
-      </Helmet>
+      <Seo
+        title="Careers — Soft Tricks Code"
+        description="Join Soft Tricks Code for frontend, backend, AI, cloud, and product engineering roles. Remote-friendly hiring from startups to enterprise projects."
+        pathname="/careers"
+        image="/favicon.svg"
+        robots="noindex, follow"
+      />
 
       <PageBanner
         badge="Careers"
