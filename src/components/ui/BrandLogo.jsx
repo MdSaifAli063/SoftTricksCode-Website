@@ -15,10 +15,9 @@ export default function BrandLogo({
     <>
       <img
         src={LOGO_SRC}
-        alt=""
+        alt="Soft Tricks Code logo"
         className={clsx('shrink-0 object-contain', imgClassName)}
         style={{ width: iconSize, height: iconSize }}
-        aria-hidden
       />
       <span
         className={clsx(
