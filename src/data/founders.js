@@ -36,10 +36,10 @@ export const founders = [
     phoneTel: '+919035198788',
     skills: ['Operations', 'Strategy', 'Client Success'],
     social: {
-      linkedin: '', // e.g. https://linkedin.com/in/ashwini-gadad
+      linkedin: 'https://www.linkedin.com/in/ashwini-gadad-154844378', // e.g. https://linkedin.com/in/ashwini-gadad
       instagram: '',
       twitter: '',
-      github: '',
+      github: 'https://github.com/AshwiniTGadad15',
       youtube: '',
     },
   },
