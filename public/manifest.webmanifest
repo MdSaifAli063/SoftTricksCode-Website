@@ -1,0 +1,17 @@
+{
+  "name": "Soft Tricks Code",
+  "short_name": "Soft Tricks",
+  "description": "Soft Tricks Code provides modern web development, AI solutions, cloud services, and full-stack software consulting.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#030712",
+  "theme_color": "#030712",
+  "icons": [
+    {
+      "src": "https://ik.imagekit.io/77nsbwefl/file_000000001b647206964f84a7912579ee.png",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ]
+}
