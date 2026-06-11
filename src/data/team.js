@@ -30,9 +30,9 @@ export const team = [
     phone: "+91 84465 48235",
     phoneTel: "+918446548235",
     social: {
-      github: "",
+      github: "https://github.com/dawalmalik0405-spec",
       youtube: "",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/daval-malik-sayad-ali-makandar",
       instagram: "",
       twitter: "",
     },
@@ -52,9 +52,9 @@ export const team = [
     phone: "+91 86037 78367",
     phoneTel: "+918603778367",
     social: {
-      github: "",
+      github: "https://github.com/farazakram",
       youtube: "",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/farazakram031",
       instagram: "",
       twitter: "",
     },
