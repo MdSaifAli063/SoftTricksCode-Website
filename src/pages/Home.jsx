@@ -16,11 +16,12 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="SoftTricksCode | Software Services & AI Solutions, Web Development"
-        description="SoftTricksCode delivers modern web applications, AI-powered solutions, software consulting, cloud services, and full-stack development for businesses and startups."
+        title="SoftTricksCode | Software Development, AI Solutions, Web & Mobile App Development"
+        description="SoftTricksCode is a leading software company providing website development, mobile app development, AI solutions, cloud services, SaaS products, and custom software development for startups and enterprises."
         pathname="/"
         image="https://ik.imagekit.io/77nsbwefl/SoftTricksCode_HD_8000x8000.png"
       />
+
       <Hero />
       <ServiceHighlights />
       <About />
