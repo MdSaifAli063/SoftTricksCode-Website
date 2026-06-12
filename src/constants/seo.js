@@ -5,24 +5,25 @@ const ashwini = founders.find((f) => f.id === "ashwini");
 
 export const SITE_URL =
   import.meta.env.VITE_SITE_URL?.replace(/\/$/, "") ||
-  "https://softtrickscode.vercel.app";
+  "https://softtrickscode.com";
 
 export const SEO_CONFIG = {
-  siteName: "Soft Tricks Code",
+  siteName: "SoftTricksCode",
   defaultTitle:
-    "Soft Tricks Code | Web Development, AI Solutions & Software Services",
+    "SoftTricksCode | Software Services & AI Solutions, Web Development",
   defaultDescription:
-    "Soft Tricks Code delivers modern web applications, AI-powered solutions, software consulting, cloud services, and full-stack development for businesses and startups.",
+    "SoftTricksCode delivers modern web applications, AI-powered solutions, software consulting, cloud services, and full-stack development for businesses and startups.",
   keywords:
     "Web Development, AI Solutions, Full Stack Development, SaaS Products, UI/UX Design, Cloud Services, Software Consulting",
-  author: "Soft Tricks Code",
-  socialImage: "/favicon.svg",
-  logo: "/favicon.svg",
+  author: "SoftTricksCode",
+  socialImage:
+    "https://ik.imagekit.io/77nsbwefl/SoftTricksCode_HD_8000x8000.png",
+  logo: "https://ik.imagekit.io/77nsbwefl/file_000000001b647206964f84a7912579ee.png?updatedAt=1780589075099",
   twitterHandle: "@Md_Saif_Ali_063",
   sameAs: [
-    "https://github.com/MdSaifAli063",
-    "https://www.linkedin.com/in/mdsaifali063",
-    "https://x.com/Md_Saif_Ali_063",
+    "https://github.com/Soft-Tricks-Code",
+    "https://www.linkedin.com/company/softtrickscode",
+    "https://twitter.com/SoftTricksCode",
     "https://www.youtube.com/@SoftTricksCode",
   ],
   contactEmail: "softtrickscode@gmail.com",
@@ -36,5 +37,5 @@ export const SEO_CONFIG = {
       url: ashwini?.linkedin || "",
     },
   ],
-  foundingYear: "2024",
+  foundingYear: "2026",
 };
