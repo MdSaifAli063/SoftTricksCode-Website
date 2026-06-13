@@ -9,24 +9,34 @@ export const SITE_URL =
 
 export const SEO_CONFIG = {
   siteName: "SoftTricksCode",
+
   defaultTitle:
-    "SoftTricksCode | Software Services & AI Solutions, Web Development",
+    "SoftTricksCode | Software Development, AI Solutions, Web & Mobile App Development",
+
   defaultDescription:
-    "SoftTricksCode delivers modern web applications, AI-powered solutions, software consulting, cloud services, and full-stack development for businesses and startups.",
+    "SoftTricksCode is a software development company providing web development, mobile app development, AI solutions, cloud services, SaaS products, UI/UX design, and custom software solutions for startups and businesses.",
+
   keywords:
-    "Web Development, AI Solutions, Full Stack Development, SaaS Products, UI/UX Design, Cloud Services, Software Consulting",
+    "Software Development Company, Web Development, Mobile App Development, AI Solutions, SaaS Development, Cloud Services, Full Stack Development, UI UX Design, Software Consulting, Custom Software Development",
+
   author: "SoftTricksCode",
+
   socialImage:
     "https://ik.imagekit.io/77nsbwefl/SoftTricksCode_HD_8000x8000.png",
-  logo: "https://ik.imagekit.io/77nsbwefl/file_000000001b647206964f84a7912579ee.png?updatedAt=1780589075099",
-  twitterHandle: "@Md_Saif_Ali_063",
+
+  logo:
+    "https://ik.imagekit.io/77nsbwefl/file_000000001b647206964f84a7912579ee.png",
+
+  twitterHandle: "@SoftTricksCode",
+
+  contactEmail: "softtrickscode@gmail.com",
+
   sameAs: [
     "https://github.com/Soft-Tricks-Code",
     "https://www.linkedin.com/company/softtrickscode",
-    "https://twitter.com/SoftTricksCode",
-    "https://www.youtube.com/@SoftTricksCode",
+    "https://www.youtube.com/@SoftTricksCode"
   ],
-  contactEmail: "softtrickscode@gmail.com",
+
   founders: [
     {
       name: saif?.name ?? "Md Saif Ali",
@@ -37,5 +47,24 @@ export const SEO_CONFIG = {
       url: ashwini?.linkedin || "",
     },
   ],
+
   foundingYear: "2026",
+
+  organizationSchema: {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "SoftTricksCode",
+    url: "https://softtrickscode.com",
+    logo:
+      "https://ik.imagekit.io/77nsbwefl/file_000000001b647206964f84a7912579ee.png",
+    description:
+      "Software Development, AI Solutions, Web Development, Mobile App Development, SaaS Development and Cloud Services.",
+    email: "softtrickscode@gmail.com",
+    foundingDate: "2026",
+    sameAs: [
+      "https://github.com/Soft-Tricks-Code",
+      "https://www.linkedin.com/company/softtrickscode",
+      "https://www.youtube.com/@SoftTricksCode"
+    ],
+  },
 };
