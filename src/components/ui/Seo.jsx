@@ -22,30 +22,48 @@ export default function Seo({
   const pageDescription = description?.trim() || SEO_CONFIG.defaultDescription;
   const pageKeywords = keywords?.trim() || SEO_CONFIG.keywords;
   const pageAuthor = author?.trim() || SEO_CONFIG.author;
+
   const canonicalUrl = buildAbsoluteUrl(pathname);
+
   const imageUrl = image
     ? image.startsWith('http')
       ? image
       : buildAbsoluteUrl(image)
-    : buildAbsoluteUrl(SEO_CONFIG.socialImage);
+    : SEO_CONFIG.socialImage;
 
   const organizationLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: SEO_CONFIG.siteName,
+    name: 'SoftTricksCode',
     url: SITE_URL,
-    logo: {
-      '@type': 'ImageObject',
-      url: buildAbsoluteUrl(SEO_CONFIG.logo),
-    },
+    logo: SEO_CONFIG.logo,
+    description:
+      'Software Development, AI Solutions, Mobile App Development, SaaS Development and Cloud Services.',
+    email: SEO_CONFIG.contactEmail,
+    foundingDate: '2026',
     sameAs: SEO_CONFIG.sameAs,
-    contactPoint: [
+    founder: [
       {
-        '@type': 'ContactPoint',
-        contactType: 'customer support',
-        email: SEO_CONFIG.contactEmail,
+        '@type': 'Person',
+        name: 'Md Saif Ali',
+      },
+      {
+        '@type': 'Person',
+        name: 'Ashwini T Gadad',
       },
     ],
+  };
+
+  const localBusinessLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'SoftTricksCode',
+    url: SITE_URL,
+    logo: SEO_CONFIG.logo,
+    email: SEO_CONFIG.contactEmail,
+    description:
+      'Software Development Company providing Web Development, Mobile App Development, AI Solutions, SaaS Development and Cloud Services.',
+    areaServed: 'Worldwide',
   };
 
   const websiteLd = {
@@ -59,7 +77,7 @@ export default function Seo({
       name: SEO_CONFIG.siteName,
       logo: {
         '@type': 'ImageObject',
-        url: buildAbsoluteUrl(SEO_CONFIG.logo),
+        url: SEO_CONFIG.logo,
       },
     },
   };
@@ -96,13 +114,16 @@ export default function Seo({
 
   return (
     <Helmet>
+      {/* Basic SEO */}
       <title>{pageTitle}</title>
       <link rel="canonical" href={canonicalUrl} />
+
       <meta name="description" content={pageDescription} />
       <meta name="keywords" content={pageKeywords} />
       <meta name="author" content={pageAuthor} />
       <meta name="robots" content={robots} />
 
+      {/* Open Graph */}
       <meta property="og:type" content={type === 'article' ? 'article' : 'website'} />
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription} />
@@ -110,14 +131,21 @@ export default function Seo({
       <meta property="og:image" content={imageUrl} />
       <meta property="og:site_name" content={SEO_CONFIG.siteName} />
 
+      {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={pageDescription} />
       <meta name="twitter:image" content={imageUrl} />
       <meta name="twitter:creator" content={SEO_CONFIG.twitterHandle} />
 
+      {/* Structured Data */}
       <script type="application/ld+json">
-        {JSON.stringify([organizationLd, websiteLd, webpageLd])}
+        {JSON.stringify([
+          organizationLd,
+          localBusinessLd,
+          websiteLd,
+          webpageLd,
+        ])}
       </script>
     </Helmet>
   );
