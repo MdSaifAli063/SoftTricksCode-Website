@@ -67,20 +67,21 @@ export default function Seo({
   };
 
   const websiteLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SEO_CONFIG.siteName,
+  alternateName: 'SoftTricksCode',
+  url: SITE_URL,
+  description: SEO_CONFIG.defaultDescription,
+  publisher: {
+    '@type': 'Organization',
     name: SEO_CONFIG.siteName,
-    url: SITE_URL,
-    description: SEO_CONFIG.defaultDescription,
-    publisher: {
-      '@type': 'Organization',
-      name: SEO_CONFIG.siteName,
-      logo: {
-        '@type': 'ImageObject',
-        url: SEO_CONFIG.logo,
-      },
+    logo: {
+      '@type': 'ImageObject',
+      url: SEO_CONFIG.logo,
     },
-  };
+  },
+};
 
   const webpageLd = {
     '@context': 'https://schema.org',
@@ -130,6 +131,7 @@ export default function Seo({
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={imageUrl} />
       <meta property="og:site_name" content={SEO_CONFIG.siteName} />
+      <meta property="og:site_name" content="SoftTricksCode" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
