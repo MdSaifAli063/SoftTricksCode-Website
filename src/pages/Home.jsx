@@ -24,13 +24,13 @@ export default function Home() {
 
       <Hero />
       <ServiceHighlights />
-      <About />
       <ClientLogos />
       <Services limit={6} showFeatured />
       <WhyChoose />
       <StatsBar />
       <Portfolio limit={3} />
       <Pricing compact />
+      <About />
       <Testimonials />
       <FAQ />
       <Contact showHeading={false} />
