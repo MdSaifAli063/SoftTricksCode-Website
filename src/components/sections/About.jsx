@@ -6,7 +6,7 @@ import SectionBadge from '../ui/SectionBadge';
 import clsx from 'clsx';
 
 const IMG_MAIN =
-  'https://ik.imagekit.io/77nsbwefl/about%20final.png';
+  'https://ik.imagekit.io/77nsbwefl/finalposter.png';
 const IMG_SECOND =
   'https://ik.imagekit.io/77nsbwefl/final%20team.png';
 
@@ -59,13 +59,13 @@ export default function About({ showTeamLink = true, pageMode = false }) {
                 loading="lazy"
               />
               <div
-                className="absolute left-1/2 top-[42%] z-10 hidden h-16 w-16 -translate-x-1/2 rounded-full bg-stc-primary sm:left-[42%] sm:top-[38%] sm:block sm:h-20 sm:w-20 sm:translate-x-0"
+                className="absolute left-1/2 top-[42%] z-10 hidden h-12 w-12 -translate-x-1/2 rounded-full bg-stc-primary sm:left-[42%] sm:top-[38%] sm:block sm:h-20 sm:w-20 sm:translate-x-0"
                 aria-hidden
               />
               <img
                 src={IMG_SECOND}
                 alt="Professional workspace"
-                className="w-full rounded-3xl object-cover shadow-lg sm:mt-16"
+                className="w-full rounded-3xl object-cover shadow-lg sm:mt-20"
                 loading="lazy"
               />
             </div>
