@@ -19,7 +19,7 @@ export default function Home() {
         title="SoftTricksCode | Software Development, AI Solutions, Web & Mobile App Development"
         description="SoftTricksCode is a leading software company providing website development, mobile app development, AI solutions, cloud services, SaaS products, and custom software development for startups and enterprises."
         pathname="/"
-        image="https://ik.imagekit.io/77nsbwefl/SoftTricksCode_HD_8000x8000.png"
+        image="https://ik.imagekit.io/77nsbwefl/socail.png"
       />
 
       <Hero />

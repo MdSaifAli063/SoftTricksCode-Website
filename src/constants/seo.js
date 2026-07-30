@@ -21,11 +21,9 @@ export const SEO_CONFIG = {
 
   author: "SoftTricksCode",
 
-  socialImage:
-    "https://ik.imagekit.io/77nsbwefl/SoftTricksCode_HD_8000x8000.png",
+  socialImage: "https://ik.imagekit.io/77nsbwefl/socail.png",
 
-  logo:
-    "https://ik.imagekit.io/77nsbwefl/file_000000001b647206964f84a7912579ee.png",
+  logo: "https://ik.imagekit.io/77nsbwefl/website.png",
 
   twitterHandle: "@SoftTricksCode",
 
@@ -34,7 +32,7 @@ export const SEO_CONFIG = {
   sameAs: [
     "https://github.com/Soft-Tricks-Code",
     "https://www.linkedin.com/company/softtrickscode",
-    "https://www.youtube.com/@SoftTricksCode"
+    "https://www.youtube.com/@SoftTricksCode",
   ],
 
   founders: [
@@ -55,8 +53,7 @@ export const SEO_CONFIG = {
     "@type": "Organization",
     name: "SoftTricksCode",
     url: "https://softtrickscode.com",
-    logo:
-      "https://ik.imagekit.io/77nsbwefl/file_000000001b647206964f84a7912579ee.png",
+    logo: "https://ik.imagekit.io/77nsbwefl/website.png",
     description:
       "Software Development, AI Solutions, Web Development, Mobile App Development, SaaS Development and Cloud Services.",
     email: "softtrickscode@gmail.com",
@@ -64,7 +61,7 @@ export const SEO_CONFIG = {
     sameAs: [
       "https://github.com/Soft-Tricks-Code",
       "https://www.linkedin.com/company/softtrickscode",
-      "https://www.youtube.com/@SoftTricksCode"
+      "https://www.youtube.com/@SoftTricksCode",
     ],
   },
 };
