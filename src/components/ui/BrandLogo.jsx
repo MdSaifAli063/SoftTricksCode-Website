@@ -2,13 +2,13 @@ import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 
 // Put your logo image in public/stc-logo.png, or replace this with a hosted image URL.
-const LOGO_SRC = 'https://ik.imagekit.io/77nsbwefl/file_000000001b647206964f84a7912579ee.png';
+const LOGO_SRC = 'https://ik.imagekit.io/77nsbwefl/website.png';
 
 export default function BrandLogo({
   className = '',
   textClassName = '',
   imgClassName = '',
-  iconSize = 50,
+  iconSize = 55,
   asLink = true,
 }) {
   const content = (
