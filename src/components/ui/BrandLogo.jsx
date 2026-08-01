@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-
-// Put your logo image in public/stc-logo.png, or replace this with a hosted image URL.
-const LOGO_SRC = 'https://ik.imagekit.io/77nsbwefl/website.png';
+import { BRAND_ASSETS } from '../../constants/brand';
 
 export default function BrandLogo({
   className = '',
@@ -14,8 +12,12 @@ export default function BrandLogo({
   const content = (
     <>
       <img
-        src={LOGO_SRC}
+        src={BRAND_ASSETS.logoOnDark}
         alt="Soft Tricks Code logo"
+        width={iconSize}
+        height={iconSize}
+        decoding="async"
+        draggable="false"
         className={clsx('shrink-0 object-contain', imgClassName)}
         style={{ width: iconSize, height: iconSize }}
       />
