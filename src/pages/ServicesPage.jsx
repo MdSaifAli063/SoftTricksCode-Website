@@ -9,7 +9,6 @@ export default function ServicesPage() {
         title="Services — Soft Tricks Code"
         description="Comprehensive web development, AI solutions, full-stack, SaaS, UI/UX, and cloud services from Soft Tricks Code."
         pathname="/services"
-        image="/favicon.svg"
       />
       <PageBanner
         badge="Services"

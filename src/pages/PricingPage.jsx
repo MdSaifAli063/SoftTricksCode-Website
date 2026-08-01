@@ -22,7 +22,6 @@ export default function PricingPage() {
         title="Pricing — Soft Tricks Code"
         description="Discover transparent pricing for web development, AI, SaaS, and custom software from Soft Tricks Code."
         pathname="/pricing"
-        image="/favicon.svg"
       />
       <PageBanner
         badge="Pricing"
