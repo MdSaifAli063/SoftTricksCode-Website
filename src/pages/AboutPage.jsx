@@ -10,7 +10,6 @@ export default function AboutPage() {
         title="About — Soft Tricks Code"
         description="Meet the Soft Tricks Code founders and team behind modern web, AI, and full-stack software solutions."
         pathname="/about"
-        image="/favicon.svg"
       />
       <PageBanner
         badge="About"

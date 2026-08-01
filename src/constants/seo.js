@@ -1,4 +1,5 @@
 import { founders } from "../data/founders";
+import { BRAND_ASSETS } from "./brand";
 
 const saif = founders.find((f) => f.id === "saif");
 const ashwini = founders.find((f) => f.id === "ashwini");
@@ -21,9 +22,9 @@ export const SEO_CONFIG = {
 
   author: "SoftTricksCode",
 
-  socialImage: "https://ik.imagekit.io/77nsbwefl/socail.png",
+  socialImage: `${SITE_URL}${BRAND_ASSETS.socialImage}`,
 
-  logo: "https://ik.imagekit.io/77nsbwefl/website.png",
+  logo: `${SITE_URL}${BRAND_ASSETS.logo}`,
 
   twitterHandle: "@SoftTricksCode",
 
@@ -53,7 +54,7 @@ export const SEO_CONFIG = {
     "@type": "Organization",
     name: "SoftTricksCode",
     url: "https://softtrickscode.com",
-    logo: "https://ik.imagekit.io/77nsbwefl/website.png",
+    logo: `${SITE_URL}${BRAND_ASSETS.logo}`,
     description:
       "Software Development, AI Solutions, Web Development, Mobile App Development, SaaS Development and Cloud Services.",
     email: "softtrickscode@gmail.com",
