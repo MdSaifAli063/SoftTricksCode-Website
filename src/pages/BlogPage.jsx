@@ -11,7 +11,6 @@ export default function BlogPage() {
         title="Blog — Soft Tricks Code"
         description="Read about web development, AI solutions, full-stack product strategy, and software best practices from Soft Tricks Code."
         pathname="/blog"
-        image="/favicon.svg"
       />
 
       <section className="blog-hub-bg border-b border-slate-200/60 pb-12 pt-[calc(7rem+env(safe-area-inset-top,0px))] sm:pb-16 sm:pt-32">

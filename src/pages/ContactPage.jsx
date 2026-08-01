@@ -9,7 +9,6 @@ export default function ContactPage() {
         title="Contact — Soft Tricks Code"
         description="Contact Soft Tricks Code for website development, AI solutions, SaaS, and software consulting with fast response times."
         pathname="/contact"
-        image="/favicon.svg"
       />
       <PageBanner
         badge="Contact"
