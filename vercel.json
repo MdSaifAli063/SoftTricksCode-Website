@@ -6,7 +6,7 @@
   "installCommand": "npm install",
   "rewrites": [
     {
-      "source": "/((?!api|assets|favicon.ico|robots.txt|sitemap.xml|manifest.webmanifest).*)",
+      "source": "/((?!api|assets|favicon.ico|favicon-16.png|favicon-32.png|apple-touch-icon.png|icon-192.png|icon-256.png|icon-512.png|icon-maskable-512.png|logo-mark.png|logo-mark-on-dark.png|og-image.png|robots.txt|sitemap.xml|manifest.webmanifest).*)",
       "destination": "/index.html"
     }
   ]
