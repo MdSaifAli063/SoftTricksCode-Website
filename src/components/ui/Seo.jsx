@@ -130,14 +130,24 @@ export default function Seo({
       <meta property="og:description" content={pageDescription} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:secure_url" content={imageUrl} />
+      <meta property="og:image:alt" content={`${SEO_CONFIG.siteName} brand image`} />
+      {imageUrl === SEO_CONFIG.socialImage && (
+        <meta property="og:image:width" content="1200" />
+      )}
+      {imageUrl === SEO_CONFIG.socialImage && (
+        <meta property="og:image:height" content="630" />
+      )}
       <meta property="og:site_name" content={SEO_CONFIG.siteName} />
-      <meta property="og:site_name" content="SoftTricksCode" />
+      <meta property="og:locale" content="en_US" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={pageDescription} />
       <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:image:alt" content={`${SEO_CONFIG.siteName} brand image`} />
+      <meta name="twitter:site" content={SEO_CONFIG.twitterHandle} />
       <meta name="twitter:creator" content={SEO_CONFIG.twitterHandle} />
 
       {/* Structured Data */}
