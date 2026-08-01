@@ -94,7 +94,6 @@ export default function HiringPage() {
         title="Careers — Soft Tricks Code"
         description="Join Soft Tricks Code for frontend, backend, AI, cloud, and product engineering roles. Remote-friendly hiring from startups to enterprise projects."
         pathname="/careers"
-        image="/favicon.svg"
         robots="noindex, follow"
       />
 
