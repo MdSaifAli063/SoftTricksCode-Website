@@ -9,7 +9,6 @@ export default function PortfolioPage() {
         title="Portfolio — Soft Tricks Code"
         description="See Soft Tricks Code website, AI, SaaS, and product design case studies delivering measurable business impact."
         pathname="/portfolio"
-        image="/favicon.svg"
       />
       <PageBanner
         badge="Portfolio"

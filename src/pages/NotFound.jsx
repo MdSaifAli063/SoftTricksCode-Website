@@ -18,7 +18,6 @@ export default function NotFound() {
         title="404 — Soft Tricks Code"
         description="Page not found — return to the Soft Tricks Code homepage for software development, AI, and cloud solutions."
         pathname="/404"
-        image="/favicon.svg"
         robots="noindex, follow"
       />
 
