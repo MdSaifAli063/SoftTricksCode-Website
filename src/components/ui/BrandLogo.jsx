@@ -6,7 +6,7 @@ export default function BrandLogo({
   className = '',
   textClassName = '',
   imgClassName = '',
-  iconSize = 55,
+  iconSize = 50,
   asLink = true,
 }) {
   const content = (
