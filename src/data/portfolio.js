@@ -15,9 +15,31 @@ export const portfolio = [
     description:
       "Modern online store with cart, checkout, admin panel, and inventory management.",
     tech: ["Next.js", "Typescript", "Node.js", "Razorpay"],
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+    image: "https://ik.imagekit.io/l32b2uqiw/mietaaf.png",
     github: "https://www.mietaaf.com/",
+  },
+  {
+    id: "computer-world",
+
+    title: "Computer World – Computer Sales & Services",
+
+    category: "Web",
+
+    description:
+      "Modern computer shop website featuring computer and laptop sales, repair services, online applications, product information, customer enquiries, and a responsive user-friendly design.",
+
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "React",
+      "Framer Motion",
+      "Lucide React",
+    ],
+
+    image: "https://ik.imagekit.io/l32b2uqiw/computer%20world.png",
+
+    github: "https://computerworld.studio/",
   },
   {
     id: "hospital-mgmt",

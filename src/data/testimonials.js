@@ -10,23 +10,23 @@ export const testimonials = [
   },
   {
     id: 2,
-    name: "Amit Patel",
-    company: "EduLearn India",
+    name: "Sharmin Sami",
+    company: "E-Commerce Website for Men",
     avatar:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
+      "https://hotprintdesign.com/wp-content/uploads/2019/02/testimonial-avatar-3.jpg",
     rating: 5,
     quote:
-      "Our e-learning platform exceeded expectations. Md Saif Ali and team are true professionals.",
+      "SoftTricksCode delivered our e-commerce website for men ahead of schedule. Exceptional quality and communication throughout.",
   },
   {
     id: 3,
-    name: "Sneha Reddy",
-    company: "FoodDash",
+    name: "Naveen Kumar S",
+    company: "Computer World – Computer Sales & Services",
     avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+      "https://thearoralawfirm.com/wp-content/uploads/2021/01/testimonials_man3.png",
     rating: 5,
     quote:
-      "The mobile app they developed is smooth, fast, and our users love it. Highly recommend SoftTricksCode.",
+      "SoftTricksCode delivered our computer shop website ahead of schedule.The website is user-friendly and the team is very responsive. Highly recommend SoftTricksCode.",
   },
   {
     id: 4,
