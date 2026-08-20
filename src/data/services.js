@@ -1,19 +1,56 @@
 export const services = [
   {
-    id: 'web',
+    id: 'website',
     icon: '🌐',
-    title: 'Web Development',
+    title: 'Website',
     description:
-      'Custom, responsive websites and web apps built with React, Next.js, and Node.js for modern businesses.',
+      'Professional business websites, landing pages, and company sites — fast, responsive, and built to convert visitors into customers.',
+    tags: ['WordPress', 'React', 'SEO-ready'],
+    featured: true,
+  },
+  {
+    id: 'web-apps',
+    icon: '💻',
+    title: 'Web Apps',
+    description:
+      'Custom web applications, SaaS platforms, admin dashboards, and portals with secure backends and scalable architecture.',
     tags: ['React', 'Next.js', 'Node.js'],
+    featured: true,
   },
   {
     id: 'mobile',
     icon: '📱',
     title: 'Mobile App Development',
     description:
-      'iOS & Android apps with React Native or Flutter — polished UX and reliable performance.',
-    tags: ['React Native', 'Flutter'],
+      'iOS and Android apps with React Native or Flutter — polished UX, push notifications, and reliable performance.',
+    tags: ['React Native', 'Flutter', 'iOS & Android'],
+    featured: true,
+  },
+  {
+    id: 'digital-marketing',
+    icon: '📣',
+    title: 'Digital Marketing',
+    description:
+      'SEO, social media, paid ads, and content strategy to grow your brand online and drive qualified leads.',
+    tags: ['SEO', 'Social Media', 'Google Ads'],
+    featured: true,
+  },
+  {
+    id: 'branding',
+    icon: '🎨',
+    title: 'Logo Designing & Branding',
+    description:
+      'Memorable logos, brand identity, color systems, and visual guidelines that make your business stand out.',
+    tags: ['Logo Design', 'Brand Kit', 'UI Identity'],
+    featured: true,
+  },
+  {
+    id: 'web',
+    icon: '🌐',
+    title: 'Web Development',
+    description:
+      'Full-stack web development — from MVPs to enterprise platforms with modern frameworks and best practices.',
+    tags: ['React', 'Next.js', 'Node.js'],
   },
   {
     id: 'ai',
@@ -72,3 +109,5 @@ export const services = [
     tags: ['Audits', 'Pentest', 'Secure SDLC'],
   },
 ];
+
+export const featuredServices = services.filter((s) => s.featured);
