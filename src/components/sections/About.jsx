@@ -6,9 +6,9 @@ import SectionBadge from '../ui/SectionBadge';
 import clsx from 'clsx';
 
 const IMG_MAIN =
-  'https://ik.imagekit.io/77nsbwefl/finalposter.png';
+  'https://ik.imagekit.io/77nsbwefl/hdhd.png';
 const IMG_SECOND =
-  'https://ik.imagekit.io/77nsbwefl/final%20team.png';
+  'https://ik.imagekit.io/77nsbwefl/image_d9a75973.png';
 
 function FounderAvatar({ founder }) {
   const src = founder.avatar || founder.photo;
