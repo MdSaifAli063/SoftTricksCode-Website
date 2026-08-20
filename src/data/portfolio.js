@@ -16,6 +16,7 @@ export const portfolio = [
       "Modern online store with cart, checkout, admin panel, and inventory management.",
     tech: ["Next.js", "Typescript", "Node.js", "Razorpay"],
     image: "https://ik.imagekit.io/l32b2uqiw/mietaaf.png",
+    imageFit: "contain",
     github: "https://www.mietaaf.com/",
   },
   {
@@ -38,6 +39,7 @@ export const portfolio = [
     ],
 
     image: "https://ik.imagekit.io/l32b2uqiw/computer%20world.png",
+    imageFit: "contain",
 
     github: "https://computerworld.studio/",
   },
