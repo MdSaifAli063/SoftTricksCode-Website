@@ -11,6 +11,44 @@ import clsx from 'clsx';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
+function ProjectPreview({ project, variant = 'carousel' }) {
+  const isContain = project.imageFit === 'contain';
+  const isCarousel = variant === 'carousel';
+
+  return (
+    <div
+      className={clsx(
+        'flex items-center justify-center overflow-hidden',
+        isCarousel
+          ? 'min-h-[220px] bg-gradient-to-br from-slate-900 via-stc-navy to-slate-900 p-4 sm:min-h-[280px] sm:p-5 md:min-h-[340px]'
+          : 'bg-slate-100',
+        !isCarousel && 'aspect-[16/10] overflow-hidden',
+      )}
+    >
+      <img
+        src={project.image}
+        alt={project.title}
+        loading="lazy"
+        className={clsx(
+          'w-full rounded-lg',
+          isContain
+            ? isCarousel
+              ? 'max-h-[200px] object-contain object-top shadow-xl ring-1 ring-white/10 sm:max-h-[260px] md:max-h-[300px]'
+              : 'h-full max-h-full object-contain object-top p-3'
+            : isCarousel
+              ? 'h-full min-h-[220px] object-cover md:min-h-[280px]'
+              : 'h-full w-full object-cover transition duration-500 group-hover:scale-105'
+        )}
+        onError={(e) => {
+          e.currentTarget.onerror = null;
+          e.currentTarget.src =
+            'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&h=560&q=80';
+        }}
+      />
+    </div>
+  );
+}
+
 export default function Portfolio({ limit, showAllLink = true, pageMode = false }) {
   const [filter, setFilter] = useState('All');
   const items = limit ? portfolio.slice(0, limit) : portfolio;
@@ -45,26 +83,24 @@ export default function Portfolio({ limit, showAllLink = true, pageMode = false 
           >
             {carouselItems.map((project) => (
               <SwiperSlide key={project.id}>
-                <article className="fly-glass grid overflow-hidden md:grid-cols-[42%_1fr]">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="h-56 w-full object-cover md:h-full md:min-h-[280px]"
-                    loading="lazy"
-                  />
+                <article className="fly-glass grid overflow-hidden md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+                  <ProjectPreview project={project} variant="carousel" />
                   <div className="relative flex flex-col justify-center p-6 sm:p-8">
+                    <span className="mb-2 inline-flex w-fit rounded-full border border-stc-primary/40 bg-stc-primary/15 px-3 py-1 text-xs font-semibold text-stc-primary-light">
+                      {project.category}
+                    </span>
                     <h3 className="font-serif text-2xl font-bold text-white sm:text-3xl">
                       {project.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-stc-gray line-clamp-3">
+                    <p className="mt-3 text-sm leading-relaxed text-stc-gray sm:text-base">
                       {project.description}
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2">
-                      <span className="rounded-full border border-white/20 px-3 py-1 text-xs text-white/80">
-                        {project.category}
-                      </span>
-                      {project.tech.slice(0, 2).map((t) => (
-                        <span key={t} className="rounded-full border border-white/20 px-3 py-1 text-xs text-white/80">
+                      {project.tech.slice(0, 4).map((t) => (
+                        <span
+                          key={t}
+                          className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs text-white/85"
+                        >
                           {t}
                         </span>
                       ))}
@@ -158,12 +194,7 @@ export default function Portfolio({ limit, showAllLink = true, pageMode = false 
                     : 'fly-glass'
                 )}
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                  className="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
-                />
+                <ProjectPreview project={project} variant="grid" />
                 <div className="p-5">
                   <span className="text-xs font-semibold text-stc-primary">{project.category}</span>
                   <h3
