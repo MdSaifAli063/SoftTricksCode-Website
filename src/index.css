@@ -84,6 +84,14 @@
     @apply text-stc-black;
   }
 
+  .section-light .fly-service-panel h3 {
+    @apply text-white;
+  }
+
+  .section-light .fly-service-panel p {
+    @apply text-blue-100/90;
+  }
+
   .hero-flytech {
     @apply relative overflow-hidden bg-gradient-hero;
   }
@@ -118,6 +126,14 @@
 
   .fly-service-panel {
     @apply relative flex flex-col justify-center bg-gradient-card-dark p-6 sm:p-8 lg:p-10;
+  }
+
+  .fly-service-panel h3 {
+    @apply text-white;
+  }
+
+  .fly-service-panel p {
+    @apply text-blue-100/90;
   }
 
   .fly-service-panel::before {
