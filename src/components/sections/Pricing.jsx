@@ -21,7 +21,7 @@ export default function Pricing({ compact = false, pageMode = false }) {
     <section
       id="pricing"
       className={clsx(
-        'relative overflow-hidden bg-stc-black',
+        'relative overflow-x-hidden bg-stc-black',
         pageMode ? '!pt-0' : '',
         compact ? 'pb-16 pt-0' : ''
       )}
