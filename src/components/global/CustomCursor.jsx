@@ -4,16 +4,16 @@ export default function CustomCursor() {
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [ringPos, setRingPos] = useState({ x: 0, y: 0 });
   const [visible, setVisible] = useState(false);
-  const [enabled, setEnabled] = useState(false);
+  const [enabled] = useState(
+    () => typeof window !== 'undefined' && !window.matchMedia('(pointer: coarse)').matches
+  );
   const posRef = useRef(pos);
 
   useEffect(() => {
-    const isTouch = window.matchMedia('(pointer: coarse)').matches;
-    if (isTouch) {
+    if (!enabled) {
       document.body.style.cursor = 'auto';
       return;
     }
-    setEnabled(true);
 
     const onMove = (e) => {
       posRef.current = { x: e.clientX, y: e.clientY };
@@ -40,7 +40,7 @@ export default function CustomCursor() {
       document.removeEventListener('mouseleave', onLeave);
       cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [enabled]);
 
   if (!enabled) return null;
 

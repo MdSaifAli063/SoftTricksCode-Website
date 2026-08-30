@@ -26,7 +26,7 @@ export default function WhyChoose() {
   const [open, setOpen] = useState(1);
 
   return (
-    <section className="section-padding bg-[#eef2f8]">
+    <section className="section-padding bg-[#d6e4ff]">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,13 +52,18 @@ export default function WhyChoose() {
             className="relative"
           >
             <div className="why-image-lframe overflow-hidden bg-slate-200">
-              <img
-                src="/why-choose-team.jpg"
-                alt="SoftTricksCode team collaborating on software projects"
-                className="block h-full min-h-[320px] w-full object-cover object-center sm:min-h-[380px] lg:min-h-[420px]"
-                loading="lazy"
-                decoding="async"
-              />
+              <picture>
+                <source srcSet="/why-choose-team.webp" type="image/webp" />
+                <img
+                  src="/why-choose-team.jpg"
+                  alt="SoftTricksCode team collaborating on software projects"
+                  width="640"
+                  height="568"
+                  className="block h-full min-h-[320px] w-full object-cover object-center sm:min-h-[380px] lg:min-h-[420px]"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
             </div>
           </motion.div>
 

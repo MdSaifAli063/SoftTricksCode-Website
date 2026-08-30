@@ -25,8 +25,11 @@ export default function StatsBar() {
       <div className="relative mx-auto max-w-7xl">
         <div className="relative overflow-hidden rounded-4xl sm:rounded-5xl">
           <img
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&h=600&fit=crop"
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&h=500&q=75"
             alt="Team meeting"
+            width="1200"
+            height="500"
+            decoding="async"
             className="h-64 w-full object-cover sm:h-80 md:h-[420px]"
             loading="lazy"
           />

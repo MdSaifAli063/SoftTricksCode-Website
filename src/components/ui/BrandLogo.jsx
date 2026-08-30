@@ -9,18 +9,23 @@ export default function BrandLogo({
   iconSize = 50,
   asLink = true,
 }) {
+  const logoSrc = iconSize <= 50 ? BRAND_ASSETS.logoOnDark100 : BRAND_ASSETS.logoOnDark;
+
   const content = (
     <>
-      <img
-        src={BRAND_ASSETS.logoOnDark}
-        alt="Soft Tricks Code logo"
-        width={iconSize}
-        height={iconSize}
-        decoding="async"
-        draggable="false"
-        className={clsx('shrink-0 object-contain', imgClassName)}
-        style={{ width: iconSize, height: iconSize }}
-      />
+      <picture>
+        <source srcSet={logoSrc} type="image/webp" />
+        <img
+          src={BRAND_ASSETS.logoOnDarkPng}
+          alt="Soft Tricks Code logo"
+          width={iconSize}
+          height={iconSize}
+          decoding="async"
+          draggable="false"
+          className={clsx('shrink-0 object-contain', imgClassName)}
+          style={{ width: iconSize, height: iconSize }}
+        />
+      </picture>
       <span
         className={clsx(
           'truncate font-heading font-extrabold logo-wordmark',

@@ -111,8 +111,16 @@ def main() -> None:
     dark_mark = extract_mark(source)
     light_mark = extract_mark(source, white_code=True)
 
-    contain(dark_mark, 512, 18).save(PUBLIC / "logo-mark.png", optimize=True)
-    contain(light_mark, 512, 18).save(PUBLIC / "logo-mark-on-dark.png", optimize=True)
+    dark_512 = contain(dark_mark, 512, 18)
+    light_512 = contain(light_mark, 512, 18)
+
+    dark_512.save(PUBLIC / "logo-mark.png", optimize=True)
+    dark_512.save(PUBLIC / "logo-mark.webp", "WEBP", quality=90)
+    contain(dark_mark, 100, 4).save(PUBLIC / "logo-mark-100.webp", "WEBP", quality=90)
+
+    light_512.save(PUBLIC / "logo-mark-on-dark.png", optimize=True)
+    light_512.save(PUBLIC / "logo-mark-on-dark.webp", "WEBP", quality=90)
+    contain(light_mark, 100, 4).save(PUBLIC / "logo-mark-on-dark-100.webp", "WEBP", quality=90)
 
     for size in (16, 32, 48):
         solid_icon(dark_mark, size, (255, 255, 255, 255)).convert("RGB").save(

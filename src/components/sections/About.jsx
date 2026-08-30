@@ -6,9 +6,10 @@ import SectionBadge from '../ui/SectionBadge';
 import clsx from 'clsx';
 
 const IMG_MAIN =
-  'https://ik.imagekit.io/77nsbwefl/hdhd.png';
+  'https://ik.imagekit.io/77nsbwefl/hdhd.png?tr=w-600,fo-auto,q-80,f-auto';
 const IMG_SECOND =
-  'https://ik.imagekit.io/77nsbwefl/image_d9a75973.png';
+  'https://ik.imagekit.io/77nsbwefl/image_d9a75973.png?tr=w-600,fo-auto,q-80,f-auto';
+
 
 function FounderAvatar({ founder }) {
   const src = founder.avatar || founder.photo;
@@ -55,6 +56,9 @@ export default function About({ showTeamLink = true, pageMode = false }) {
               <img
                 src={IMG_MAIN}
                 alt="Team collaboration"
+                width="500"
+                height="600"
+                decoding="async"
                 className="aspect-[4/5] w-full rounded-3xl object-cover sm:col-span-1 sm:row-span-2 sm:aspect-auto sm:min-h-[280px]"
                 loading="lazy"
               />
@@ -65,6 +69,9 @@ export default function About({ showTeamLink = true, pageMode = false }) {
               <img
                 src={IMG_SECOND}
                 alt="Professional workspace"
+                width="500"
+                height="400"
+                decoding="async"
                 className="w-full rounded-3xl object-cover shadow-lg sm:mt-20"
                 loading="lazy"
               />

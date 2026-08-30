@@ -6,15 +6,24 @@ import ErrorBoundary from './ErrorBoundary';
 const COUNT = 120;
 const THRESHOLD = 2.8;
 
+function createRandom(seed = 42) {
+  let s = seed;
+  return () => {
+    s = (s * 16807) % 2147483647;
+    return (s - 1) / 2147483646;
+  };
+}
+
 function ParticleNetwork() {
   const groupRef = useRef();
 
   const [positions, connections] = useMemo(() => {
+    const random = createRandom(12345);
     const pos = new Float32Array(COUNT * 3);
     for (let i = 0; i < COUNT; i++) {
-      pos[i * 3] = (Math.random() - 0.5) * 16;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 16;
-      pos[i * 3 + 2] = (Math.random() - 0.5) * 16;
+      pos[i * 3] = (random() - 0.5) * 16;
+      pos[i * 3 + 1] = (random() - 0.5) * 16;
+      pos[i * 3 + 2] = (random() - 0.5) * 16;
     }
     const linePositions = [];
     for (let i = 0; i < COUNT; i++) {
