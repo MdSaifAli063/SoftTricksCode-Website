@@ -49,7 +49,7 @@ export default function SectionHeading({
               >
                 {actionLabel}
               </Link>
-              <CircleArrowBtn to={actionTo} />
+              <CircleArrowBtn to={actionTo} label={actionLabel || 'View more'} />
             </div>
           )}
         </div>

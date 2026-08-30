@@ -49,7 +49,7 @@ export default function ServiceHighlights() {
               }`}
             >
               <item.icon className="text-white/90" size={28} strokeWidth={1.5} />
-              <h3 className="mt-5 font-serif text-lg font-bold text-white sm:text-xl">{item.title}</h3>
+              <h2 className="mt-5 font-serif text-lg font-bold text-white sm:text-xl">{item.title}</h2>
               <hr className="my-4 border-white/15" />
               <p className="text-sm leading-relaxed text-stc-gray">{item.description}</p>
               <span className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full bg-stc-primary/30 text-xs font-bold text-white">

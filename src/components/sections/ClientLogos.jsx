@@ -18,7 +18,7 @@ export default function ClientLogos() {
           {logos.map((name) => (
             <span
               key={name}
-              className="font-body text-base font-semibold text-slate-400 transition hover:text-stc-primary sm:text-lg"
+              className="font-body text-base font-semibold text-slate-600 transition hover:text-stc-primary sm:text-lg"
             >
               {name}
             </span>
