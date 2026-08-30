@@ -15,7 +15,7 @@ export const blogPosts = [
       "Essential patterns, performance tips, and architecture decisions for building scalable React applications.",
     category: "Web Dev",
     cover:
-      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=450&fit=crop",
+      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=720&h=400&q=75",
     date: "2025-03-15",
     readTime: "8 min read",
     author: defaultAuthor.name,
@@ -49,7 +49,7 @@ Following these practices will help you ship faster and maintain code quality lo
       "Learn how custom GPT-powered chatbots reduce response times and improve customer satisfaction.",
     category: "AI",
     cover:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=450&fit=crop",
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=720&h=400&q=75",
     date: "2025-02-28",
     readTime: "6 min read",
     author: defaultAuthor.name,
@@ -75,7 +75,7 @@ Businesses see 30–50% reduction in support tickets within the first quarter.
       "A practical guide to security, compliance, and architecture for healthcare applications.",
     category: "Case Studies",
     cover:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=450&fit=crop",
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=720&h=400&q=75",
     date: "2025-01-20",
     readTime: "10 min read",
     author: defaultAuthor.name,
@@ -101,7 +101,7 @@ Balance security with intuitive UX for patients and healthcare staff.
       "Faster dev server, smaller bundles, and better DX — here is why Vite wins for modern projects.",
     category: "Tips & Tricks",
     cover:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=450&fit=crop",
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=720&h=400&q=75",
     date: "2025-01-05",
     readTime: "5 min read",
     author: defaultAuthor.name,

@@ -4,7 +4,7 @@ import ExploreBadge from '../ui/ExploreBadge';
 import { useBooking } from '../../context/BookingContext';
 
 const HERO_IMAGE =
-  'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1400&h=700&fit=crop';
+  'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&h=600&q=75';
 
 export default function Hero() {
   const { openBooking } = useBooking();
@@ -57,8 +57,12 @@ export default function Hero() {
           <img
             src={HERO_IMAGE}
             alt="SoftTricksCode team collaborating on software projects"
+            width="1200"
+            height="600"
             className="aspect-[16/9] w-full object-cover sm:aspect-[21/9]"
             loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-stc-primary/30 via-transparent to-transparent" />
           <ExploreBadge to="/portfolio" />

@@ -24,7 +24,7 @@ export const team = [
     role: "CTO, Frontend, Backend Developer & DevOps Engineer",
     bio: "Managing operations while building polished frontend experiences and reliable DevOps workflows.",
     skills: ["Frontend Development", "DevOps", "Operations", "CI/CD"],
-    avatar: "/faraz-akram.png",
+    avatar: "/faraz-akram.webp",
     imageVariant: "portrait",
     cropPosition: "center 50%",
     phone: "+91 86037 78367",

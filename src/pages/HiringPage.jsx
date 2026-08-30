@@ -78,12 +78,12 @@ export default function HiringPage() {
     const mailto = `mailto:${SITE.email}?subject=${encodeURIComponent(`Job Application: ${data.role} — ${data.name}`)}&body=${body}`;
 
     if (!import.meta.env.VITE_EMAILJS_SERVICE_ID) {
-      window.location.href = mailto;
+      window.location.assign(mailto);
       toast.success('Opening your email app to send the application.');
     } else {
       toast.error('Could not send online. Try again or email us directly.');
       setTimeout(() => {
-        window.location.href = mailto;
+        window.location.assign(mailto);
       }, 1500);
     }
   };
