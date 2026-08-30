@@ -76,7 +76,7 @@ export default function Footer() {
               <Mail size={24} />
             </span>
             <div className="min-w-0 text-left">
-              <span className="block text-xs text-blue-100">send E-mail</span>
+              <span className="block text-xs font-medium text-white">Send E-mail</span>
               <span className="break-anywhere text-sm font-semibold text-white sm:text-lg">
                 {SITE.email}
               </span>
@@ -128,7 +128,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="font-serif text-lg font-bold text-white">Quick Links</h4>
+              <h3 className="font-serif text-lg font-bold text-white">Quick Links</h3>
               <ul className="mt-5 space-y-2.5">
                 {quickLinks.map((link) => {
                   const active = pathname === link.to;
@@ -153,7 +153,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="font-serif text-lg font-bold text-white">Services</h4>
+              <h3 className="font-serif text-lg font-bold text-white">Services</h3>
               <ul className="mt-5 space-y-2.5">
                 {serviceLinks.map((title) => (
                   <li key={title}>
@@ -169,7 +169,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="font-serif text-lg font-bold text-white">Newsletter</h4>
+              <h3 className="font-serif text-lg font-bold text-white">Newsletter</h3>
               <p className="mt-2 text-sm text-stc-gray">Don&apos;t miss the latest news</p>
               <form onSubmit={handleNewsletter} className="mt-4">
                 <div className="relative">

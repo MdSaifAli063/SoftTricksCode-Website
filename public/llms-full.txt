@@ -1,0 +1,81 @@
+# SoftTricksCode — Full Documentation & Company Overview
+
+> SoftTricksCode is a premier software engineering company delivering full-stack web applications, custom website development, mobile apps (iOS & Android), AI & machine learning solutions, cloud deployment, and scalable digital systems.
+
+## Company Overview
+
+- **Company Name**: SoftTricksCode
+- **Website**: https://softtrickscode.com
+- **Founders**: Md Saif Ali (Founder & Lead Engineer), Ashwini T Gadad (Co-Founder & Product Strategist)
+- **Headquarters / Operations**: India (Operating globally for clients worldwide)
+- **Primary Contact**: softtrickscode@gmail.com
+- **Core Specializations**: Custom Web Development, Full-Stack SaaS Platforms, Mobile App Development (React Native / Flutter), AI Agent & ML Solutions, Cloud & DevOps (AWS / GCP), UI/UX Design & Brand Identity.
+
+## Services Offered
+
+### 1. Web Development
+We create modern, accessible, and high-performance websites engineered for speed, SEO, and user conversion.
+- Technologies: React, Next.js, Vite, Tailwind CSS, TypeScript, HTML5, CSS3.
+- Key Capabilities: Custom responsive design, Lighthouse 100/100 performance, semantic accessibility, headless CMS integration.
+- Link: https://softtrickscode.com/services
+
+### 2. Full-Stack Web Applications & SaaS
+End-to-end software architecture for complex digital platforms and cloud-native applications.
+- Technologies: Node.js, Express, Python, Django, PostgreSQL, MongoDB, Redis, GraphQL, REST APIs.
+- Key Capabilities: Multi-tenant architectures, secure authentication (OAuth/JWT), payment gateways (Stripe/Razorpay), real-time dashboards (WebSockets).
+- Link: https://softtrickscode.com/services
+
+### 3. Mobile App Development
+Cross-platform mobile applications for iOS and Android with native feel and buttery 60fps animations.
+- Technologies: React Native, Expo, Flutter, Swift, Kotlin.
+- Key Capabilities: Offline-first data synchronization, push notifications, camera/hardware APIs, app store deployment.
+- Link: https://softtrickscode.com/services
+
+### 4. AI & Machine Learning Solutions
+Intelligent systems that automate complex business workflows and deliver predictive insights.
+- Technologies: OpenAI API, Gemini API, PyTorch, TensorFlow, LangChain, Vector Databases (Pinecone/ChromaDB).
+- Key Capabilities: Retrieval-Augmented Generation (RAG), custom chatbots, automated document processing, computer vision.
+- Link: https://softtrickscode.com/services
+
+### 5. Cloud Architecture & DevOps
+Scalable, zero-downtime infrastructure design and continuous deployment pipelines.
+- Technologies: AWS, Google Cloud Platform (GCP), Docker, Kubernetes, GitHub Actions, Vercel, Netlify.
+- Key Capabilities: Serverless architectures, container orchestration, automated CI/CD, database clustering.
+- Link: https://softtrickscode.com/services
+
+### 6. UI/UX Design & Branding
+Clean, human-centered interfaces and distinctive corporate identity systems.
+- Technologies: Figma, Adobe Creative Suite, Design Systems, Motion Graphics.
+- Key Capabilities: Interactive prototypes, wireframing, WCAG AA accessibility compliance, design token architecture.
+- Link: https://softtrickscode.com/services
+
+## Portfolio & Projects
+
+- **Computer World**: Modern computer sales & repair platform featuring real-time inventory and customer enquiries.
+- **E-commerce Website for Men**: Scalable online storefront with cart management, payments, and product filtering.
+- **Agriculture Management System**: IoT and weather-integrated farm monitoring dashboard.
+- **Healthcare & Hospital Portal**: Patient appointment scheduling, doctor directory, and medical history system.
+- **EdTech Learning Management**: Interactive course management platform with live quizzes and video streaming.
+- Link: https://softtrickscode.com/portfolio
+
+## Pricing & Engagement Models
+
+SoftTricksCode offers transparent and negotiable pricing tiers tailored to project scope:
+- **Starter Package**: Ideal for landing pages, portfolio sites, and local businesses.
+- **Professional Package**: Ideal for growing startups needing custom web apps or e-commerce platforms.
+- **Enterprise Package**: Dedicated engineering squad, custom SaaS platforms, and enterprise SLAs.
+- Link: https://softtrickscode.com/pricing
+
+## Blog & Knowledge Base
+
+- **Healthcare Software Development Guide**: https://softtrickscode.com/blog/healthcare-software-guide
+- **Vite vs Webpack in Modern Web Applications**: https://softtrickscode.com/blog/vite-vs-webpack-2025
+- Link: https://softtrickscode.com/blog
+
+## Contact Information
+
+- **Email**: softtrickscode@gmail.com
+- **Website**: https://softtrickscode.com/contact
+- **GitHub**: https://github.com/Soft-Tricks-Code
+- **LinkedIn**: https://www.linkedin.com/company/softtrickscode
+- **YouTube**: https://www.youtube.com/@SoftTricksCode

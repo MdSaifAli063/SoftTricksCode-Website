@@ -17,7 +17,7 @@ export default function Testimonials() {
           <h2 className="font-serif text-3xl font-bold leading-tight text-stc-black sm:text-4xl lg:text-[2.5rem]">
             Real Experiences Shared By Our Clients
           </h2>
-          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-stc-muted sm:text-base lg:mx-0">
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-slate-800 sm:text-base lg:mx-0">
             Our clients share real experiences working with SoftTricksCode — showcasing the quality,
             reliability, and innovative solutions we deliver across industries.
           </p>
