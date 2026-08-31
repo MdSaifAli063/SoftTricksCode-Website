@@ -93,6 +93,8 @@ export default function Portfolio({ limit, showAllLink = true, pageMode = false 
             modules={[Navigation, Autoplay]}
             spaceBetween={16}
             slidesPerView={1}
+            observer={true}
+            observeParents={true}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             navigation={{
               prevEl: '.portfolio-prev',

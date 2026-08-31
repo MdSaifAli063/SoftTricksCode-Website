@@ -1,11 +1,10 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
-import LoadingScreen from './components/ui/LoadingScreen';
 import ErrorBoundary from './components/ui/ErrorBoundary';
 import { initEmailJS } from './utils/emailService';
+import Home from './pages/Home';
 
-const Home = lazy(() => import('./pages/Home'));
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
@@ -25,34 +24,28 @@ function PageLoader() {
 }
 
 export default function App() {
-  const [booting, setBooting] = useState(true);
-
   useEffect(() => {
     initEmailJS();
   }, []);
 
   return (
-    <>
-      <ErrorBoundary>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="services" element={<ServicesPage />} />
-              <Route path="portfolio" element={<PortfolioPage />} />
-              <Route path="about" element={<AboutPage />} />
-              <Route path="pricing" element={<PricingPage />} />
-              <Route path="blog" element={<BlogPage />} />
-              <Route path="blog/:slug" element={<BlogDetail />} />
-              <Route path="contact" element={<ContactPage />} />
-              <Route path="careers" element={<HiringPage />} />
-              <Route path="*" element={<NotFound />} />
-            </Route>
-          </Routes>
-        </Suspense>
-      </ErrorBoundary>
-
-      {booting && <LoadingScreen onComplete={() => setBooting(false)} />}
-    </>
+    <ErrorBoundary>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="services" element={<ServicesPage />} />
+            <Route path="portfolio" element={<PortfolioPage />} />
+            <Route path="about" element={<AboutPage />} />
+            <Route path="pricing" element={<PricingPage />} />
+            <Route path="blog" element={<BlogPage />} />
+            <Route path="blog/:slug" element={<BlogDetail />} />
+            <Route path="contact" element={<ContactPage />} />
+            <Route path="careers" element={<HiringPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </ErrorBoundary>
   );
 }
