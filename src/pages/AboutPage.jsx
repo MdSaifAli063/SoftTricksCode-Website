@@ -13,7 +13,7 @@ export default function AboutPage() {
       />
       <PageBanner
         badge="About"
-        title="Meet SoftTricksCode"
+        title="Meet Soft Tricks Code"
         subtitle="Two founders on a mission to build software that solves real-world problems."
         breadcrumbs={['About']}
       />

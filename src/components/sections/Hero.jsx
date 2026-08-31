@@ -16,7 +16,7 @@ export default function Hero() {
         </h1>
 
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-stc-gray sm:text-lg">
-          Innovate with SoftTricksCode — your software partner for websites, mobile apps, AI tools,
+          Innovate with Soft Tricks Code — your software partner for websites, mobile apps, AI tools,
           and custom platforms across healthcare, agriculture, education, and more.
         </p>
 
@@ -34,7 +34,7 @@ export default function Hero() {
         <div className="relative overflow-hidden rounded-4xl border border-white/10 shadow-fly-lg sm:rounded-5xl">
           <img
             src={HERO_IMAGE}
-            alt="SoftTricksCode team collaborating on software projects"
+            alt="Soft Tricks Code team collaborating on software projects"
             width="1200"
             height="600"
             className="aspect-[16/9] w-full object-cover sm:aspect-[21/9]"

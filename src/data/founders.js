@@ -27,7 +27,7 @@ export const founders = [
     id: "ashwini",
     name: "Ashwini T Gadad",
     role: "Co-Founder & COO",
-    bio: "Driving operations, client relationships, and growth at SoftTricksCode.",
+    bio: "Driving operations, client relationships, and growth at Soft Tricks Code.",
     photo: "/co-founder-ashwini.webp",
     imageVariant: "portrait",
     cropPosition: "center 32%",

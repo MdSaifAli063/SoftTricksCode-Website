@@ -9,18 +9,18 @@ export const SITE_URL =
   "https://softtrickscode.com";
 
 export const SEO_CONFIG = {
-  siteName: "SoftTricksCode",
+  siteName: "Soft Tricks Code",
 
   defaultTitle:
-    "SoftTricksCode | Software Development, AI Solutions, Web & Mobile App Development",
+    "Soft Tricks Code | Software Development, AI Solutions, Web & Mobile App Development",
 
   defaultDescription:
-    "SoftTricksCode is a software development company providing web development, mobile app development, AI solutions, cloud services, SaaS products, UI/UX design, and custom software solutions for startups and businesses.",
+    "Soft Tricks Code is a software development company providing web development, mobile app development, AI solutions, cloud services, SaaS products, UI/UX design, and custom software solutions for startups and businesses.",
 
   keywords:
     "Software Development Company, Web Development, Mobile App Development, AI Solutions, SaaS Development, Cloud Services, Full Stack Development, UI UX Design, Software Consulting, Custom Software Development",
 
-  author: "SoftTricksCode",
+  author: "Soft Tricks Code",
 
   socialImage: `${SITE_URL}${BRAND_ASSETS.socialImage}`,
 
@@ -52,7 +52,7 @@ export const SEO_CONFIG = {
   organizationSchema: {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "SoftTricksCode",
+    name: "Soft Tricks Code",
     url: "https://softtrickscode.com",
     logo: `${SITE_URL}${BRAND_ASSETS.logo}`,
     description:

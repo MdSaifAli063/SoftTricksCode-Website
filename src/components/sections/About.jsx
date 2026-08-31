@@ -91,7 +91,7 @@ export default function About({ showTeamLink = true, pageMode = false }) {
                     <div className="min-w-0">
                       <p className="text-sm font-semibold text-stc-black">{founder.name}</p>
                       <p className="text-xs text-stc-muted">
-                        {founder.id === 'saif' ? 'Founder & CEO' : 'Co-Founder'}, SoftTricksCode
+                        {founder.id === 'saif' ? 'Founder & CEO' : 'Co-Founder'}, Soft Tricks Code
                       </p>
                     </div>
                   </div>
@@ -109,7 +109,7 @@ export default function About({ showTeamLink = true, pageMode = false }) {
             </h2>
 
             <p className="mt-5 text-base leading-relaxed text-stc-muted">
-              Founded by {saif.name} and co-founder {ashwini.name}, SoftTricksCode helps startups
+              Founded by {saif.name} and co-founder {ashwini.name}, Soft Tricks Code helps startups
               and enterprises build modern websites, mobile apps, AI solutions, and custom software
               — from MVPs to enterprise platforms.
             </p>

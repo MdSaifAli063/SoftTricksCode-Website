@@ -147,10 +147,8 @@ def main() -> None:
     solid_icon(dark_mark, 180, (255, 255, 255, 255)).convert("RGB").save(
         PUBLIC / "apple-touch-icon.png", optimize=True
     )
-    solid_icon(light_mark, 512, (3, 7, 18, 255)).convert("RGB").save(
-        PUBLIC / "icon-maskable-512.png", optimize=True
-    )
-    social_card(light_mark).save(PUBLIC / "og-image.png", optimize=True)
+    from generate_og_image import create_og_image
+    create_og_image()
 
 
 if __name__ == "__main__":

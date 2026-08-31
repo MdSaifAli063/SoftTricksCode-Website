@@ -71,14 +71,14 @@ Sitemap: ${siteUrl}/sitemap.xml
 
 const generateLlmsTxt = () => {
   const blogLinks = blogPosts
-    .map((post) => `- [${post.title}](${siteUrl}/blog/${post.slug}): ${post.excerpt || 'Technical guide by SoftTricksCode'}`)
+    .map((post) => `- [${post.title}](${siteUrl}/blog/${post.slug}): ${post.excerpt || 'Technical guide by Soft Tricks Code'}`)
     .join('\n');
 
-  return `# SoftTricksCode
+  return `# Soft Tricks Code
 
-> SoftTricksCode is a premier software engineering company delivering full-stack web applications, custom website development, mobile apps (iOS & Android), AI & machine learning solutions, cloud deployment, and scalable digital systems.
+> Soft Tricks Code is a premier software engineering company delivering full-stack web applications, custom website development, mobile apps (iOS & Android), AI & machine learning solutions, cloud deployment, and scalable digital systems.
 
-SoftTricksCode is founded by Md Saif Ali and Ashwini T Gadad, operating globally from India to provide agile, scalable, and high-performance digital products for startups and enterprises.
+Soft Tricks Code is founded by Md Saif Ali and Ashwini T Gadad, operating globally from India to provide agile, scalable, and high-performance digital products for startups and enterprises.
 
 ## Main Pages
 
@@ -105,7 +105,7 @@ ${blogLinks}
 
 ## Extended Documentation
 
-- [Full Site Overview (llms-full.txt)](${siteUrl}/llms-full.txt): Complete unminified plain text overview of SoftTricksCode services, company background, and offerings.
+- [Full Site Overview (llms-full.txt)](${siteUrl}/llms-full.txt): Complete unminified plain text overview of Soft Tricks Code services, company background, and offerings.
 `;
 };
 
