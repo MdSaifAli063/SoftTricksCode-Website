@@ -52,7 +52,7 @@ export default function Preloader({ onFinish, minDuration = 1000 }) {
               <div className="absolute -inset-3 rounded-2xl bg-stc-primary/30 blur-xl animate-pulse" />
               <img
                 src={BRAND_ASSETS.logoOnDark100}
-                alt="SoftTricksCode"
+                alt="Soft Tricks Code"
                 width={72}
                 height={72}
                 className="relative h-16 w-16 sm:h-20 sm:w-20 object-contain drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]"

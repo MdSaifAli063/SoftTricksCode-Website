@@ -6,7 +6,7 @@ export const testimonials = [
     avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThAgZRunSqQ-AjC__ek3T4u8VKIQvkkFN8fmyMfz678Q&s=10",
     rating: 5,
     quote:
-      "SoftTricksCode delivered our hospital management system ahead of schedule. Exceptional quality and communication throughout.",
+      "Soft Tricks Code delivered our hospital management system ahead of schedule. Exceptional quality and communication throughout.",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ export const testimonials = [
       "https://hotprintdesign.com/wp-content/uploads/2019/02/testimonial-avatar-3.jpg",
     rating: 5,
     quote:
-      "SoftTricksCode delivered our e-commerce website for men ahead of schedule. Exceptional quality and communication throughout.",
+      "Soft Tricks Code delivered our e-commerce website for men ahead of schedule. Exceptional quality and communication throughout.",
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ export const testimonials = [
       "https://thearoralawfirm.com/wp-content/uploads/2021/01/testimonials_man3.png",
     rating: 5,
     quote:
-      "SoftTricksCode delivered our computer shop website ahead of schedule.The website is user-friendly and the team is very responsive. Highly recommend SoftTricksCode.",
+      "Soft Tricks Code delivered our computer shop website ahead of schedule. The website is user-friendly and the team is very responsive. Highly recommend Soft Tricks Code.",
   },
   {
     id: 4,

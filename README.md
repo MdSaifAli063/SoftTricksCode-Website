@@ -1,4 +1,4 @@
-# SoftTricksCode Website
+# Soft Tricks Code Website
 
 Premium software agency website — React, Vite, Tailwind, Framer Motion, Three.js.
 
@@ -69,4 +69,4 @@ npm run build
 npm run preview
 ```
 
-© 2025 SoftTricksCode — Md Saif Ali & Ashwini T Gadad
+© 2026 Soft Tricks Code — Md Saif Ali & Ashwini T Gadad

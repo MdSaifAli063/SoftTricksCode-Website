@@ -119,7 +119,7 @@ export default function HiringPage() {
               Developers, designers & builders welcome
             </h2>
             <p className="mt-3 text-stc-muted">
-              SoftTricksCode is growing. We work on real client products — websites, apps, AI, and
+              Soft Tricks Code is growing. We work on real client products — websites, apps, AI, and
               custom software. If you love shipping quality work, we want to hear from you.
             </p>
           </div>

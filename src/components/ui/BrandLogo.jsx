@@ -54,7 +54,7 @@ export default function BrandLogo({
 
   if (asLink) {
     return (
-      <Link to="/" className={wrapperClass} aria-label="SoftTricksCode Home">
+      <Link to="/" className={wrapperClass} aria-label="Soft Tricks Code Home">
         {content}
       </Link>
     );

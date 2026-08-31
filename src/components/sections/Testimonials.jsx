@@ -18,7 +18,7 @@ export default function Testimonials() {
             Real Experiences Shared By Our Clients
           </h2>
           <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-slate-800 sm:text-base lg:mx-0">
-            Our clients share real experiences working with SoftTricksCode — showcasing the quality,
+            Our clients share real experiences working with Soft Tricks Code — showcasing the quality,
             reliability, and innovative solutions we deliver across industries.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">

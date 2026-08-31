@@ -155,7 +155,7 @@ export default function Team() {
               Creative Minds Building Innovative Solutions
             </h2>
             <p className="mt-3 text-stc-muted">
-              Meet the founders and builders behind SoftTricksCode.
+              Meet the founders and builders behind Soft Tricks Code.
             </p>
           </div>
           <div className="flex shrink-0 gap-2 self-start lg:self-auto">

@@ -34,7 +34,7 @@ export default function WhyChoose() {
           viewport={{ once: true }}
           className="mb-10 max-w-2xl lg:mb-12"
         >
-          <SectionBadge className="mb-4">Why SoftTricksCode</SectionBadge>
+          <SectionBadge className="mb-4">Why Soft Tricks Code</SectionBadge>
           <h2 className="font-serif text-3xl font-bold leading-tight text-stc-black sm:text-4xl lg:text-[2.5rem]">
             Why Choose Us for Software Solutions
           </h2>
@@ -56,7 +56,7 @@ export default function WhyChoose() {
                 <source srcSet="/why-choose-team.webp" type="image/webp" />
                 <img
                   src="/why-choose-team.jpg"
-                  alt="SoftTricksCode team collaborating on software projects"
+                  alt="Soft Tricks Code team collaborating on software projects"
                   width="640"
                   height="568"
                   className="block h-full min-h-[320px] w-full object-cover object-center sm:min-h-[380px] lg:min-h-[420px]"

@@ -204,7 +204,7 @@ export default function Footer() {
           </div>
 
           <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-center text-xs text-stc-gray sm:flex-row sm:text-left sm:text-sm">
-            <p>© {new Date().getFullYear()} SoftTricksCode. All Rights Reserved.</p>
+            <p>© {new Date().getFullYear()} Soft Tricks Code. All Rights Reserved.</p>
             <div className="flex gap-4">
               <Link to="/contact" className="hover:text-white">
                 Privacy Policy

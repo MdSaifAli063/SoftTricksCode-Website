@@ -63,7 +63,7 @@ function ChatFab({ onClick }) {
 
 export default function ChatWidget({ open, onOpenChange }) {
   const [messages, setMessages] = useState([
-    { from: 'bot', text: "Hi! 👋 I'm SoftTricksCode Assistant. How can I help you today?" },
+    { from: 'bot', text: "Hi! 👋 I'm Soft Tricks Code Assistant. How can I help you today?" },
   ]);
   const [input, setInput] = useState('');
   const bottomRef = useRef(null);
@@ -122,7 +122,7 @@ export default function ChatWidget({ open, onOpenChange }) {
           >
             <div className="flex items-center justify-between border-b border-white/10 bg-stc-primary/20 px-4 py-3">
               <div>
-                <p className="font-serif font-bold text-white">SoftTricksCode</p>
+                <p className="font-serif font-bold text-white">Soft Tricks Code</p>
                 <p className="text-xs text-green-400">● Online — replies within 24h</p>
               </div>
               <button

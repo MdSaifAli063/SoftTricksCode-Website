@@ -1,10 +1,10 @@
-# SoftTricksCode — Full Documentation & Company Overview
+# Soft Tricks Code — Full Documentation & Company Overview
 
-> SoftTricksCode is a premier software engineering company delivering full-stack web applications, custom website development, mobile apps (iOS & Android), AI & machine learning solutions, cloud deployment, and scalable digital systems.
+> Soft Tricks Code is a premier software engineering company delivering full-stack web applications, custom website development, mobile apps (iOS & Android), AI & machine learning solutions, cloud deployment, and scalable digital systems.
 
 ## Company Overview
 
-- **Company Name**: SoftTricksCode
+- **Company Name**: Soft Tricks Code
 - **Website**: https://softtrickscode.com
 - **Founders**: Md Saif Ali (Founder & Lead Engineer), Ashwini T Gadad (Co-Founder & Product Strategist)
 - **Headquarters / Operations**: India (Operating globally for clients worldwide)
@@ -52,6 +52,7 @@ Clean, human-centered interfaces and distinctive corporate identity systems.
 ## Portfolio & Projects
 
 - **Computer World**: Modern computer sales & repair platform featuring real-time inventory and customer enquiries.
+- **LandHub**: Real estate property discovery and enquiry platform.
 - **E-commerce Website for Men**: Scalable online storefront with cart management, payments, and product filtering.
 - **Agriculture Management System**: IoT and weather-integrated farm monitoring dashboard.
 - **Healthcare & Hospital Portal**: Patient appointment scheduling, doctor directory, and medical history system.
@@ -60,7 +61,7 @@ Clean, human-centered interfaces and distinctive corporate identity systems.
 
 ## Pricing & Engagement Models
 
-SoftTricksCode offers transparent and negotiable pricing tiers tailored to project scope:
+Soft Tricks Code offers transparent and negotiable pricing tiers tailored to project scope:
 - **Starter Package**: Ideal for landing pages, portfolio sites, and local businesses.
 - **Professional Package**: Ideal for growing startups needing custom web apps or e-commerce platforms.
 - **Enterprise Package**: Dedicated engineering squad, custom SaaS platforms, and enterprise SLAs.
