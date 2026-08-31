@@ -78,7 +78,7 @@
   <link
     rel="preload"
     as="image"
-    href="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&h=600&q=75"
+    href="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&h=600&q=70&fm=webp"
     fetchpriority="high"
   />
 
@@ -101,22 +101,38 @@
     />
   </noscript>
 
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VVXVH2QPW4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Deferred Google Tag Manager & Google Analytics (User-interaction triggered) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-VVXVH2QPW4');
-</script>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-PTBFCK4C');</script>
-  <!-- End Google Tag Manager -->
+    function loadAnalytics() {
+      if (window._analyticsLoaded) return;
+      window._analyticsLoaded = true;
+
+      var events = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+      events.forEach(function(e) { window.removeEventListener(e, loadAnalytics); });
+
+      var gtagScript = document.createElement('script');
+      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-VVXVH2QPW4';
+      gtagScript.async = true;
+      document.head.appendChild(gtagScript);
+      gtag('config', 'G-VVXVH2QPW4');
+
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTBFCK4C');
+    }
+
+    var triggerEvents = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+    triggerEvents.forEach(function(e) {
+      window.addEventListener(e, loadAnalytics, { passive: true, once: true });
+    });
+    setTimeout(loadAnalytics, 4000);
+  </script>
 </head>
 
 <body>

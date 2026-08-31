@@ -89,7 +89,7 @@ export default function Footer() {
         <div className="section-padding mx-auto max-w-7xl !pt-0">
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
             <div>
-              <BrandLogo iconSize={50} textClassName="text-xl" />
+              <BrandLogo iconSize={56} />
               <p className="mt-4 text-sm leading-relaxed text-stc-gray">
                 Building world-class software that solves real problems. Founded by Md Saif Ali &
                 Ashwini T Gadad — serving clients worldwide from India.

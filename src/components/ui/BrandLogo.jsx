@@ -6,10 +6,13 @@ export default function BrandLogo({
   className = '',
   textClassName = '',
   imgClassName = '',
-  iconSize = 50,
+  iconSize = 55,
+  showTagline = true,
+  theme = 'dark',
   asLink = true,
 }) {
-  const logoSrc = iconSize <= 50 ? BRAND_ASSETS.logoOnDark100 : BRAND_ASSETS.logoOnDark;
+  const logoSrc = iconSize <= 60 ? BRAND_ASSETS.logoOnDark100 : BRAND_ASSETS.logoOnDark;
+  const isLight = theme === 'light';
 
   const content = (
     <>
@@ -26,18 +29,28 @@ export default function BrandLogo({
           style={{ width: iconSize, height: iconSize }}
         />
       </picture>
-      <span
-        className={clsx(
-          'truncate font-heading font-extrabold logo-wordmark',
-          textClassName || 'text-base sm:text-lg md:text-xl'
+      <div className="flex w-fit flex-col justify-center text-left pt-2 sm:pt-2.5">
+        <span
+          className={clsx(
+            'font-body font-extrabold tracking-tight leading-none block',
+            textClassName || 'text-lg sm:text-xl',
+            isLight ? 'text-stc-black' : 'text-white'
+          )}
+        >
+          Soft <span className="text-stc-primary-light">Tricks</span> Code
+        </span>
+        {showTagline && (
+          <div className="mt-[1px] sm:mt-[2px] flex w-full items-center justify-between gap-1 text-[0.44rem] sm:text-[0.48rem] font-bold uppercase tracking-[0.14em] text-stc-primary-light">
+            <span className="h-[1.5px] flex-1 bg-stc-primary-light/90 rounded-full" />
+            <span className="whitespace-nowrap px-0.5">SOFTWARE SOLUTIONS</span>
+            <span className="h-[1.5px] flex-1 bg-stc-primary-light/90 rounded-full" />
+          </div>
         )}
-      >
-        SoftTricksCode
-      </span>
+      </div>
     </>
   );
 
-  const wrapperClass = clsx('inline-flex min-w-0 items-center gap-2', className);
+  const wrapperClass = clsx('inline-flex min-w-0 items-center gap-2.5', className);
 
   if (asLink) {
     return (
