@@ -5,7 +5,7 @@ export default function ExploreBadge({ to = '/portfolio' }) {
   return (
     <Link
       to={to}
-      className="group absolute bottom-3 right-3 z-20 flex h-20 w-20 items-center justify-center sm:bottom-auto sm:right-[-1rem] sm:top-1/2 sm:h-28 sm:w-28 sm:-translate-y-1/2"
+      className="group absolute bottom-3 right-3 z-20 flex h-20 w-20 items-center justify-center sm:bottom-auto sm:right-2 sm:top-1/2 sm:h-28 sm:w-28 sm:-translate-y-1/2"
       aria-label="Explore our work"
     >
       <span

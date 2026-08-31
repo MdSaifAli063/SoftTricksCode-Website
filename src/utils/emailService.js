@@ -1,12 +1,8 @@
-import emailjs from '@emailjs/browser';
-
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export function initEmailJS() {
-  if (PUBLIC_KEY) {
-    emailjs.init(PUBLIC_KEY);
-  }
+  // Initialized dynamically on send
 }
 
 export async function sendEmail(templateId, templateParams) {
@@ -16,7 +12,8 @@ export async function sendEmail(templateId, templateParams) {
   }
 
   try {
-    const response = await emailjs.send(SERVICE_ID, templateId, templateParams);
+    const { default: emailjs } = await import('@emailjs/browser');
+    const response = await emailjs.send(SERVICE_ID, templateId, templateParams, PUBLIC_KEY);
     return { success: true, response };
   } catch (error) {
     console.error('EmailJS error:', error);

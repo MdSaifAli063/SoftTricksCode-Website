@@ -3,7 +3,7 @@ import ExploreBadge from '../ui/ExploreBadge';
 import { useBooking } from '../../context/BookingContext';
 
 const HERO_IMAGE =
-  'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&h=600&q=75';
+  'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&h=600&q=70&fm=webp';
 
 export default function Hero() {
   const { openBooking } = useBooking();

@@ -15,19 +15,19 @@ import { staggerContainer, fadeInUp } from '../../hooks/useScrollReveal';
 
 const featuredImages = {
   website:
-    'https://ik.imagekit.io/77nsbwefl/image_483729fa.png?tr=w-500,h-333,fo-auto,q-75,f-auto',
+    'https://ik.imagekit.io/77nsbwefl/image_483729fa.png?tr=w-480,h-320,fo-auto,q-70,f-webp',
   'web-apps':
-    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&h=333&q=65',
+    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=480&h=320&q=50&fm=webp',
   mobile:
-    'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=500&h=333&q=65',
+    'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=480&h=320&q=50&fm=webp',
   'digital-marketing':
-    'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=500&h=333&q=65',
+    'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=480&h=320&q=50&fm=webp',
   branding:
-    'https://ik.imagekit.io/77nsbwefl/image_4337613c.png?tr=w-500,h-333,fo-auto,q-75,f-auto',
+    'https://ik.imagekit.io/77nsbwefl/image_4337613c.png?tr=w-480,h-320,fo-auto,q-70,f-webp',
 };
 
 const imageFallback =
-  'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=500&h=333&q=65';
+  'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=480&h=320&q=50&fm=webp';
 
 const featuredMeta = {
   website: { icon: Globe, label: 'Website' },
