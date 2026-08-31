@@ -21,19 +21,21 @@ export default function Pricing({ compact = false, pageMode = false }) {
     <section
       id="pricing"
       className={clsx(
-        'relative overflow-x-hidden bg-stc-black',
-        pageMode ? '!pt-0' : '',
+        'relative overflow-x-hidden',
+        pageMode ? 'section-light !pt-0 !pb-12' : 'bg-stc-black',
         compact ? 'pb-16 pt-0' : ''
       )}
     >
-      <div className="footer-waves pointer-events-none absolute inset-0 opacity-40" aria-hidden />
+      {!pageMode && (
+        <div className="footer-waves pointer-events-none absolute inset-0 opacity-40" aria-hidden />
+      )}
 
       {!pageMode && <MarqueeTicker />}
 
       <div
         className={clsx(
           'relative z-10 mx-auto max-w-7xl',
-          pageMode ? 'section-padding !pt-12' : 'section-padding',
+          pageMode ? 'section-padding !pt-12 !pb-8' : 'section-padding',
           compact && '!pt-10'
         )}
       >
@@ -61,43 +63,52 @@ export default function Pricing({ compact = false, pageMode = false }) {
             >
               {plan.popular && (
                 <div
-                  className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-stc-primary/20 blur-2xl"
+                  className="pointer-events-none absolute -inset-4 rounded-[2.5rem] bg-stc-primary/30 blur-2xl"
                   aria-hidden
                 />
               )}
               <div
                 className={clsx(
-                  'relative flex h-full flex-col rounded-3xl border p-6 backdrop-blur-xl sm:p-8',
+                  'relative flex h-full flex-col rounded-3xl p-7 sm:p-9 transition',
                   plan.popular
-                    ? 'border-stc-primary/60 bg-stc-primary/10 shadow-fly-lg'
-                    : 'fly-glass border-white/10'
+                    ? 'border-2 border-stc-primary bg-[#061024] shadow-2xl ring-1 ring-stc-primary/30'
+                    : 'border border-slate-800/90 bg-[#070c18] shadow-xl'
                 )}
               >
                 {plan.popular && (
-                  <span className="absolute right-6 top-6 rounded-full bg-stc-primary/30 px-3 py-1 text-xs font-semibold text-white">
+                  <span className="absolute right-7 top-7 rounded-full bg-blue-950/80 border border-blue-500/50 px-3.5 py-1 text-xs font-semibold text-blue-200 shadow-sm">
                     Popular
                   </span>
                 )}
-                <h3 className="font-serif text-xl font-bold text-white">
+                <h3 className="font-serif text-2xl font-bold text-white">
                   {plan.popular ? 'Popular Plan' : `${plan.name} Plan`}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-stc-gray">{plan.description}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-400">
+                  {plan.description}
+                </p>
                 <div className="mt-6">
                   <span className="font-serif text-4xl font-bold text-stc-primary sm:text-5xl">
                     {plan.priceLabel}
                   </span>
                   {plan.price && (
-                    <span className="ml-1 text-sm text-stc-gray">/ project</span>
+                    <span className="ml-1 text-sm text-slate-400">
+                      / project
+                    </span>
                   )}
                 </div>
-                <p className="mt-6 text-sm font-semibold text-white">Features</p>
-                <ul className="mt-4 flex-1 space-y-3">
+                <p className="mt-7 text-sm font-semibold text-white">
+                  Features
+                </p>
+                <ul className="mt-4 flex-1 space-y-3.5">
                   {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-3 text-sm text-stc-gray">
+                    <li
+                      key={f}
+                      className="flex items-start gap-3 text-sm text-slate-200"
+                    >
                       <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-stc-primary">
                         <Check size={12} className="text-white" strokeWidth={3} />
                       </span>
-                      {f}
+                      <span>{f}</span>
                     </li>
                   ))}
                 </ul>
@@ -107,8 +118,8 @@ export default function Pricing({ compact = false, pageMode = false }) {
                   className={clsx(
                     'mt-8 flex w-full items-center justify-center gap-2 rounded-full py-3.5 text-sm font-semibold transition',
                     plan.popular
-                      ? 'bg-stc-primary text-white hover:bg-stc-primary-light'
-                      : 'border border-white/15 bg-white/5 text-white hover:bg-white/10'
+                      ? 'bg-stc-primary text-white hover:bg-stc-primary-light shadow-fly'
+                      : 'border border-slate-700/80 bg-[#131b2e] text-white hover:bg-[#1a253e]'
                   )}
                 >
                   Get Started Now
@@ -120,7 +131,12 @@ export default function Pricing({ compact = false, pageMode = false }) {
         </div>
 
         {!compact && (
-          <p className="mt-10 text-center text-sm text-stc-gray">
+          <p
+            className={clsx(
+              'mt-10 text-center text-sm',
+              pageMode ? 'text-stc-muted' : 'text-stc-gray'
+            )}
+          >
             All prices are negotiable. Book a free call with Md Saif Ali or Ashwini T Gadad anytime.
           </p>
         )}

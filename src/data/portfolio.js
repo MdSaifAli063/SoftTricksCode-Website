@@ -15,7 +15,7 @@ export const portfolio = [
     description:
       "Modern online store with cart, checkout, admin panel, and inventory management.",
     tech: ["Next.js", "Typescript", "Node.js", "Razorpay"],
-    image: "https://ik.imagekit.io/l32b2uqiw/mietaaf.png?tr=w-800,h-520,fo-auto,q-80,f-auto",
+    image: "/images/portfolio/mietaaf.webp",
     github: "https://www.mietaaf.com/",
   },
   {
@@ -37,9 +37,32 @@ export const portfolio = [
       "Lucide React",
     ],
 
-    image: "https://ik.imagekit.io/l32b2uqiw/computer%20world.png?tr=w-800,h-520,fo-auto,q-80,f-auto",
+    image: "/images/portfolio/computerworld.webp",
 
     github: "https://computerworld.studio/",
+  },
+  {
+    id: "land-hub",
+
+    title: "LandHub – Real Estate Property Platform",
+
+    category: "Web",
+
+    description:
+      "A modern real estate platform for discovering properties around Kengeri and Bengaluru, featuring property listings, buying and selling assistance, investment guidance, enquiries, and site visit support.",
+
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "React",
+      "Framer Motion",
+      "Lucide React",
+    ],
+
+    image: "/images/portfolio/landhub.webp",
+
+    github: "https://www.landhub.property/",
   },
   {
     id: "hospital-mgmt",

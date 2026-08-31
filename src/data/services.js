@@ -108,6 +108,14 @@ export const services = [
       'Penetration testing tools, security audits, and hardened application architecture.',
     tags: ['Audits', 'Pentest', 'Secure SDLC'],
   },
+  {
+    id: 'real-estate',
+    icon: '🏢',
+    title: 'Real Estate Solutions',
+    description:
+      'Property listing portals, CRM systems, virtual tour integrations, and lead management for real estate businesses.',
+    tags: ['Property Portals', 'CRM', 'Virtual Tours'],
+  },
 ];
 
 export const featuredServices = services.filter((s) => s.featured);
