@@ -43,6 +43,8 @@ export default function Testimonials() {
               modules={[Navigation]}
               spaceBetween={0}
               slidesPerView={1}
+              observer={true}
+              observeParents={true}
               loop
               navigation={{
                 prevEl: '.testimonial-prev',

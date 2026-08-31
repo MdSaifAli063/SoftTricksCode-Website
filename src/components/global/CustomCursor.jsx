@@ -1,68 +1,80 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function CustomCursor() {
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-  const [ringPos, setRingPos] = useState({ x: 0, y: 0 });
-  const [visible, setVisible] = useState(false);
-  const [enabled] = useState(
-    () => typeof window !== 'undefined' && !window.matchMedia('(pointer: coarse)').matches
-  );
-  const posRef = useRef(pos);
+  const dotRef = useRef(null);
+  const ringRef = useRef(null);
 
   useEffect(() => {
-    if (!enabled) {
-      document.body.style.cursor = 'auto';
+    if (typeof window === 'undefined' || window.matchMedia('(pointer: coarse)').matches) {
       return;
     }
 
-    const onMove = (e) => {
-      posRef.current = { x: e.clientX, y: e.clientY };
-      setPos(posRef.current);
-      setVisible(true);
-    };
-    const onLeave = () => setVisible(false);
+    const dot = dotRef.current;
+    const ring = ringRef.current;
+    if (!dot || !ring) return;
 
-    window.addEventListener('mousemove', onMove);
-    document.addEventListener('mouseleave', onLeave);
+    let mouseX = -100;
+    let mouseY = -100;
+    let ringX = -100;
+    let ringY = -100;
+    let isMoving = false;
+    let rafId = null;
 
-    let raf;
-    const animateRing = () => {
-      setRingPos((prev) => ({
-        x: prev.x + (posRef.current.x - prev.x) * 0.15,
-        y: prev.y + (posRef.current.y - prev.y) * 0.15,
-      }));
-      raf = requestAnimationFrame(animateRing);
+    const onMouseMove = (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+      dot.style.opacity = '1';
+      ring.style.opacity = '1';
+
+      if (!isMoving) {
+        isMoving = true;
+        renderRing();
+      }
     };
-    raf = requestAnimationFrame(animateRing);
+
+    const onMouseLeave = () => {
+      dot.style.opacity = '0';
+      ring.style.opacity = '0';
+      isMoving = false;
+    };
+
+    const renderRing = () => {
+      const dx = mouseX - ringX;
+      const dy = mouseY - ringY;
+      ringX += dx * 0.18;
+      ringY += dy * 0.18;
+
+      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+
+      if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+        rafId = requestAnimationFrame(renderRing);
+      } else {
+        isMoving = false;
+      }
+    };
+
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    document.addEventListener('mouseleave', onMouseLeave, { passive: true });
 
     return () => {
-      window.removeEventListener('mousemove', onMove);
-      document.removeEventListener('mouseleave', onLeave);
-      cancelAnimationFrame(raf);
+      window.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseleave', onMouseLeave);
+      if (rafId) cancelAnimationFrame(rafId);
     };
-  }, [enabled]);
-
-  if (!enabled) return null;
+  }, []);
 
   return (
     <>
       <div
-        className="pointer-events-none fixed z-[10000] h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-stc-cyan mix-blend-difference"
-        style={{
-          left: pos.x,
-          top: pos.y,
-          opacity: visible ? 1 : 0,
-          boxShadow: '0 0 10px #00f5ff',
-        }}
+        ref={dotRef}
+        className="pointer-events-none fixed left-0 top-0 z-[10000] h-2 w-2 rounded-full bg-stc-cyan opacity-0 mix-blend-difference will-change-transform"
+        style={{ boxShadow: '0 0 10px #00f5ff' }}
         aria-hidden
       />
       <div
-        className="pointer-events-none fixed z-[9999] h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-stc-cyan/50"
-        style={{
-          left: ringPos.x,
-          top: ringPos.y,
-          opacity: visible ? 1 : 0,
-        }}
+        ref={ringRef}
+        className="pointer-events-none fixed left-0 top-0 z-[9999] h-8 w-8 rounded-full border border-stc-cyan/50 opacity-0 will-change-transform"
         aria-hidden
       />
     </>
