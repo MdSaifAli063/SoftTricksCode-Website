@@ -2,7 +2,7 @@ import Seo from '../components/ui/Seo';
 import { motion } from 'framer-motion';
 import { blogPosts } from '../data/blog';
 import BlogCard from '../components/ui/BlogCard';
-import SectionBadge from '../components/ui/SectionBadge';
+import PageBanner from '../components/ui/PageBanner';
 
 export default function BlogPage() {
   return (
@@ -13,21 +13,14 @@ export default function BlogPage() {
         pathname="/blog"
       />
 
-      <section className="blog-hub-bg border-b border-slate-200/60 pb-12 pt-[calc(7rem+env(safe-area-inset-top,0px))] sm:pb-16 sm:pt-32">
-        <div className="container-page text-center">
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
-            <SectionBadge className="mb-4">Our Blog</SectionBadge>
-            <h1 className="font-serif text-3xl font-bold text-stc-black sm:text-4xl md:text-5xl">
-              Explore Our Knowledge Hub
-            </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-stc-muted">
-              Tips, tutorials, and case studies on web development, AI, and building digital products.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageBanner
+        badge="Our Blog"
+        title="Explore Our Knowledge Hub"
+        subtitle="Tips, tutorials, and case studies on web development, AI, and building digital products."
+        breadcrumbs={['Blog']}
+      />
 
-      <section className="blog-hub-bg section-padding !pt-12">
+      <section className="section-padding section-light !pt-12 !pb-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {blogPosts.map((post, i) => (

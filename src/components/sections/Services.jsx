@@ -6,6 +6,16 @@ import {
   Megaphone,
   Palette,
   Settings,
+  Code2,
+  Bot,
+  ShoppingBag,
+  HeartPulse,
+  Sprout,
+  GraduationCap,
+  Cloud,
+  ShieldCheck,
+  Building2,
+  Layers,
 } from 'lucide-react';
 import { services, featuredServices } from '../../data/services';
 import SectionHeading from '../ui/SectionHeading';
@@ -28,6 +38,23 @@ const featuredImages = {
 
 const imageFallback =
   'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=480&h=320&q=50&fm=webp';
+
+const serviceIcons = {
+  website: Globe,
+  'web-apps': AppWindow,
+  mobile: Smartphone,
+  'digital-marketing': Megaphone,
+  branding: Palette,
+  web: Code2,
+  ai: Bot,
+  ecommerce: ShoppingBag,
+  healthcare: HeartPulse,
+  agriculture: Sprout,
+  edtech: GraduationCap,
+  cloud: Cloud,
+  security: ShieldCheck,
+  'real-estate': Building2,
+};
 
 const featuredMeta = {
   website: { icon: Globe, label: 'Website' },
@@ -149,46 +176,49 @@ export default function Services({
             viewport={{ once: true, margin: '-50px' }}
             className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
           >
-            {gridItems.map((service) => (
-              <motion.div key={service.id} variants={fadeInUp}>
-                <div
-                  className={`h-full p-6 transition ${
-                    pageMode
-                      ? 'fly-card-light hover:border-stc-primary/30'
-                      : 'fly-glass hover:border-stc-primary/30'
-                  }`}
-                >
-                  <span className="text-3xl" role="img" aria-hidden>
-                    {service.icon}
-                  </span>
-                  <h3
-                    className={`mt-4 font-serif text-xl font-bold ${
-                      pageMode ? 'text-stc-black' : 'text-white'
+            {gridItems.map((service) => {
+              const ServiceIcon = serviceIcons[service.id] || Layers;
+              return (
+                <motion.div key={service.id} variants={fadeInUp}>
+                  <div
+                    className={`group h-full p-6 transition rounded-3xl ${
+                      pageMode
+                        ? 'fly-card-light hover:border-stc-primary/40 hover:shadow-lg'
+                        : 'fly-glass hover:border-stc-primary/40 hover:shadow-fly'
                     }`}
                   >
-                    {service.title}
-                  </h3>
-                  <hr className={`my-3 ${pageMode ? 'border-slate-200' : 'border-white/10'}`} />
-                  <p
-                    className={`text-sm leading-relaxed ${
-                      pageMode ? 'text-stc-muted' : 'text-stc-gray'
-                    }`}
-                  >
-                    {service.description}
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {service.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-stc-primary/15 px-2.5 py-0.5 text-xs text-stc-primary-light"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-stc-primary/30 bg-stc-primary/10 text-stc-primary shadow-sm transition group-hover:scale-105 group-hover:border-stc-primary group-hover:bg-stc-primary group-hover:text-white">
+                      <ServiceIcon size={24} className="text-stc-primary-light transition group-hover:text-white" />
+                    </div>
+                    <h3
+                      className={`mt-4 font-serif text-xl font-bold ${
+                        pageMode ? 'text-stc-black' : 'text-white'
+                      }`}
+                    >
+                      {service.title}
+                    </h3>
+                    <hr className={`my-3 ${pageMode ? 'border-slate-200' : 'border-white/10'}`} />
+                    <p
+                      className={`text-sm leading-relaxed ${
+                        pageMode ? 'text-stc-muted' : 'text-stc-gray'
+                      }`}
+                    >
+                      {service.description}
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {service.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-stc-primary/15 px-2.5 py-0.5 text-xs text-stc-primary-light font-medium"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </motion.div>
         )}
 
