@@ -16,8 +16,8 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="Soft Tricks Code | Software Development, AI Solutions, Web & Mobile App Development"
-        description="Soft Tricks Code is a leading software company providing website development, mobile app development, AI solutions, cloud services, SaaS products, and custom software development for startups and enterprises."
+        title="Soft Tricks Code | Software Development & AI Solutions"
+        description="Soft Tricks Code provides custom web development, mobile apps, SaaS platforms, AI solutions, and software consulting for startups and businesses."
         pathname="/"
       />
 
