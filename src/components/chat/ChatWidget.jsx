@@ -8,6 +8,10 @@ import {
   RotateCcw,
   Sparkles,
   ChevronRight,
+  Code2,
+  DollarSign,
+  Briefcase,
+  Calendar,
 } from 'lucide-react';
 import { BackToTopButton } from '../global/FloatingActions';
 import { useBooking } from '../../context/BookingContext';
@@ -15,13 +19,40 @@ import { processUserQuery } from './chatEngine';
 import { BRAND_ASSETS } from '../../constants/brand';
 import { SITE } from '../../constants/site';
 
+const STARTER_PROMPTS = [
+  {
+    icon: Code2,
+    title: 'Explore Services',
+    desc: 'Web apps, Mobile, AI & Cloud',
+    query: 'What services do you offer?',
+  },
+  {
+    icon: DollarSign,
+    title: 'Pricing & Plans',
+    desc: 'Starter from ₹5,999 • Negotiable',
+    query: 'What is your pricing?',
+  },
+  {
+    icon: Briefcase,
+    title: 'Live Portfolio',
+    desc: 'Computer World, LandHub, Mietaaf',
+    query: 'Show me your portfolio projects',
+  },
+  {
+    icon: Calendar,
+    title: 'Book Discovery Call',
+    desc: 'Free 30-min call with founders',
+    query: 'I want to book a call',
+  },
+];
+
 const INITIAL_QUICK_CHIPS = [
-  { label: '🚀 Services', query: 'What services do you offer?' },
-  { label: '💰 Pricing & Plans', query: 'What is your pricing?' },
-  { label: '💼 Live Portfolio', query: 'Show me your portfolio projects' },
-  { label: '👥 Meet Founders', query: 'Who are the founders?' },
-  { label: '📅 Book Free Call', query: 'I want to book a call' },
-  { label: '💼 Careers & Jobs', query: 'Are you hiring?' },
+  { label: 'Services', query: 'What services do you offer?' },
+  { label: 'Pricing & Plans', query: 'What is your pricing?' },
+  { label: 'Live Portfolio', query: 'Show me your portfolio projects' },
+  { label: 'Meet Founders', query: 'Who are the founders?' },
+  { label: 'Book Free Call', query: 'I want to book a call' },
+  { label: 'Careers & Jobs', query: 'Are you hiring?' },
 ];
 
 let messageCounter = 100;
@@ -41,14 +72,14 @@ function TypingIndicator() {
       initial={{ opacity: 0, y: 5 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 5 }}
-      className="flex items-center gap-1.5 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-stc-gray"
+      className="flex items-center gap-2 rounded-2xl border border-white/10 bg-slate-900/80 px-4 py-3 text-slate-300 shadow-md backdrop-blur-md"
     >
       <div className="flex items-center gap-1">
-        <span className="h-2 w-2 animate-bounce rounded-full bg-stc-primary-light" style={{ animationDelay: '0ms' }} />
-        <span className="h-2 w-2 animate-bounce rounded-full bg-stc-primary-light" style={{ animationDelay: '150ms' }} />
-        <span className="h-2 w-2 animate-bounce rounded-full bg-stc-primary-light" style={{ animationDelay: '300ms' }} />
+        <span className="h-2 w-2 animate-bounce rounded-full bg-cyan-400" style={{ animationDelay: '0ms' }} />
+        <span className="h-2 w-2 animate-bounce rounded-full bg-blue-400" style={{ animationDelay: '150ms' }} />
+        <span className="h-2 w-2 animate-bounce rounded-full bg-indigo-400" style={{ animationDelay: '300ms' }} />
       </div>
-      <span className="text-xs text-stc-gray/70 ml-1.5">Soft Tricks Code AI is typing...</span>
+      <span className="text-xs text-slate-400 ml-1">Soft Tricks Code AI is thinking...</span>
     </motion.div>
   );
 }
@@ -101,7 +132,7 @@ function FormattedText({ text, onNavigate }) {
                 }}
                 target={isInternal ? '_self' : '_blank'}
                 rel="noopener noreferrer"
-                className="font-medium text-stc-primary-light underline decoration-stc-primary-light/40 underline-offset-2 hover:text-white hover:decoration-white"
+                className="font-medium text-cyan-300 underline decoration-cyan-400/40 underline-offset-2 hover:text-white hover:decoration-white transition"
               >
                 {linkText}
               </a>
@@ -117,8 +148,8 @@ function FormattedText({ text, onNavigate }) {
 
         return (
           <div key={idx} className={isBullet ? 'flex items-start gap-2 pl-1' : ''}>
-            {isBullet && <span className="text-stc-primary-light select-none font-bold">•</span>}
-            <div className="flex-1">{parts}</div>
+            {isBullet && <span className="text-cyan-400 select-none font-bold">•</span>}
+            <div className="flex-1 text-slate-200">{parts}</div>
           </div>
         );
       })}
@@ -167,6 +198,7 @@ function ChatFab({ onClick }) {
 export default function ChatWidget({ open, onOpenChange }) {
   const navigate = useNavigate();
   const { openBooking } = useBooking();
+  const scrollContainerRef = useRef(null);
   const bottomRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -174,12 +206,12 @@ export default function ChatWidget({ open, onOpenChange }) {
     {
       id: 'initial_1',
       from: 'bot',
-      text: "Hi there! 👋 I'm **Soft Tricks Code AI Assistant**.\n\nI have complete knowledge about our software services, live projects, pricing plans, team, and hiring. How can I help you today?",
+      text: 'Hello! 👋 How can I help you today?',
       actions: [
-        { label: '🚀 Explore Services', action: 'nav_services' },
-        { label: '💰 Pricing & Packages', action: 'nav_pricing' },
-        { label: '💼 View Portfolio', action: 'nav_portfolio' },
-        { label: '📅 Book Free Call', action: 'book_call' },
+        { label: 'Explore Services', action: 'nav_services' },
+        { label: 'Pricing & Packages', action: 'nav_pricing' },
+        { label: 'View Portfolio', action: 'nav_portfolio' },
+        { label: 'Book Free Call', action: 'book_call' },
       ],
       time: 'Just now',
     },
@@ -190,7 +222,11 @@ export default function ChatWidget({ open, onOpenChange }) {
   useEffect(() => {
     if (open) {
       setTimeout(() => {
-        bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+        if (messages.length > 1) {
+          bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+        } else if (scrollContainerRef.current) {
+          scrollContainerRef.current.scrollTop = 0;
+        }
         inputRef.current?.focus();
       }, 150);
     }
@@ -255,7 +291,6 @@ export default function ChatWidget({ open, onOpenChange }) {
     setInput('');
     setIsTyping(true);
 
-    // Simulate natural AI thinking delay (450ms - 750ms)
     setTimeout(() => {
       const response = processUserQuery(textToSend);
       const botMessage = {
@@ -275,16 +310,19 @@ export default function ChatWidget({ open, onOpenChange }) {
       {
         id: getNextId(),
         from: 'bot',
-        text: "Conversation reset! ✨ What would you like to know about **Soft Tricks Code**?",
+        text: 'Hello! 👋 How can I help you today?',
         actions: [
-          { label: '🚀 Explore Services', action: 'nav_services' },
-          { label: '💰 Pricing & Packages', action: 'nav_pricing' },
-          { label: '💼 View Portfolio', action: 'nav_portfolio' },
-          { label: '📅 Book Free Call', action: 'book_call' },
+          { label: 'Explore Services', action: 'nav_services' },
+          { label: 'Pricing & Packages', action: 'nav_pricing' },
+          { label: 'View Portfolio', action: 'nav_portfolio' },
+          { label: 'Book Free Call', action: 'book_call' },
         ],
         time: getCurrentTime(),
       },
     ]);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
   };
 
   return (
@@ -305,28 +343,43 @@ export default function ChatWidget({ open, onOpenChange }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 24, scale: 0.94 }}
             transition={{ type: 'spring', stiffness: 320, damping: 28 }}
-            className="fixed inset-x-0 bottom-0 z-50 flex h-[min(90dvh,600px)] w-full flex-col overflow-hidden rounded-t-3xl border border-white/15 bg-gradient-to-b from-[#0a1124] via-[#040814] to-[#02050e] shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_35px_rgba(37,99,235,0.25)] backdrop-blur-xl sm:inset-x-auto sm:bottom-6 sm:right-6 sm:left-auto sm:h-[580px] sm:w-[410px] sm:rounded-3xl"
+            className="fixed inset-x-0 bottom-0 z-50 flex h-[min(92dvh,640px)] w-full flex-col overflow-hidden rounded-t-3xl border border-white/20 bg-gradient-to-b from-[#091124] via-[#050b18] to-[#02050e] shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_40px_rgba(37,99,235,0.3)] backdrop-blur-2xl sm:inset-x-auto sm:bottom-6 sm:right-6 sm:left-auto sm:h-[600px] sm:w-[420px] sm:rounded-3xl"
             role="dialog"
-            aria-label="Soft Tricks Code AI Support"
+            aria-label="Soft Tricks Code AI Assistant"
           >
+            {/* Ambient Background Glow Elements */}
+            <div
+              className="pointer-events-none absolute -left-16 -top-16 h-48 w-48 rounded-full bg-blue-600/15 blur-3xl"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute -right-16 top-1/3 h-48 w-48 rounded-full bg-indigo-600/15 blur-3xl"
+              aria-hidden
+            />
+
             {/* Header */}
-            <div className="relative flex items-center justify-between border-b border-white/10 bg-gradient-to-r from-stc-primary/20 via-stc-navy/80 to-stc-black/90 px-4 py-3.5 backdrop-blur-md">
+            <div className="relative z-10 flex items-center justify-between border-b border-white/10 bg-slate-900/60 px-4 py-3 backdrop-blur-xl">
               <div className="flex items-center gap-3">
-                <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-stc-primary/20 border border-stc-primary/40 shadow-inner">
+                <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-blue-400/30 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 shadow-inner">
                   <img
                     src={BRAND_ASSETS.logoOnDark100}
                     alt="Soft Tricks Code"
                     className="h-6 w-6 object-contain"
                   />
-                  <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full bg-emerald-500 ring-2 ring-[#0a1124] animate-pulse" />
+                  <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full bg-emerald-500 ring-2 ring-[#091124] animate-pulse" />
                 </div>
                 <div>
-                  <p className="font-body text-sm font-bold tracking-tight text-white">
-                    Soft Tricks Code <span className="text-stc-primary-light">AI</span>
-                  </p>
+                  <div className="flex items-center gap-1.5">
+                    <p className="font-body text-sm font-bold tracking-tight text-white">
+                      Soft Tricks Code
+                    </p>
+                    <span className="rounded-md bg-gradient-to-r from-blue-500 to-cyan-500 px-1.5 py-0.5 text-[9px] font-extrabold uppercase text-white shadow-xs">
+                      AI
+                    </span>
+                  </div>
                   <p className="text-[11px] text-emerald-400 font-medium flex items-center gap-1 mt-0.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 inline-block" />
-                    Online • Instant AI Answers
+                    Online • Instant 24/7 AI Engine
                   </p>
                 </div>
               </div>
@@ -336,24 +389,24 @@ export default function ChatWidget({ open, onOpenChange }) {
                   type="button"
                   onClick={handleResetChat}
                   title="Reset conversation"
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 text-stc-gray transition hover:bg-white/10 hover:text-white"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 text-slate-400 transition hover:bg-white/10 hover:text-white"
                   aria-label="Reset chat"
                 >
-                  <RotateCcw size={15} />
+                  <RotateCcw size={14} />
                 </button>
                 <button
                   type="button"
                   onClick={() => onOpenChange(false)}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 text-stc-gray transition hover:bg-red-500/20 hover:text-red-400"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 text-slate-400 transition hover:bg-red-500/20 hover:text-red-400"
                   aria-label="Close chat"
                 >
-                  <X size={17} />
+                  <X size={16} />
                 </button>
               </div>
             </div>
 
-            {/* Messages Area */}
-            <div className="flex-1 space-y-3.5 overflow-y-auto p-4 hide-scrollbar">
+            {/* Messages Scroll Area */}
+            <div ref={scrollContainerRef} className="relative z-10 flex-1 space-y-3.5 overflow-y-auto p-4 pt-3.5 hide-scrollbar">
               {messages.map((msg) => (
                 <motion.div
                   key={msg.id}
@@ -362,10 +415,10 @@ export default function ChatWidget({ open, onOpenChange }) {
                   className={`flex flex-col ${msg.from === 'user' ? 'items-end' : 'items-start'}`}
                 >
                   <div
-                    className={`relative max-w-[90%] rounded-2xl px-4 py-3 shadow-md ${
+                    className={`relative max-w-[92%] rounded-2xl px-4 py-3.5 shadow-lg ${
                       msg.from === 'user'
-                        ? 'bg-gradient-to-r from-stc-primary to-stc-primary-light text-white rounded-br-sm shadow-[0_4px_15px_rgba(37,99,235,0.35)]'
-                        : 'border border-white/10 bg-[#0e172a]/95 text-stc-gray rounded-bl-sm backdrop-blur-md'
+                        ? 'bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-white rounded-br-xs shadow-[0_4px_20px_rgba(37,99,235,0.4)]'
+                        : 'border border-white/12 bg-gradient-to-br from-slate-900/95 via-slate-900/85 to-[#0b162e]/90 text-slate-200 rounded-bl-xs backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)]'
                     }`}
                   >
                     <FormattedText
@@ -378,27 +431,61 @@ export default function ChatWidget({ open, onOpenChange }) {
 
                     {/* Action Chips for Bot Responses */}
                     {msg.actions && msg.actions.length > 0 && (
-                      <div className="mt-3 flex flex-wrap gap-1.5 pt-2 border-t border-white/10">
+                      <div className="mt-3.5 flex flex-wrap gap-2 pt-2.5 border-t border-white/10">
                         {msg.actions.map((act, i) => (
                           <button
                             key={i}
                             type="button"
                             onClick={() => handleActionClick(act.action)}
-                            className="inline-flex items-center gap-1 rounded-lg border border-stc-primary/40 bg-stc-primary/15 px-2.5 py-1 text-xs font-semibold text-stc-primary-light transition-all hover:bg-stc-primary hover:text-white hover:shadow-[0_0_12px_rgba(59,130,246,0.5)] active:scale-95"
+                            className="group inline-flex items-center gap-1.5 rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/15 via-indigo-500/15 to-cyan-500/10 px-3 py-1.5 text-xs font-semibold text-blue-200 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400 hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:shadow-[0_0_16px_rgba(59,130,246,0.45)] active:scale-95"
                           >
                             <span>{act.label}</span>
-                            <ChevronRight size={12} className="opacity-70" />
+                            <ChevronRight size={13} className="text-blue-300 transition-transform group-hover:translate-x-0.5 group-hover:text-white" />
                           </button>
                         ))}
                       </div>
                     )}
                   </div>
 
-                  <span className="mt-1 px-1 text-[10px] text-stc-gray/50">
+                  <span className="mt-1 px-1 text-[10px] text-slate-500 font-medium">
                     {msg.time}
                   </span>
                 </motion.div>
               ))}
+
+              {/* Starter Prompt Cards (Show when chat is fresh) */}
+              {messages.length === 1 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15 }}
+                  className="mt-2 grid grid-cols-2 gap-2 pt-1"
+                >
+                  {STARTER_PROMPTS.map((prompt, i) => {
+                    const Icon = prompt.icon;
+                    return (
+                      <button
+                        key={i}
+                        type="button"
+                        onClick={() => handleSendMessage(prompt.query)}
+                        className="group flex flex-col items-start justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-3 text-left transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-500/40 hover:bg-gradient-to-br hover:from-blue-900/20 hover:to-indigo-900/20 hover:shadow-[0_4px_16px_rgba(37,99,235,0.2)]"
+                      >
+                        <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-500/10 text-cyan-400 border border-blue-500/20 transition group-hover:scale-110 group-hover:bg-blue-500/20">
+                          <Icon size={16} />
+                        </div>
+                        <div className="mt-2.5 min-w-0">
+                          <p className="text-xs font-bold text-white group-hover:text-cyan-300 transition">
+                            {prompt.title}
+                          </p>
+                          <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">
+                            {prompt.desc}
+                          </p>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </motion.div>
+              )}
 
               {isTyping && <TypingIndicator />}
               <div ref={bottomRef} />
@@ -406,17 +493,17 @@ export default function ChatWidget({ open, onOpenChange }) {
 
             {/* Quick Starter Pills Carousel */}
             {messages.length <= 2 && (
-              <div className="border-t border-white/5 bg-white/[0.02] px-3 py-2">
+              <div className="relative z-10 border-t border-white/5 bg-slate-950/40 px-3 py-2">
                 <div className="flex items-center gap-1.5 overflow-x-auto hide-scrollbar pb-1">
-                  <span className="text-[11px] text-stc-gray/60 font-medium whitespace-nowrap flex items-center gap-1 mr-1">
-                    <Sparkles size={12} className="text-stc-primary-light" /> Quick:
+                  <span className="text-[11px] text-slate-400 font-medium whitespace-nowrap flex items-center gap-1 mr-1">
+                    <Sparkles size={12} className="text-cyan-400" /> Quick:
                   </span>
                   {INITIAL_QUICK_CHIPS.map((chip, i) => (
                     <button
                       key={i}
                       type="button"
                       onClick={() => handleSendMessage(chip.query)}
-                      className="shrink-0 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-stc-gray transition hover:border-stc-primary/50 hover:bg-stc-primary/20 hover:text-white"
+                      className="shrink-0 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300 transition hover:border-blue-400/50 hover:bg-blue-500/20 hover:text-white"
                     >
                       {chip.label}
                     </button>
@@ -426,29 +513,29 @@ export default function ChatWidget({ open, onOpenChange }) {
             )}
 
             {/* Input Footer */}
-            <div className="border-t border-white/10 bg-[#070d1e]/90 p-3 backdrop-blur-md">
+            <div className="relative z-10 border-t border-white/10 bg-slate-950/90 p-3 backdrop-blur-xl">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
                   handleSendMessage();
                 }}
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.05] p-1.5 pl-4 shadow-inner focus-within:border-blue-400/70 focus-within:bg-white/[0.08] focus-within:shadow-[0_0_20px_rgba(59,130,246,0.25)] transition-all"
               >
                 <input
                   ref={inputRef}
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask about services, pricing, projects..."
-                  className="flex-1 rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-stc-gray/40 focus:border-stc-primary focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-stc-primary/30 transition"
+                  className="flex-1 bg-transparent text-sm text-white placeholder:text-slate-500 focus:outline-none"
                 />
 
                 <button
                   type="submit"
                   disabled={!input.trim()}
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-stc-primary to-stc-primary-light text-white shadow-md transition disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-[0_0_15px_rgba(59,130,246,0.6)] active:scale-95"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-md transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed hover:from-blue-600 hover:to-indigo-500 hover:shadow-[0_0_15px_rgba(59,130,246,0.6)] active:scale-95"
                   aria-label="Send message"
                 >
-                  <Send size={16} />
+                  <Send size={15} />
                 </button>
               </form>
             </div>
