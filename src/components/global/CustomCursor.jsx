@@ -7,6 +7,10 @@ export default function CustomCursor() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    // Only enable on desktop with fine mouse pointer (disable on touch / mobile / responsive)
+    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    if (!mediaQuery.matches || window.innerWidth < 1024) return;
+
     const dot = dotRef.current;
     const ring = ringRef.current;
     if (!dot || !ring) return;
@@ -20,6 +24,13 @@ export default function CustomCursor() {
     let isHovered = false;
 
     const onMouseMove = (e) => {
+      // Re-verify width in case of resize
+      if (window.innerWidth < 1024) {
+        dot.style.opacity = '0';
+        ring.style.opacity = '0';
+        return;
+      }
+
       mouseX = e.clientX;
       mouseY = e.clientY;
 
@@ -70,11 +81,13 @@ export default function CustomCursor() {
     };
 
     const onMouseDown = () => {
+      if (window.innerWidth < 1024) return;
       dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) scale(0.7)`;
       ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%) scale(0.85)`;
     };
 
     const onMouseUp = () => {
+      if (window.innerWidth < 1024) return;
       dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) scale(${isHovered ? 1.4 : 1})`;
       ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%) scale(1)`;
     };
@@ -110,20 +123,20 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Inner Glowing Blue Dot */}
+      {/* Inner Glowing Blue Dot (Hidden on mobile/responsive touch screens) */}
       <div
         ref={dotRef}
-        className="pointer-events-none fixed left-0 top-0 z-[999999] h-2.5 w-2.5 rounded-full bg-[#3b82f6] opacity-0 transition-opacity duration-150 will-change-transform"
+        className="pointer-events-none fixed left-0 top-0 z-[999999] hidden lg:block h-2.5 w-2.5 rounded-full bg-[#3b82f6] opacity-0 transition-opacity duration-150 will-change-transform"
         style={{
           boxShadow: '0 0 10px #3b82f6, 0 0 20px #2563eb, 0 0 30px rgba(59,130,246,0.6)',
         }}
         aria-hidden
       />
 
-      {/* Trailing Outer Ring */}
+      {/* Trailing Outer Ring (Hidden on mobile/responsive touch screens) */}
       <div
         ref={ringRef}
-        className="pointer-events-none fixed left-0 top-0 z-[999998] h-8 w-8 rounded-full border border-stc-primary/60 bg-stc-primary/10 opacity-0 transition-[width,height,background-color,border-color,opacity] duration-200 ease-out will-change-transform"
+        className="pointer-events-none fixed left-0 top-0 z-[999998] hidden lg:block h-8 w-8 rounded-full border border-stc-primary/60 bg-stc-primary/10 opacity-0 transition-[width,height,background-color,border-color,opacity] duration-200 ease-out will-change-transform"
         style={{
           boxShadow: '0 0 16px rgba(59, 130, 246, 0.25)',
         }}
