@@ -42,6 +42,8 @@
     content="Soft Tricks Code helps startups and enterprises build modern websites, AI-powered applications, SaaS products, and scalable software solutions." />
   <meta property="og:url" content="https://softtrickscode.com/" />
   <meta property="og:image" content="https://softtrickscode.com/og-image.png" />
+  <meta property="og:image:secure_url" content="https://softtrickscode.com/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Soft Tricks Code — Software Development and AI Solutions" />
@@ -54,15 +56,59 @@
   <meta name="twitter:image" content="https://softtrickscode.com/og-image.png" />
   <meta name="twitter:image:alt" content="Soft Tricks Code — Software Development and AI Solutions" />
 
+  <!-- Google Search Site Name Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Soft Tricks Code",
+    "alternateName": [
+      "SoftTricksCode",
+      "Soft Tricks Code Agency",
+      "SoftTricksCode Studio",
+      "Soft Tricks Code LLC"
+    ],
+    "url": "https://softtrickscode.com/"
+  }
+  </script>
+
   <!-- Organization Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Soft Tricks Code",
+    "legalName": "Soft Tricks Code",
+    "alternateName": "SoftTricksCode",
     "url": "https://softtrickscode.com",
     "logo": "https://softtrickscode.com/logo-mark.png",
-    "description": "Web Development, AI Solutions, SaaS Development, Full Stack Development, Cloud Services and Software Consulting"
+    "description": "Soft Tricks Code provides Web Development, AI Solutions, SaaS Development, Mobile App Development, Full Stack Engineering, Cloud Services, and Software Consulting.",
+    "email": "softtrickscode@gmail.com",
+    "foundingDate": "2026",
+    "sameAs": [
+      "https://github.com/Soft-Tricks-Code",
+      "https://www.linkedin.com/company/softtrickscode",
+      "https://www.youtube.com/@SoftTricksCode"
+    ],
+    "founder": [
+      {
+        "@type": "Person",
+        "name": "Md Saif Ali",
+        "jobTitle": "Founder & CEO"
+      },
+      {
+        "@type": "Person",
+        "name": "Ashwini T Gadad",
+        "jobTitle": "Co-Founder & COO"
+      }
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-90312-28966",
+      "contactType": "customer service",
+      "email": "softtrickscode@gmail.com",
+      "areaServed": "Worldwide"
+    }
   }
   </script>
 
@@ -101,37 +147,14 @@
     />
   </noscript>
 
-  <!-- Deferred Google Tag Manager & Google Analytics (User-interaction triggered) -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-37Z8YBEPL2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    function loadAnalytics() {
-      if (window._analyticsLoaded) return;
-      window._analyticsLoaded = true;
-
-      var events = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
-      events.forEach(function(e) { window.removeEventListener(e, loadAnalytics); });
-
-      var gtagScript = document.createElement('script');
-      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-VVXVH2QPW4';
-      gtagScript.async = true;
-      document.head.appendChild(gtagScript);
-      gtag('config', 'G-VVXVH2QPW4');
-
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-PTBFCK4C');
-    }
-
-    var triggerEvents = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
-    triggerEvents.forEach(function(e) {
-      window.addEventListener(e, loadAnalytics, { passive: true, once: true });
-    });
-    setTimeout(loadAnalytics, 4000);
+    gtag('config', 'G-37Z8YBEPL2');
   </script>
 </head>
 
