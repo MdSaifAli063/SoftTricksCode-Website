@@ -18,7 +18,7 @@ function FounderAvatar({ founder }) {
   return (
     <div
       className={clsx(
-        'relative h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-stc-primary/30 bg-slate-100',
+        'relative h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 shrink-0 overflow-hidden rounded-full border-2 border-stc-primary/30 bg-slate-100',
         !precropped && founder.imageVariant === 'cutout' && 'p-0.5'
       )}
     >
@@ -39,7 +39,11 @@ function FounderAvatar({ founder }) {
   );
 }
 
-export default function About({ showTeamLink = true, pageMode = false }) {
+export default function About({
+  showTeamLink = true,
+  pageMode = false,
+  showPhones = pageMode,
+}) {
   const [saif, ashwini] = founders;
 
   return (
@@ -84,14 +88,19 @@ export default function About({ showTeamLink = true, pageMode = false }) {
             viewport={{ once: true }}
           >
             <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-              <div className="grid grid-cols-1 gap-4 xs:grid-cols-2 sm:flex sm:flex-row sm:gap-6">
+              <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-row sm:items-center sm:gap-6">
                 {[saif, ashwini].map((founder) => (
-                  <div key={founder.id} className="flex items-center gap-3">
+                  <div
+                    key={founder.id}
+                    className="flex min-w-0 items-center gap-2 rounded-2xl border border-slate-200/70 bg-slate-50/70 p-2 shadow-sm sm:gap-3 sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none"
+                  >
                     <FounderAvatar founder={founder} />
-                    <div className="min-w-0">
-                      <p className="text-sm font-semibold text-stc-black">{founder.name}</p>
-                      <p className="text-xs text-stc-muted">
-                        {founder.id === 'saif' ? 'Founder & CEO' : 'Co-Founder'}, Soft Tricks Code
+                    <div className="min-w-0 flex-1">
+                      <p className="font-heading text-xs font-bold text-stc-black whitespace-nowrap sm:text-sm md:text-base">
+                        {founder.name}
+                      </p>
+                      <p className="text-[10px] text-stc-muted whitespace-nowrap sm:text-xs">
+                        {founder.id === 'saif' ? 'Founder & CEO' : 'Co-Founder & COO'}
                       </p>
                     </div>
                   </div>
@@ -127,25 +136,27 @@ export default function About({ showTeamLink = true, pageMode = false }) {
                 </Link>
               )}
 
-              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
-                {[saif, ashwini].map((founder) => (
-                  <a
-                    key={founder.id}
-                    href={`tel:${founder.phoneTel}`}
-                    className="flex items-center gap-3 transition hover:opacity-80"
-                  >
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-stc-primary text-white">
-                      <Phone size={20} />
-                    </span>
-                    <div>
-                      <p className="text-xs text-stc-muted">
-                        {founder.id === 'saif' ? 'Founder' : 'Co-Founder'} · Need help?
-                      </p>
-                      <p className="font-semibold text-stc-black">{founder.phone}</p>
-                    </div>
-                  </a>
-                ))}
-              </div>
+              {showPhones && (
+                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
+                  {[saif, ashwini].map((founder) => (
+                    <a
+                      key={founder.id}
+                      href={`tel:${founder.phoneTel}`}
+                      className="flex items-center gap-3 transition hover:opacity-80"
+                    >
+                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-stc-primary text-white">
+                        <Phone size={20} />
+                      </span>
+                      <div>
+                        <p className="text-xs text-stc-muted">
+                          {founder.id === 'saif' ? 'Founder' : 'Co-Founder'} · Need help?
+                        </p>
+                        <p className="font-semibold text-stc-black">{founder.phone}</p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           </motion.div>
         </div>

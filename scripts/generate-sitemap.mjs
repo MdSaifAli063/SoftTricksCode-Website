@@ -43,6 +43,8 @@ const routes = [
   "/blog",
   "/contact",
   "/careers",
+  "/privacy-policy",
+  "/terms",
 ];
 const urls = [...routes, ...blogPosts.map((post) => `/blog/${post.slug}`)];
 

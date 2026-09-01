@@ -292,17 +292,52 @@ We work with agile sprint milestones so you see working progress every single we
     };
   }
 
-  // 15. NDA, Confidentiality & Code Ownership
-  if (/(nda|confidential|privacy|security|agreement|contract|intellectual property|ip|code ownership)/i.test(query)) {
+  // 15. Privacy Policy & Data Protection
+  if (/(privacy|privacy policy|data protection|gdpr|cookies|data collect|how do you use my data)/i.test(query)) {
     return {
-      text: `**100% Security & Code Ownership Guaranteed**:
+      text: `**Soft Tricks Code Privacy Commitment**:
 
-• **Non-Disclosure Agreement (NDA)**: We gladly sign mutual NDAs before you share proprietary ideas or documents.
-• **Full IP Ownership**: You retain 100% ownership of your source code, designs, database schemas, and digital assets.
-• **Security Best Practices**: Encrypted credentials, clean repository handoffs, and secure CI/CD pipelines.`,
+• **100% Data Confidentiality**: We never sell or monetize client data or code repositories.
+• **Zero Public AI Training**: Your private datasets and proprietary code are never fed into public LLM training datasets.
+• **256-Bit SSL/TLS Security**: Enterprise-grade encryption for all database connections, APIs, and credentials.
+• **Full IP Ownership**: Complete assignment of all digital assets to you upon project completion.`,
+      actions: [
+        { label: '🔒 Read Privacy Policy', action: 'nav_privacy' },
+        { label: '📅 Book Privacy Discovery', action: 'book_call' },
+        { label: '⚖️ View Terms of Service', action: 'nav_terms' },
+      ],
+    };
+  }
+
+  // 16. Terms of Service, Contracts & Legal
+  if (/(terms|terms of service|tos|contract|legal|agreement|service agreement|governing law|dispute|jurisdiction)/i.test(query)) {
+    return {
+      text: `**Soft Tricks Code Terms of Service Highlights**:
+
+• **Transparent 40-40-20 Milestones**: Structured payment schedule tied directly to verified sprint progress.
+• **100% Bespoke Code Ownership**: Full source code and IP transfer upon final milestone settlement.
+• **1 to 3 Months Free Warranty**: Complimentary post-launch bug fixing and performance stabilization.
+• **Agile Scope Management**: Transparent estimates for extra features without disrupting active sprints.`,
+      actions: [
+        { label: '📜 Read Terms of Service', action: 'nav_terms' },
+        { label: '🔒 Read Privacy Policy', action: 'nav_privacy' },
+        { label: '📅 Book Project Consultation', action: 'book_call' },
+      ],
+    };
+  }
+
+  // 17. NDA, Confidentiality & Code Ownership
+  if (/(nda|confidential|non disclosure|intellectual property|ip ownership|code ownership|proprietary)/i.test(query)) {
+    return {
+      text: `**100% NDA & Code Ownership Guaranteed**:
+
+• **Mutual NDA Protection**: We readily execute non-disclosure agreements before discussing project specs or proprietary materials.
+• **Full Source Code Assignment**: You own 100% of your repository, documentation, designs, and architecture upon final payment.
+• **Enterprise Security**: Role-based access, secret management, and secure CI/CD pipelines.`,
       actions: [
         { label: '📅 Request NDA & Consultation', action: 'book_call' },
-        { label: '📧 Contact Us', action: 'email_us' },
+        { label: '🔒 View Privacy Policy', action: 'nav_privacy' },
+        { label: '📜 View Terms of Service', action: 'nav_terms' },
       ],
     };
   }
