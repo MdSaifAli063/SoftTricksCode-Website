@@ -36,10 +36,17 @@ export default function Seo({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Soft Tricks Code',
+    legalName: 'Soft Tricks Code',
+    alternateName: 'SoftTricksCode',
     url: SITE_URL,
-    logo: SEO_CONFIG.logo,
+    logo: {
+      '@type': 'ImageObject',
+      url: SEO_CONFIG.logo,
+      width: 512,
+      height: 512,
+    },
     description:
-      'Software Development, AI Solutions, Mobile App Development, SaaS Development and Cloud Services.',
+      'Soft Tricks Code provides Web Development, AI Solutions, SaaS Development, Mobile App Development, Full Stack Engineering, Cloud Services, and Software Consulting.',
     email: SEO_CONFIG.contactEmail,
     foundingDate: '2026',
     sameAs: SEO_CONFIG.sameAs,
@@ -47,21 +54,48 @@ export default function Seo({
       {
         '@type': 'Person',
         name: 'Md Saif Ali',
+        jobTitle: 'Founder & CEO',
+        sameAs: [
+          'https://www.linkedin.com/in/mdsaifali063',
+          'https://github.com/MdSaifAli063',
+          'https://www.youtube.com/@SoftTricksCode',
+        ],
       },
       {
         '@type': 'Person',
         name: 'Ashwini T Gadad',
+        jobTitle: 'Co-Founder & COO',
+        sameAs: [
+          'https://www.linkedin.com/in/ashwini-gadad-154844378',
+        ],
       },
     ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+91-90312-28966',
+      contactType: 'customer service',
+      email: SEO_CONFIG.contactEmail,
+      areaServed: 'Worldwide',
+      availableLanguage: ['English', 'Hindi'],
+    },
   };
 
   const localBusinessLd = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: 'Soft Tricks Code',
+    legalName: 'Soft Tricks Code',
     url: SITE_URL,
     logo: SEO_CONFIG.logo,
     email: SEO_CONFIG.contactEmail,
+    telephone: '+91-90312-28966',
+    priceRange: '$$',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Bengaluru',
+      addressRegion: 'Karnataka',
+      addressCountry: 'IN',
+    },
     description:
       'Software Development Company providing Web Development, Mobile App Development, AI Solutions, SaaS Development and Cloud Services.',
     areaServed: 'Worldwide',
@@ -70,18 +104,16 @@ export default function Seo({
   const websiteLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: SEO_CONFIG.siteName,
-    alternateName: 'Soft Tricks Code',
-    url: SITE_URL,
+    name: 'Soft Tricks Code',
+    alternateName: [
+      'SoftTricksCode',
+      'Soft Tricks Code Agency',
+      'SoftTricksCode Studio',
+      'Soft Tricks Code LLC',
+    ],
+    url: `${SITE_URL}/`,
     description: SEO_CONFIG.defaultDescription,
-    publisher: {
-      '@type': 'Organization',
-      name: SEO_CONFIG.siteName,
-      logo: {
-        '@type': 'ImageObject',
-        url: SEO_CONFIG.logo,
-      },
-    },
+    inLanguage: 'en-US',
   };
 
   const webpageLd = {
@@ -132,6 +164,7 @@ export default function Seo({
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={imageUrl} />
       <meta property="og:image:secure_url" content={imageUrl} />
+      <meta property="og:image:type" content="image/png" />
       <meta property="og:image:alt" content={`${SEO_CONFIG.siteName} brand image`} />
       {imageUrl === SEO_CONFIG.socialImage && (
         <meta property="og:image:width" content="1200" />
