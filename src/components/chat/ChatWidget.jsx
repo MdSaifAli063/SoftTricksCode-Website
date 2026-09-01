@@ -221,6 +221,12 @@ export default function ChatWidget({ open, onOpenChange }) {
     } else if (action === 'nav_blog') {
       onOpenChange(false);
       navigate('/blog');
+    } else if (action === 'nav_privacy') {
+      onOpenChange(false);
+      navigate('/privacy-policy');
+    } else if (action === 'nav_terms') {
+      onOpenChange(false);
+      navigate('/terms');
     } else if (action === 'book_call') {
       onOpenChange(false);
       openBooking();

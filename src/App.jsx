@@ -14,6 +14,8 @@ const BlogPage = lazy(() => import('./pages/BlogPage'));
 const BlogDetail = lazy(() => import('./pages/BlogDetail'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const HiringPage = lazy(() => import('./pages/HiringPage'));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
+const TermsPage = lazy(() => import('./pages/TermsPage'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function PageLoader() {
@@ -34,21 +36,25 @@ export default function App() {
       <Preloader />
       <ErrorBoundary>
         <Suspense fallback={<PageLoader />}>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="services" element={<ServicesPage />} />
-            <Route path="portfolio" element={<PortfolioPage />} />
-            <Route path="about" element={<AboutPage />} />
-            <Route path="pricing" element={<PricingPage />} />
-            <Route path="blog" element={<BlogPage />} />
-            <Route path="blog/:slug" element={<BlogDetail />} />
-            <Route path="contact" element={<ContactPage />} />
-            <Route path="careers" element={<HiringPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </Suspense>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="services" element={<ServicesPage />} />
+              <Route path="portfolio" element={<PortfolioPage />} />
+              <Route path="about" element={<AboutPage />} />
+              <Route path="pricing" element={<PricingPage />} />
+              <Route path="blog" element={<BlogPage />} />
+              <Route path="blog/:slug" element={<BlogDetail />} />
+              <Route path="contact" element={<ContactPage />} />
+              <Route path="careers" element={<HiringPage />} />
+              <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="privacy" element={<PrivacyPolicyPage />} />
+              <Route path="terms" element={<TermsPage />} />
+              <Route path="terms-of-service" element={<TermsPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+        </Suspense>
       </ErrorBoundary>
     </>
   );
