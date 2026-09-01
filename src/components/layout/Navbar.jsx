@@ -73,22 +73,6 @@ export default function Navbar({ onChatOpen }) {
           <div className="flex items-center gap-1.5 sm:gap-3">
             <button
               type="button"
-              onClick={() => onChatOpen?.()}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition hover:bg-white/10 sm:hidden"
-              aria-label="Open chat"
-            >
-              <MessageCircle size={20} />
-            </button>
-            <button
-              type="button"
-              onClick={openBooking}
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-stc-primary text-white transition hover:bg-stc-primary-light sm:hidden"
-              aria-label="Book a consultation"
-            >
-              <Phone size={20} />
-            </button>
-            <button
-              type="button"
               onClick={() => {
                 openBooking();
                 onChatOpen?.();
