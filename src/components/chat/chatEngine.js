@@ -380,22 +380,19 @@ All projects include **100% full source code ownership**, signed **mutual NDAs**
     !hasWord(query, /\b(discount|negotiat|special offer|cheaper)\b/i)
   ) {
     return {
-      text: `We offer clear, flexible, and **negotiable** pricing packages:
+      text: `We offer transparent, flexible, and **negotiable** pricing packages for both Web and Mobile Apps:
 
-🔵 **Starter Plan — ₹5,999** (~$75)
-• Up to **5 pages** (Landing page, Portfolio, or Corporate site)
-• Responsive UI/UX, SEO setup, and **1 Month Free Support**
+🌐 **Web & SaaS Development:**
+• **Starter Plan — ₹5,999** (~$75): Up to 5 pages, responsive design, SEO setup, 1 Month Support
+• **Professional Plan — ₹14,999** (~$180): Full web app, backend, database, admin panel, 3 Months Support *(Most Popular)*
+• **Enterprise Plan — Custom Quote**: Scalable SaaS, custom AI solutions & dedicated engineering
 
-🌟 **Professional Plan — ₹14,999** (~$180) *(Most Popular)*
-• Up to **15 pages** or full dynamic web application / store
-• Custom backend (Node.js/Python), database, admin panel, payments
-• **3 Months Free Support & Bug Warranty**
+📱 **Mobile App Development (Android & iOS):**
+• **Starter App — ₹24,999** (~$300): Single-platform MVP (6–8 screens), Auth, Firebase/REST API, 2 Months Support
+• **Popular App — ₹39,999** (~$480): Cross-platform Android + iOS (Flutter/React Native), Payments, Push Notifications, Admin Panel, 4 Months Warranty
+• **Custom App — Custom Quote**: Real-time tracking, live chat, on-device AI/ML & enterprise ecosystem
 
-💎 **Enterprise Plan — Custom Quote**
-• Scalable SaaS platforms, AI/ML models, mobile apps, and dedicated squads
-• 24/7 SLA, CI/CD, and custom infrastructure setup
-
-💡 *Every package is 100% customizable to your exact feature set and budget.*`,
+💡 *All plans are 100% customizable and negotiable to your exact scope and budget.*`,
       actions: [
         { label: 'Explore Pricing Page', action: 'nav_pricing' },
         { label: 'Get a Custom Quote', action: 'book_call' },
