@@ -120,7 +120,9 @@
     @apply text-stc-black;
   }
 
-  .section-light .fly-service-panel h3 {
+  .section-light .fly-service-panel h3,
+  .section-light .pricing-card h3,
+  .section-light .pricing-card h4 {
     @apply text-white;
   }
 
@@ -128,8 +130,28 @@
     @apply text-blue-100/90;
   }
 
+  .section-light .pricing-card p {
+    @apply text-slate-300;
+  }
+
   .hero-flytech {
     @apply relative overflow-hidden bg-gradient-hero;
+  }
+
+  .hero-flytech h1,
+  .hero-flytech h2,
+  .hero-flytech h3 {
+    color: #ffffff !important;
+  }
+
+  /* Protect headings inside dark-bg banners that live inside .section-light */
+  .section-light [class*='from-[#0'] h1,
+  .section-light [class*='from-[#0'] h2,
+  .section-light [class*='from-[#0'] h3,
+  .section-light [class*='bg-[#0'] h1,
+  .section-light [class*='bg-[#0'] h2,
+  .section-light [class*='bg-[#0'] h3 {
+    color: #ffffff !important;
   }
 
   .hero-flytech::before {

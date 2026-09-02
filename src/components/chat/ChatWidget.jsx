@@ -338,130 +338,144 @@ export default function ChatWidget({ open, onOpenChange }) {
 
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ opacity: 0, y: 24, scale: 0.94 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 24, scale: 0.94 }}
-            transition={{ type: 'spring', stiffness: 320, damping: 28 }}
-            className="fixed inset-x-0 bottom-0 z-50 flex h-[min(92dvh,640px)] w-full flex-col overflow-hidden rounded-t-3xl border border-white/20 bg-gradient-to-b from-[#091124] via-[#050b18] to-[#02050e] shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_40px_rgba(37,99,235,0.3)] backdrop-blur-2xl sm:inset-x-auto sm:bottom-6 sm:right-6 sm:left-auto sm:h-[600px] sm:w-[420px] sm:rounded-3xl"
-            role="dialog"
-            aria-label="Soft Tricks Code AI Assistant"
-          >
-            {/* Ambient Background Glow Elements */}
-            <div
-              className="pointer-events-none absolute -left-16 -top-16 h-48 w-48 rounded-full bg-blue-600/15 blur-3xl"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute -right-16 top-1/3 h-48 w-48 rounded-full bg-indigo-600/15 blur-3xl"
-              aria-hidden
+          <>
+            {/* Mobile Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => onOpenChange(false)}
+              className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs sm:hidden"
+              aria-hidden="true"
             />
 
-            {/* Header */}
-            <div className="relative z-10 flex items-center justify-between border-b border-white/10 bg-slate-900/60 px-4 py-3 backdrop-blur-xl">
-              <div className="flex items-center gap-3">
-                <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-blue-400/30 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 shadow-inner">
-                  <img
-                    src={BRAND_ASSETS.logoOnDark100}
-                    alt="Soft Tricks Code"
-                    className="h-6 w-6 object-contain"
-                  />
-                  <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full bg-emerald-500 ring-2 ring-[#091124] animate-pulse" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-1.5">
-                    <p className="font-body text-sm font-bold tracking-tight text-white">
-                      Soft Tricks Code
-                    </p>
-                    <span className="rounded-md bg-gradient-to-r from-blue-500 to-cyan-500 px-1.5 py-0.5 text-[9px] font-extrabold uppercase text-white shadow-xs">
-                      AI
-                    </span>
-                  </div>
-                  <p className="text-[11px] text-emerald-400 font-medium flex items-center gap-1 mt-0.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 inline-block" />
-                    Online • Instant 24/7 AI Engine
-                  </p>
-                </div>
-              </div>
+            <motion.div
+              initial={{ opacity: 0, y: '100%' }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: '100%' }}
+              transition={{ type: 'spring', stiffness: 320, damping: 30 }}
+              className="fixed inset-x-0 bottom-0 z-50 flex h-[68dvh] max-h-[560px] min-h-[420px] w-full flex-col overflow-hidden rounded-t-3xl border-t border-x sm:border border-white/20 bg-gradient-to-b from-[#091124] via-[#050b18] to-[#02050e] shadow-[0_-15px_50px_rgba(0,0,0,0.85),0_0_30px_rgba(37,99,235,0.25)] backdrop-blur-2xl sm:inset-auto sm:bottom-6 sm:right-6 sm:h-[600px] sm:w-[420px] sm:rounded-3xl"
+              role="dialog"
+              aria-label="Soft Tricks Code AI Assistant"
+            >
+              {/* Drag Handle on Mobile */}
+              <div className="mx-auto mt-2 h-1 w-10 shrink-0 rounded-full bg-white/25 sm:hidden" aria-hidden="true" />
 
-              <div className="flex items-center gap-1">
-                <button
-                  type="button"
-                  onClick={handleResetChat}
-                  title="Reset conversation"
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 text-slate-400 transition hover:bg-white/10 hover:text-white"
-                  aria-label="Reset chat"
-                >
-                  <RotateCcw size={14} />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => onOpenChange(false)}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 text-slate-400 transition hover:bg-red-500/20 hover:text-red-400"
-                  aria-label="Close chat"
-                >
-                  <X size={16} />
-                </button>
-              </div>
-            </div>
+              {/* Ambient Background Glow Elements */}
+              <div
+                className="pointer-events-none absolute -left-16 -top-16 h-48 w-48 rounded-full bg-blue-600/15 blur-3xl"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute -right-16 top-1/3 h-48 w-48 rounded-full bg-indigo-600/15 blur-3xl"
+                aria-hidden
+              />
 
-            {/* Messages Scroll Area */}
-            <div ref={scrollContainerRef} className="relative z-10 flex-1 space-y-3.5 overflow-y-auto p-4 pt-3.5 hide-scrollbar">
-              {messages.map((msg) => (
-                <motion.div
-                  key={msg.id}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className={`flex flex-col ${msg.from === 'user' ? 'items-end' : 'items-start'}`}
-                >
-                  <div
-                    className={`relative max-w-[92%] rounded-2xl px-4 py-3.5 shadow-lg ${
-                      msg.from === 'user'
-                        ? 'bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-white rounded-br-xs shadow-[0_4px_20px_rgba(37,99,235,0.4)]'
-                        : 'border border-white/12 bg-gradient-to-br from-slate-900/95 via-slate-900/85 to-[#0b162e]/90 text-slate-200 rounded-bl-xs backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)]'
-                    }`}
-                  >
-                    <FormattedText
-                      text={msg.text}
-                      onNavigate={(path) => {
-                        onOpenChange(false);
-                        navigate(path);
-                      }}
+              {/* Header */}
+              <div className="relative z-10 flex items-center justify-between border-b border-white/10 bg-slate-900/80 px-4 py-2.5 sm:py-3.5 backdrop-blur-xl">
+                <div className="flex items-center gap-3">
+                  <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-blue-400/30 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 shadow-inner">
+                    <img
+                      src={BRAND_ASSETS.logoOnDark100}
+                      alt="Soft Tricks Code"
+                      className="h-6 w-6 object-contain"
                     />
-
-                    {/* Action Chips for Bot Responses */}
-                    {msg.actions && msg.actions.length > 0 && (
-                      <div className="mt-3.5 flex flex-wrap gap-2 pt-2.5 border-t border-white/10">
-                        {msg.actions.map((act, i) => (
-                          <button
-                            key={i}
-                            type="button"
-                            onClick={() => handleActionClick(act.action)}
-                            className="group inline-flex items-center gap-1.5 rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/15 via-indigo-500/15 to-cyan-500/10 px-3 py-1.5 text-xs font-semibold text-blue-200 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400 hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:shadow-[0_0_16px_rgba(59,130,246,0.45)] active:scale-95"
-                          >
-                            <span>{act.label}</span>
-                            <ChevronRight size={13} className="text-blue-300 transition-transform group-hover:translate-x-0.5 group-hover:text-white" />
-                          </button>
-                        ))}
-                      </div>
-                    )}
+                    <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full bg-emerald-500 ring-2 ring-[#091124] animate-pulse" />
                   </div>
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <p className="font-body text-sm font-bold tracking-tight text-white">
+                        Soft Tricks Code
+                      </p>
+                      <span className="rounded-md bg-gradient-to-r from-blue-500 to-cyan-500 px-1.5 py-0.5 text-[9px] font-extrabold uppercase text-white shadow-xs">
+                        AI
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-emerald-400 font-medium flex items-center gap-1 mt-0.5">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 inline-block" />
+                      Online • Instant 24/7 AI Engine
+                    </p>
+                  </div>
+                </div>
 
-                  <span className="mt-1 px-1 text-[10px] text-slate-500 font-medium">
-                    {msg.time}
-                  </span>
-                </motion.div>
-              ))}
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={handleResetChat}
+                    title="Reset conversation"
+                    className="flex h-9 w-9 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-white/5 text-slate-400 transition hover:bg-white/10 hover:text-white"
+                    aria-label="Reset chat"
+                  >
+                    <RotateCcw size={15} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => onOpenChange(false)}
+                    className="flex h-9 w-9 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-white/5 text-slate-400 transition hover:bg-red-500/20 hover:text-red-400"
+                    aria-label="Close chat"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+              </div>
 
-              {/* Starter Prompt Cards (Show when chat is fresh) */}
-              {messages.length === 1 && (
-                <motion.div
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15 }}
-                  className="mt-2 grid grid-cols-2 gap-2 pt-1"
-                >
-                  {STARTER_PROMPTS.map((prompt, i) => {
+              {/* Messages Scroll Area */}
+              <div ref={scrollContainerRef} className="relative z-10 flex-1 space-y-3.5 overflow-y-auto p-4 pt-3.5 hide-scrollbar">
+                {messages.map((msg) => (
+                  <motion.div
+                    key={msg.id}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`flex flex-col ${msg.from === 'user' ? 'items-end' : 'items-start'}`}
+                  >
+                    <div
+                      className={`relative max-w-[92%] rounded-2xl px-4 py-3.5 shadow-lg ${
+                        msg.from === 'user'
+                          ? 'bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-white rounded-br-xs shadow-[0_4px_20px_rgba(37,99,235,0.4)]'
+                          : 'border border-white/12 bg-gradient-to-br from-slate-900/95 via-slate-900/85 to-[#0b162e]/90 text-slate-200 rounded-bl-xs backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)]'
+                      }`}
+                    >
+                      <FormattedText
+                        text={msg.text}
+                        onNavigate={(path) => {
+                          onOpenChange(false);
+                          navigate(path);
+                        }}
+                      />
+
+                      {/* Action Chips for Bot Responses */}
+                      {msg.actions && msg.actions.length > 0 && (
+                        <div className="mt-3.5 flex flex-wrap gap-2 pt-2.5 border-t border-white/10">
+                          {msg.actions.map((act, i) => (
+                            <button
+                              key={i}
+                              type="button"
+                              onClick={() => handleActionClick(act.action)}
+                              className="group inline-flex items-center gap-1.5 rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/15 via-indigo-500/15 to-cyan-500/10 px-3 py-1.5 text-xs font-semibold text-blue-200 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400 hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:shadow-[0_0_16px_rgba(59,130,246,0.45)] active:scale-95"
+                            >
+                              <span>{act.label}</span>
+                              <ChevronRight size={13} className="text-blue-300 transition-transform group-hover:translate-x-0.5 group-hover:text-white" />
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    <span className="mt-1 px-1 text-[10px] text-slate-500 font-medium">
+                      {msg.time}
+                    </span>
+                  </motion.div>
+                ))}
+
+                {/* Starter Prompt Cards (Hidden on mobile to save vertical space; shown on desktop sm:) */}
+                {messages.length === 1 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 }}
+                    className="mt-2 hidden sm:grid grid-cols-2 gap-2 pt-1"
+                  >
+                    {STARTER_PROMPTS.map((prompt, i) => {
                     const Icon = prompt.icon;
                     return (
                       <button
@@ -513,7 +527,7 @@ export default function ChatWidget({ open, onOpenChange }) {
             )}
 
             {/* Input Footer */}
-            <div className="relative z-10 border-t border-white/10 bg-slate-950/90 p-3 backdrop-blur-xl">
+            <div className="relative z-10 border-t border-white/10 bg-slate-950/95 p-3 backdrop-blur-xl pb-[max(0.75rem,env(safe-area-inset-bottom))]">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -540,8 +554,9 @@ export default function ChatWidget({ open, onOpenChange }) {
               </form>
             </div>
           </motion.div>
-        )}
-      </AnimatePresence>
+        </>
+      )}
+    </AnimatePresence>
     </>
   );
 }

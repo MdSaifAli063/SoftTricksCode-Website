@@ -25,7 +25,7 @@ export default function PageBanner({ badge, title, subtitle, breadcrumbs = [] })
         )}
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="text-center">
           {badge && <SectionBadge className="mb-4">{badge}</SectionBadge>}
-          <h1 className="mx-auto max-w-3xl font-serif text-3xl font-bold text-white sm:text-4xl md:text-5xl">
+          <h1 className="mx-auto max-w-3xl font-serif text-3xl font-bold !text-white sm:text-4xl md:text-5xl">
             {title}
           </h1>
           {subtitle && (
