@@ -429,10 +429,10 @@ export default function ChatWidget({ open, onOpenChange }) {
                     className={`flex flex-col ${msg.from === 'user' ? 'items-end' : 'items-start'}`}
                   >
                     <div
-                      className={`relative max-w-[92%] rounded-2xl px-4 py-3.5 shadow-lg ${
+                      className={`relative rounded-2xl px-4 py-3 shadow-lg ${
                         msg.from === 'user'
-                          ? 'bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-white rounded-br-xs shadow-[0_4px_20px_rgba(37,99,235,0.4)]'
-                          : 'border border-white/12 bg-gradient-to-br from-slate-900/95 via-slate-900/85 to-[#0b162e]/90 text-slate-200 rounded-bl-xs backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)]'
+                          ? 'max-w-[75%] bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 text-white rounded-br-sm shadow-[0_4px_20px_rgba(37,99,235,0.4)]'
+                          : 'w-full max-w-[95%] border border-white/12 bg-gradient-to-br from-slate-900/95 via-slate-900/85 to-[#0b162e]/90 text-slate-200 rounded-bl-sm backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.3)]'
                       }`}
                     >
                       <FormattedText
@@ -445,16 +445,16 @@ export default function ChatWidget({ open, onOpenChange }) {
 
                       {/* Action Chips for Bot Responses */}
                       {msg.actions && msg.actions.length > 0 && (
-                        <div className="mt-3.5 flex flex-wrap gap-2 pt-2.5 border-t border-white/10">
+                        <div className="mt-3 grid grid-cols-2 gap-2 pt-2.5 border-t border-white/10">
                           {msg.actions.map((act, i) => (
                             <button
                               key={i}
                               type="button"
                               onClick={() => handleActionClick(act.action)}
-                              className="group inline-flex items-center gap-1.5 rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/15 via-indigo-500/15 to-cyan-500/10 px-3 py-1.5 text-xs font-semibold text-blue-200 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400 hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:shadow-[0_0_16px_rgba(59,130,246,0.45)] active:scale-95"
+                              className="group flex items-center justify-between gap-1 rounded-xl border border-blue-500/25 bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-cyan-500/5 px-3 py-2.5 text-[11px] font-semibold text-blue-200 transition-all duration-200 hover:border-blue-400 hover:from-blue-600/80 hover:to-indigo-600/80 hover:text-white hover:shadow-[0_0_12px_rgba(59,130,246,0.35)] active:scale-95"
                             >
-                              <span>{act.label}</span>
-                              <ChevronRight size={13} className="text-blue-300 transition-transform group-hover:translate-x-0.5 group-hover:text-white" />
+                              <span className="truncate leading-snug">{act.label}</span>
+                              <ChevronRight size={11} className="shrink-0 text-blue-400 transition-transform group-hover:translate-x-0.5 group-hover:text-white" />
                             </button>
                           ))}
                         </div>
@@ -467,13 +467,13 @@ export default function ChatWidget({ open, onOpenChange }) {
                   </motion.div>
                 ))}
 
-                {/* Starter Prompt Cards (Hidden on mobile to save vertical space; shown on desktop sm:) */}
-                {messages.length === 1 && (
+                {/* Starter Prompt Cards — compact horizontal rows */}
+                {messages.length === 1 && window.innerWidth >= 640 && (
                   <motion.div
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.15 }}
-                    className="mt-2 hidden sm:grid grid-cols-2 gap-2 pt-1"
+                    className="mt-2 grid grid-cols-2 gap-1.5 pt-1"
                   >
                     {STARTER_PROMPTS.map((prompt, i) => {
                     const Icon = prompt.icon;
@@ -482,16 +482,16 @@ export default function ChatWidget({ open, onOpenChange }) {
                         key={i}
                         type="button"
                         onClick={() => handleSendMessage(prompt.query)}
-                        className="group flex flex-col items-start justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-3 text-left transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-500/40 hover:bg-gradient-to-br hover:from-blue-900/20 hover:to-indigo-900/20 hover:shadow-[0_4px_16px_rgba(37,99,235,0.2)]"
+                        className="group flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.04] p-2.5 text-left transition-all duration-200 hover:border-blue-500/40 hover:bg-gradient-to-br hover:from-blue-900/20 hover:to-indigo-900/20 hover:shadow-[0_4px_12px_rgba(37,99,235,0.2)] active:scale-95"
                       >
-                        <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-500/10 text-cyan-400 border border-blue-500/20 transition group-hover:scale-110 group-hover:bg-blue-500/20">
-                          <Icon size={16} />
+                        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-blue-500/10 text-cyan-400 border border-blue-500/20 transition group-hover:bg-blue-500/20">
+                          <Icon size={14} />
                         </div>
-                        <div className="mt-2.5 min-w-0">
-                          <p className="text-xs font-bold text-white group-hover:text-cyan-300 transition">
+                        <div className="min-w-0">
+                          <p className="text-[11px] font-bold text-white leading-tight group-hover:text-cyan-300 transition truncate">
                             {prompt.title}
                           </p>
-                          <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">
+                          <p className="text-[9px] text-slate-500 mt-0.5 line-clamp-1 leading-tight">
                             {prompt.desc}
                           </p>
                         </div>
@@ -507,17 +507,17 @@ export default function ChatWidget({ open, onOpenChange }) {
 
             {/* Quick Starter Pills Carousel */}
             {messages.length <= 2 && (
-              <div className="relative z-10 border-t border-white/5 bg-slate-950/40 px-3 py-2">
-                <div className="flex items-center gap-1.5 overflow-x-auto hide-scrollbar pb-1">
-                  <span className="text-[11px] text-slate-400 font-medium whitespace-nowrap flex items-center gap-1 mr-1">
-                    <Sparkles size={12} className="text-cyan-400" /> Quick:
+              <div className="relative z-10 border-t border-white/5 bg-slate-950/50 px-3 py-2">
+                <div className="flex items-center gap-1.5 overflow-x-auto hide-scrollbar">
+                  <span className="flex shrink-0 items-center gap-1 text-[10px] font-semibold text-slate-500 uppercase tracking-wide mr-1">
+                    <Sparkles size={11} className="text-cyan-500" /> Quick:
                   </span>
                   {INITIAL_QUICK_CHIPS.map((chip, i) => (
                     <button
                       key={i}
                       type="button"
                       onClick={() => handleSendMessage(chip.query)}
-                      className="shrink-0 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300 transition hover:border-blue-400/50 hover:bg-blue-500/20 hover:text-white"
+                      className="shrink-0 rounded-full border border-white/10 bg-white/[0.06] px-2.5 py-1 text-[11px] font-medium text-slate-300 transition hover:border-blue-400/50 hover:bg-blue-500/20 hover:text-white whitespace-nowrap"
                     >
                       {chip.label}
                     </button>
