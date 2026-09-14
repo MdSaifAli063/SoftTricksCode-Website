@@ -122,33 +122,49 @@ def main() -> None:
     light_512.save(PUBLIC / "logo-mark-on-dark.webp", "WEBP", quality=90)
     contain(light_mark, 100, 4).save(PUBLIC / "logo-mark-on-dark-100.webp", "WEBP", quality=90)
 
-    for size in (16, 32, 48):
-        solid_icon(dark_mark, size, (255, 255, 255, 255)).convert("RGB").save(
-            PUBLIC / f"favicon-{size}.png", optimize=True
+    # Generate favicons and app icons directly from the canonical favicon.png
+    fav_src_path = PUBLIC / "favicon.png"
+    if fav_src_path.exists():
+        fav_src = Image.open(fav_src_path).convert("RGBA")
+        for size in (16, 32, 48, 256, 512):
+            fav_src.resize((size, size), Image.Resampling.LANCZOS).save(
+                PUBLIC / f"favicon-{size}.png", optimize=True
+            )
+
+        favicon_sizes = [16, 32, 48, 64, 128, 256]
+        ico_images = [fav_src.resize((size, size), Image.Resampling.LANCZOS) for size in favicon_sizes]
+        ico_images[0].save(
+            PUBLIC / "favicon.ico",
+            format="ICO",
+            sizes=[(size, size) for size in favicon_sizes],
+            append_images=ico_images[1:],
         )
 
-    favicon_sizes = [16, 32, 48]
-    favicon_images = [
-        solid_icon(dark_mark, size, (255, 255, 255, 255)).convert("RGBA")
-        for size in favicon_sizes
-    ]
-    favicon_images[-1].save(
-        PUBLIC / "favicon.ico",
-        format="ICO",
-        sizes=[(size, size) for size in favicon_sizes],
-        append_images=favicon_images[:-1],
-    )
+        for size in (192, 256, 512):
+            fav_src.resize((size, size), Image.Resampling.LANCZOS).save(
+                PUBLIC / f"icon-{size}.png", optimize=True
+            )
 
-    for size in (192, 256, 512):
-        solid_icon(dark_mark, size, (255, 255, 255, 255)).convert("RGB").save(
-            PUBLIC / f"icon-{size}.png", optimize=True
-        )
+        # Apple touch icon (180x180) on opaque white canvas for iOS
+        apple_canvas = Image.new("RGBA", (180, 180), (255, 255, 255, 255))
+        apple_canvas.alpha_composite(fav_src.resize((180, 180), Image.Resampling.LANCZOS))
+        apple_canvas.convert("RGB").save(PUBLIC / "apple-touch-icon.png", optimize=True)
 
-    solid_icon(dark_mark, 180, (255, 255, 255, 255)).convert("RGB").save(
-        PUBLIC / "apple-touch-icon.png", optimize=True
-    )
-    from generate_og_image import create_og_image
-    create_og_image()
+        # Maskable icon (512x512) with safe zone for Android PWA
+        maskable_size = 512
+        safe_size = round(maskable_size * 0.8)
+        maskable_canvas = Image.new("RGBA", (maskable_size, maskable_size), (255, 255, 255, 255))
+        maskable_inner = fav_src.resize((safe_size, safe_size), Image.Resampling.LANCZOS)
+        offset = ((maskable_size - safe_size) // 2, (maskable_size - safe_size) // 2)
+        maskable_canvas.alpha_composite(maskable_inner, offset)
+        maskable_canvas.save(PUBLIC / "icon-maskable-512.png", optimize=True)
+
+    try:
+        # pyrefly: ignore [missing-import]
+        from generate_og_image import create_og_image
+        create_og_image()
+    except Exception:
+        pass
 
 
 if __name__ == "__main__":

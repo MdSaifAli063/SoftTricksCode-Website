@@ -1,4 +1,6 @@
 export const BRAND_ASSETS = {
+  favicon: '/favicon.png',
+  faviconIco: '/favicon.ico',
   logo: '/logo-mark.webp',
   logoPng: '/logo-mark.png',
   logoOnDark: '/logo-mark-on-dark.webp',

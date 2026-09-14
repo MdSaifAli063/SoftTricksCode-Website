@@ -374,11 +374,11 @@ export default function ChatWidget({ open, onOpenChange }) {
               {/* Header */}
               <div className="relative z-10 flex items-center justify-between border-b border-white/10 bg-slate-900/80 px-4 py-2.5 sm:py-3.5 backdrop-blur-xl">
                 <div className="flex items-center gap-3">
-                  <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-blue-400/30 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 shadow-inner">
+                  <div className="relative flex h-10 w-10 shrink-0 items-center justify-center">
                     <img
-                      src={BRAND_ASSETS.logoOnDark100}
+                      src={BRAND_ASSETS.favicon}
                       alt="Soft Tricks Code"
-                      className="h-6 w-6 object-contain"
+                      className="h-10 w-10 rounded-xl object-contain shadow-md"
                     />
                     <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full bg-emerald-500 ring-2 ring-[#091124] animate-pulse" />
                   </div>
