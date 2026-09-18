@@ -167,7 +167,39 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBFCK4C"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <div id="root"></div>
+  <div id="root">
+    <!-- Static semantic pre-render for SEO & GEO crawlers prior to JS hydration -->
+    <header style="position:relative;z-index:1;padding:1.25rem 1rem;display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;">
+      <a href="/" style="color:#ffffff;text-decoration:none;font-size:1.25rem;font-weight:800;display:inline-flex;align-items:center;gap:0.6rem;">
+        <img src="/favicon.png" alt="Soft Tricks Code" width="36" height="36" style="border-radius:8px;object-fit:contain;" />
+        Soft Tricks Code
+      </a>
+      <nav aria-label="Main Navigation" style="display:flex;gap:1.25rem;align-items:center;">
+        <a href="/services" style="color:#cbd5e1;text-decoration:none;font-size:0.875rem;">Services</a>
+        <a href="/portfolio" style="color:#cbd5e1;text-decoration:none;font-size:0.875rem;">Portfolio</a>
+        <a href="/pricing" style="color:#cbd5e1;text-decoration:none;font-size:0.875rem;">Pricing</a>
+        <a href="/about" style="color:#cbd5e1;text-decoration:none;font-size:0.875rem;">About</a>
+        <a href="/contact" style="color:#cbd5e1;text-decoration:none;font-size:0.875rem;">Contact</a>
+      </nav>
+    </header>
+
+    <main style="max-width:1024px;margin:0 auto;padding:4rem 1rem 6rem;text-align:center;">
+      <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:2.5rem;font-weight:700;line-height:1.2;color:#ffffff;margin:0 auto 1.25rem;max-width:56rem;">
+        Innovate with Smart Software Solutions for Business Growth
+      </h1>
+      <p style="font-family:Inter,system-ui,sans-serif;font-size:1.125rem;line-height:1.7;color:#94a3b8;max-width:44rem;margin:0 auto 2rem;">
+        Innovate with Soft Tricks Code — your software partner for websites, mobile apps, AI tools, and custom platforms across healthcare, agriculture, education, and enterprise SaaS.
+      </p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="/contact" style="display:inline-block;padding:0.75rem 1.75rem;background-color:#2563eb;color:#ffffff;border-radius:9999px;text-decoration:none;font-weight:600;font-family:Inter,system-ui,sans-serif;">
+          Free Consultation
+        </a>
+        <a href="/portfolio" style="display:inline-block;padding:0.75rem 1.75rem;background-color:#ffffff;color:#0f172a;border-radius:9999px;text-decoration:none;font-weight:600;font-family:Inter,system-ui,sans-serif;">
+          Explore Our Work
+        </a>
+      </div>
+    </main>
+  </div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
