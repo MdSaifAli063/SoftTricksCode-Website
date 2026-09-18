@@ -12,145 +12,137 @@ import ErrorBoundary from './ErrorBoundary';
 
 export const TextHoverEffect = ({
   text = 'Soft Tricks Code',
-  duration = 0.3,
+  duration = 0.25,
   className = '',
 }) => {
   const svgRef = useRef(null);
   const [cursor, setCursor] = useState({ x: null, y: null });
   const [hovered, setHovered] = useState(false);
-  const [maskPosition, setMaskPosition] = useState({ cx: '50%', cy: '50%' });
+  const [maskPosition, setMaskPosition] = useState({ cx: 480, cy: 60 });
 
   useEffect(() => {
     if (svgRef.current && cursor.x !== null && cursor.y !== null) {
       const svgRect = svgRef.current.getBoundingClientRect();
-      const cxPercentage = ((cursor.x - svgRect.left) / svgRect.width) * 100;
-      const cyPercentage = ((cursor.y - svgRect.top) / svgRect.height) * 100;
-      setMaskPosition({
-        cx: `${cxPercentage}%`,
-        cy: `${cyPercentage}%`,
-      });
+      if (svgRect.width > 0 && svgRect.height > 0) {
+        const cx = Math.max(0, Math.min(960, ((cursor.x - svgRect.left) / svgRect.width) * 960));
+        const cy = Math.max(0, Math.min(120, ((cursor.y - svgRect.top) / svgRect.height) * 120));
+        setMaskPosition({ cx, cy });
+      }
     }
   }, [cursor]);
 
+  const handleTouch = (e) => {
+    if (e.touches && e.touches[0]) {
+      setHovered(true);
+      setCursor({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+    }
+  };
+
   return (
-    <div className="relative w-full overflow-hidden select-none">
+    <div className="relative w-full overflow-hidden select-none py-2 sm:py-4">
       <svg
         ref={svgRef}
         width="100%"
         height="100%"
-        viewBox="0 0 920 115"
+        viewBox="0 0 960 120"
         xmlns="http://www.w3.org/2000/svg"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
-        onTouchStart={(e) => {
+        onMouseMove={(e) => {
           setHovered(true);
-          if (e.touches && e.touches[0]) {
-            setCursor({ x: e.touches[0].clientX, y: e.touches[0].clientY });
-          }
+          setCursor({ x: e.clientX, y: e.clientY });
         }}
-        onTouchMove={(e) => {
-          if (e.touches && e.touches[0]) {
-            setCursor({ x: e.touches[0].clientX, y: e.touches[0].clientY });
-          }
-        }}
+        onTouchStart={handleTouch}
+        onTouchMove={handleTouch}
         onTouchEnd={() => setHovered(false)}
         onTouchCancel={() => setHovered(false)}
-        className={clsx('select-none uppercase cursor-pointer w-full h-auto', className)}
+        className={clsx('select-none uppercase cursor-pointer w-full h-auto block', className)}
+        style={{
+          filter:
+            'drop-shadow(0 0 10px rgba(0, 212, 255, 0.5)) drop-shadow(0 0 28px rgba(37, 99, 235, 0.3))',
+        }}
       >
         <defs>
           <linearGradient
             id="textGradient"
             gradientUnits="userSpaceOnUse"
-            x1="0%"
-            y1="0%"
-            x2="100%"
-            y2="0%"
+            x1="0"
+            y1="0"
+            x2="960"
+            y2="0"
           >
             <stop offset="0%" stopColor="#eab308" />
             <stop offset="25%" stopColor="#ef4444" />
-            <stop offset="50%" stopColor="#80eeb4" />
+            <stop offset="50%" stopColor="#10b981" />
             <stop offset="75%" stopColor="#00d4ff" />
-            <stop offset="100%" stopColor="#8b5cf6" />
+            <stop offset="100%" stopColor="#a855f7" />
           </linearGradient>
 
-          <motion.radialGradient
+          <radialGradient
             id="revealMask"
             gradientUnits="userSpaceOnUse"
-            r={hovered ? '28%' : '18%'}
-            initial={{ cx: '50%', cy: '50%' }}
-            animate={maskPosition}
-            transition={{ duration: duration ?? 0, ease: 'easeOut' }}
+            r={hovered ? 220 : 0}
+            cx={maskPosition.cx}
+            cy={maskPosition.cy}
+            style={{
+              transition: `cx ${duration * 1000}ms ease-out, cy ${duration * 1000}ms ease-out, r 300ms ease-out`,
+            }}
           >
-            <stop offset="0%" stopColor="white" />
-            <stop offset="100%" stopColor="black" />
-          </motion.radialGradient>
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
+            <stop offset="70%" stopColor="#ffffff" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#000000" stopOpacity="0" />
+          </radialGradient>
           <mask id="textMask">
             <rect
               x="0"
               y="0"
-              width="100%"
-              height="100%"
+              width="960"
+              height="120"
               fill="url(#revealMask)"
             />
           </mask>
         </defs>
 
-        {/* Base outline - crisp, clear contrast */}
-        <text
-          x="50%"
-          y="53%"
-          textAnchor="middle"
-          dominantBaseline="middle"
-          strokeWidth="1.2"
-          fontSize="76"
-          fontWeight="900"
-          className="fill-transparent stroke-slate-400/60 font-sans tracking-wide"
-          style={{ opacity: hovered ? 0.9 : 0.65 }}
-        >
-          {text}
-        </text>
-
-        {/* Animated glowing neon stroke outline - radiant vibrant cyan */}
+        {/* Primary Glowing Neon Cyan Brand Stroke */}
         <motion.text
           x="50%"
-          y="53%"
+          y="50%"
           textAnchor="middle"
-          dominantBaseline="middle"
-          strokeWidth="1.5"
-          fontSize="76"
+          dominantBaseline="central"
+          strokeWidth="1.6"
+          fontSize="72"
           fontWeight="900"
-          className="fill-transparent stroke-sky-400 dark:stroke-stc-cyan font-sans tracking-wide"
-          style={{
-            filter:
-              'drop-shadow(0 0 8px rgba(56, 189, 248, 0.85)) drop-shadow(0 0 24px rgba(37, 99, 235, 0.5))',
-          }}
-          initial={{ strokeDashoffset: 4000, strokeDasharray: 4000 }}
-          animate={{
-            strokeDashoffset: 0,
-            strokeDasharray: 4000,
-          }}
-          transition={{
-            duration: 3,
-            ease: 'easeInOut',
-          }}
+          fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+          letterSpacing="0.03em"
+          stroke="#00d4ff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+          initial={{ strokeDashoffset: 3500, strokeDasharray: 3500 }}
+          animate={{ strokeDashoffset: 0, strokeDasharray: 3500 }}
+          transition={{ duration: 2.2, ease: 'easeInOut' }}
+          className="select-none"
         >
           {text}
         </motion.text>
 
-        {/* Rainbow gradient text revealed under cursor / touch mask - vivid radiance */}
+        {/* Rainbow Gradient Reveal Layer under touch/mouse spotlight */}
         <text
           x="50%"
-          y="53%"
+          y="50%"
           textAnchor="middle"
-          dominantBaseline="middle"
+          dominantBaseline="central"
           stroke="url(#textGradient)"
-          strokeWidth="1.6"
-          fontSize="76"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fontSize="72"
           fontWeight="900"
+          fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+          letterSpacing="0.03em"
+          fill="none"
           mask="url(#textMask)"
-          className="fill-transparent font-sans tracking-wide transition-opacity duration-300"
-          style={{ opacity: hovered ? 1 : 0.7 }}
+          className="select-none pointer-events-none"
         >
           {text}
         </text>
