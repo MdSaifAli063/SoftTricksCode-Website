@@ -1,6 +1,7 @@
 import Seo from '../components/ui/Seo';
 import PageBanner from '../components/ui/PageBanner';
 import Services from '../components/sections/Services';
+import ProductsTeaser from '../components/sections/ProductsTeaser';
 
 export default function ServicesPage() {
   return (
@@ -17,6 +18,7 @@ export default function ServicesPage() {
         breadcrumbs={['Services']}
       />
       <Services showAllLink={false} pageMode />
+      <ProductsTeaser />
     </>
   );
 }

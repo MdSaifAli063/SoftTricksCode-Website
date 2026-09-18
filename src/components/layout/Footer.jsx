@@ -8,11 +8,12 @@ import { SITE } from '../../constants/site';
 import BrandLogo from '../ui/BrandLogo';
 import { useBooking } from '../../context/BookingContext';
 import clsx from 'clsx';
+import { TextHoverEffect, FooterBackgroundGradient } from '../ui/hover-footer';
 
 const quickLinks = [
   { to: '/about', label: 'About Us' },
   { to: '/services', label: 'Our Services' },
-  { to: '/about', label: 'Our Team' },
+  { to: '/products', label: 'Our Products' },
   { to: '/blog', label: 'Latest Blog' },
   { to: '/contact', label: 'Contact Us' },
 ];
@@ -85,12 +86,12 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="footer-waves relative border-t border-white/5 pt-28 sm:pt-32">
-        <div className="section-padding mx-auto max-w-7xl !pt-0">
+      <div className="footer-waves relative border-t border-white/10 pt-28 sm:pt-32">
+        <div className="section-padding mx-auto max-w-7xl !pt-0 relative z-10">
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
             <div>
               <BrandLogo iconSize={56} />
-              <p className="mt-4 text-sm leading-relaxed text-stc-gray">
+              <p className="mt-4 text-sm leading-relaxed text-slate-400 font-normal">
                 Building world-class software that solves real problems. Founded by Md Saif Ali &
                 Ashwini T Gadad — serving clients worldwide from India.
               </p>
@@ -115,10 +116,10 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     aria-label={label}
                     className={clsx(
-                      'flex h-10 w-10 items-center justify-center rounded-full transition',
+                      'flex h-10 w-10 items-center justify-center rounded-full transition shadow-sm',
                       highlight
                         ? 'bg-stc-primary text-white'
-                        : 'bg-white/5 text-stc-gray hover:bg-stc-primary hover:text-white'
+                        : 'bg-white/5 text-slate-400 hover:bg-stc-primary hover:text-white'
                     )}
                   >
                     <Icon size={16} />
@@ -127,21 +128,21 @@ export default function Footer() {
               </div>
             </div>
 
-            <div>
-              <h3 className="font-serif text-lg font-bold text-white">Quick Links</h3>
+            <div className="md:mx-auto md:justify-self-center">
+              <h3 className="font-serif text-lg font-bold text-white tracking-wide">Quick Links</h3>
               <ul className="mt-5 space-y-2.5">
                 {quickLinks.map((link) => {
                   const active = pathname === link.to;
                   return (
                     <li key={link.label} className="flex items-center gap-2">
                       {active && (
-                        <span className="h-1.5 w-1.5 rounded-full bg-stc-primary" aria-hidden />
+                        <span className="h-1.5 w-1.5 rounded-full bg-stc-cyan" aria-hidden />
                       )}
                       <Link
                         to={link.to}
                         className={clsx(
-                          'text-sm transition',
-                          active ? 'text-white' : 'text-stc-gray hover:text-stc-primary-light'
+                          'text-sm transition-colors',
+                          active ? 'font-semibold text-stc-cyan' : 'text-slate-400 hover:text-white'
                         )}
                       >
                         {link.label}
@@ -153,13 +154,13 @@ export default function Footer() {
             </div>
 
             <div>
-              <h3 className="font-serif text-lg font-bold text-white">Services</h3>
+              <h3 className="font-serif text-lg font-bold text-white tracking-wide">Services</h3>
               <ul className="mt-5 space-y-2.5">
                 {serviceLinks.map((title) => (
                   <li key={title}>
                     <Link
                       to="/services"
-                      className="text-sm text-stc-gray transition hover:text-stc-primary-light"
+                      className="text-sm text-slate-400 transition-colors hover:text-white"
                     >
                       {title}
                     </Link>
@@ -169,8 +170,8 @@ export default function Footer() {
             </div>
 
             <div>
-              <h3 className="font-serif text-lg font-bold text-white">Newsletter</h3>
-              <p className="mt-2 text-sm text-stc-gray">Don&apos;t miss the latest news</p>
+              <h3 className="font-serif text-lg font-bold text-white tracking-wide">Newsletter</h3>
+              <p className="mt-2 text-sm text-slate-400">Don&apos;t miss the latest news</p>
               <form onSubmit={handleNewsletter} className="mt-4">
                 <div className="relative">
                   <input
@@ -179,7 +180,7 @@ export default function Footer() {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full rounded-full border border-white/10 bg-white/5 py-3 pl-5 pr-14 text-sm text-white placeholder:text-stc-gray/50 focus:border-stc-primary focus:outline-none"
+                    className="w-full rounded-full border border-white/10 bg-white/5 py-3 pl-5 pr-14 text-sm text-white placeholder:text-slate-500 focus:border-stc-cyan focus:bg-white/10 focus:outline-none transition-colors"
                   />
                   <button
                     type="submit"
@@ -190,7 +191,7 @@ export default function Footer() {
                     <Send size={16} />
                   </button>
                 </div>
-                <label className="mt-3 flex cursor-pointer items-start gap-2 text-xs text-stc-gray">
+                <label className="mt-3 flex cursor-pointer items-start gap-2 text-xs text-slate-400">
                   <input
                     type="checkbox"
                     checked={consent}
@@ -203,20 +204,28 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-center text-xs text-stc-gray sm:flex-row sm:text-left sm:text-sm">
+          <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-center text-xs text-slate-400 sm:flex-row sm:text-left sm:text-sm">
             <p>© {new Date().getFullYear()} Soft Tricks Code. All Rights Reserved.</p>
             <div className="flex gap-4">
-              <Link to="/privacy-policy" className="hover:text-white transition">
+              <Link to="/privacy-policy" className="hover:text-white transition text-slate-400">
                 Privacy Policy
               </Link>
               <span className="text-white/20">|</span>
-              <Link to="/terms" className="hover:text-white transition">
+              <Link to="/terms" className="hover:text-white transition text-slate-400">
                 Terms of Service
               </Link>
             </div>
           </div>
         </div>
+
+        {/* Giant Interactive Animated Brand Name Banner */}
+        <div className="relative z-10 w-full overflow-hidden pt-2 pb-24 sm:pt-4 sm:pb-10">
+          <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-8">
+            <TextHoverEffect text="Soft Tricks Code" />
+          </div>
+        </div>
       </div>
+      <FooterBackgroundGradient />
     </footer>
   );
 }

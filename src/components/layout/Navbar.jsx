@@ -8,11 +8,12 @@ import clsx from 'clsx';
 
 const links = [
   { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
   { to: '/services', label: 'Services' },
+  { to: '/products', label: 'Products' },
   { to: '/portfolio', label: 'Portfolio' },
   { to: '/pricing', label: 'Pricing' },
   { to: '/blog', label: 'Blog' },
+  { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
 ];
 

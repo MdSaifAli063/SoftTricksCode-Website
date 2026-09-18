@@ -7,6 +7,7 @@ import { SITE } from '../constants/site';
 
 const quickLinks = [
   { to: '/services', label: 'Services' },
+  { to: '/products', label: 'Products' },
   { to: '/portfolio', label: 'Portfolio' },
   { to: '/contact', label: 'Contact' },
 ];

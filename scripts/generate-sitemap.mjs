@@ -37,6 +37,7 @@ const siteUrl = (
 const routes = [
   "/",
   "/services",
+  "/products",
   "/portfolio",
   "/about",
   "/pricing",
@@ -54,7 +55,7 @@ const formattedUrls = urls
     <loc>${siteUrl}${url}</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>${url === "/" ? "1.0" : url === "/blog" ? "0.9" : "0.8"}</priority>
+    <priority>${url === "/" ? "1.0" : (url === "/services" || url === "/products" || url === "/blog") ? "0.9" : "0.8"}</priority>
   </url>`,
   )
   .join("\n");
@@ -87,6 +88,7 @@ Soft Tricks Code is founded by Md Saif Ali and Ashwini T Gadad, operating global
 - [Home](${siteUrl}/): Comprehensive overview of services, company mission, technology stack, featured client work, transparent pricing, and client reviews.
 - [About Us](${siteUrl}/about): Discover our company mission, core engineering values, executive leadership, founders, and expert technical team.
 - [Services](${siteUrl}/services): In-depth software engineering and development services including custom websites, web applications, mobile app development, digital marketing, AI automation, and brand identity design.
+- [Products](${siteUrl}/products): Proprietary software products built and launched by Soft Tricks Code, including Dailydoubt (www.dailydoubt.com) — a 3-number digital business ledger and GST invoicing app for Indian retail merchants.
 - [Portfolio](${siteUrl}/portfolio): Case studies, live demonstrations, open-source repositories, and digital applications built for healthcare, ecommerce, agriculture, and enterprise sectors.
 - [Pricing](${siteUrl}/pricing): Transparent, customizable software development pricing plans ranging from starter landing pages to enterprise platforms with free consultation calls.
 - [Blog](${siteUrl}/blog): Technical articles, engineering tutorials, industry insights, best practices in modern web development, AI integration, and mobile app design.

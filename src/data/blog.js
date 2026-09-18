@@ -120,4 +120,62 @@ First-class React, Vue, and Svelte support with minimal configuration.
 Rollup-powered production builds deliver optimized, tree-shaken output.
     `.trim(),
   },
+  {
+    slug: "building-dailydoubt-offline-first-shop-ledger",
+    title: "Building Dailydoubt: Offline-First Shop Ledger for Indian Retailers",
+    excerpt:
+      "How we engineered Dailydoubt to solve daily bookkeeping, automated GST tax calculations, and trilingual accounting for Indian merchants.",
+    category: "Products",
+    cover: "/images/products/dailydoubt.png",
+    date: "2025-02-15",
+    readTime: "7 min read",
+    author: defaultAuthor.name,
+    authorAvatar: defaultAuthor.avatar,
+    content: `
+## The Challenge with Paper Bahi-Khatas
+
+For generations, traditional Indian kirana store owners and retail merchants have tracked accounts with manual paper notebooks. These bahi-khatas are easily lost, impossible to search, and lack automatic calculations for net profits after daily home and business expenses.
+
+## The 3-Number Ledger Philosophy
+
+When building Dailydoubt, our product team focused on extreme simplicity. Instead of overwhelming merchants with double-entry accounting jargon, we distilled daily finances down to 3 inputs: Daily Collections, Shop Business Expenses, and Home Expenses. Dailydoubt instantly computes true daily and monthly net profit.
+
+## Automated GST Invoicing & WhatsApp Sharing
+
+Indian retail merchants need fast, compliant billing. We built a smart invoicing engine that splits CGST and SGST automatically, generates professional parchment invoices with sequential numbering, and lets shopkeepers send PDF receipts via WhatsApp in a single tap.
+
+## Offline-First Architecture & Trilingual Support
+
+Retail storefronts frequently experience network dips. Dailydoubt uses an embedded SQLite database that operates 100% offline and syncs securely when connectivity returns. Native localization in English, Hindi (हिंदी), and Kannada (ಕನ್ನಡ) ensures every merchant can onboard effortlessly.
+    `.trim(),
+  },
+  {
+    slug: "from-services-to-software-products-innovation-lab",
+    title: "From Services to Software Products: Building Our In-House Lab",
+    excerpt:
+      "Why Soft Tricks Code invests in proprietary software products alongside client engineering, and how firsthand product ownership elevates every client project.",
+    category: "Products",
+    cover: "/images/products/products-lab-preview.jpg",
+    date: "2025-01-25",
+    readTime: "6 min read",
+    author: defaultAuthor.name,
+    authorAvatar: defaultAuthor.avatar,
+    content: `
+## The Dual-Engine Engineering Model
+
+Most digital agencies operate exclusively on client billable hours. At Soft Tricks Code, we deliberately maintain an active in-house product laboratory. This dual engine empowers our engineers to continuously explore new architectures, deploy independent tools, and maintain true production ownership.
+
+## Moving from Delivery to Ownership
+
+Agency projects prioritize fast delivery against sprint scopes. Building proprietary software—such as Dailydoubt and STC UI Builder—demands end-to-end accountability: user onboarding optimization, schema migrations, offline caching, database scaling, and customer support loops.
+
+## How Product Ownership Elevates Client Solutions
+
+When clients partner with Soft Tricks Code, they get more than developers writing code to spec. They work with engineers who run live production products. We bring practical knowledge in app store submissions, cloud cost containment, payment gateways, and conversion-focused UX to every client engagement.
+
+## Looking Forward: Our Innovation Pipeline
+
+Our product laboratory continues to build and incubate next-generation tools, focusing on developer productivity, merchant SaaS, and modern web builders. Dogfooding our own software ensures our engineering standards remain sharp, battle-tested, and ahead of the curve.
+    `.trim(),
+  },
 ];

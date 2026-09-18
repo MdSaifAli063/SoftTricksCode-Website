@@ -146,6 +146,35 @@ If you have any more questions or want to discuss a custom project, feel free to
   }
 
   // ==========================================
+  // 7.5 PROPRIETARY PRODUCTS & DAILYDOUBT
+  // ==========================================
+  if (
+    hasWord(
+      query,
+      /\b(product|products|dailydoubt|daily doubt|our products|proprietary products|what products|ledger app|gst invoice app)\b/i
+    )
+  ) {
+    return {
+      text: `**Soft Tricks Code** conceives, engineers, and launches proprietary software products alongside our custom client services! 🚀
+
+Our first launched flagship product is **Dailydoubt** ([www.dailydoubt.com](https://www.dailydoubt.com/)):
+• **Digital Business & Shop Ledger**: Replaces paper bahi-khata with a fast 3-number daily ledger (Collection, Shop Expenses, Home Expenses → Net Daily & Monthly Profit).
+• **Smart GST Invoicing**: Automatic 50/50 CGST & SGST split, sequential invoice numbering, parchment PDFs, and 1-tap WhatsApp sharing.
+• **Indian Business Calculator**: Built-in keypad with Indian numbering system (₹ 1,25,000), quick GST rate chips (+5%, +12%, +18%, +28%), and running tape audit.
+• **Trilingual**: Native support in English, Hindi (हिंदी), and Kannada (ಕನ್ನಡ).
+• **Zero Permissions & Cloud Sync**: 100% cloud-synced via Supabase with PostgreSQL Row Level Security (RLS).
+
+Available live on Android and Web!`,
+      actions: [
+        { label: 'Explore Products', action: 'nav_products' },
+        { label: 'Visit dailydoubt.com', action: 'ext_dailydoubt' },
+        { label: 'Explore Services', action: 'nav_services' },
+        { label: 'Book Free Call', action: 'book_call' },
+      ],
+    };
+  }
+
+  // ==========================================
   // 8. CORE SERVICES & OFFERINGS (HIGH PRIORITY)
   // ==========================================
   if (

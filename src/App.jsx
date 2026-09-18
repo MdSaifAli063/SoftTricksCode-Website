@@ -7,6 +7,7 @@ import { initEmailJS } from './utils/emailService';
 import Home from './pages/Home';
 
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
+const ProductsPage = lazy(() => import('./pages/ProductsPage'));
 const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const PricingPage = lazy(() => import('./pages/PricingPage'));
@@ -40,6 +41,7 @@ export default function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="services" element={<ServicesPage />} />
+              <Route path="products" element={<ProductsPage />} />
               <Route path="portfolio" element={<PortfolioPage />} />
               <Route path="about" element={<AboutPage />} />
               <Route path="pricing" element={<PricingPage />} />

@@ -4,6 +4,7 @@ import ServiceHighlights from '../components/sections/ServiceHighlights';
 import About from '../components/sections/About';
 import ClientLogos from '../components/sections/ClientLogos';
 import Services from '../components/sections/Services';
+import ProductsTeaser from '../components/sections/ProductsTeaser';
 import WhyChoose from '../components/sections/WhyChoose';
 import StatsBar from '../components/sections/StatsBar';
 import Portfolio from '../components/sections/Portfolio';
@@ -25,6 +26,7 @@ export default function Home() {
       <ServiceHighlights />
       <ClientLogos />
       <Services limit={6} showFeatured />
+      <ProductsTeaser />
       <WhyChoose />
       <StatsBar />
       <Portfolio limit={3} />

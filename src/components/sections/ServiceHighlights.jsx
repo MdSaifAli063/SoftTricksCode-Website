@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
-import { Cloud, Brain, Shield } from 'lucide-react';
+import { Globe, Brain, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const highlights = [
   {
     num: '01',
-    icon: Cloud,
-    title: 'Web & Cloud Services',
+    icon: Globe,
+    title: 'Web & Application',
     description:
-      'Custom websites, web applications, and scalable cloud deployment on AWS, GCP, and modern stacks.',
+      'Custom websites, web applications, and high-performance software engineered for speed, UX, and scale.',
     featured: false,
   },
   {
@@ -22,9 +22,9 @@ const highlights = [
   {
     num: '03',
     icon: Shield,
-    title: 'Cyber Security',
+    title: 'Cloud Services & Cyber Security',
     description:
-      'Secure architecture, audits, and hardened applications built with security from day one.',
+      'Scalable cloud infrastructure on AWS and GCP, security audits, and hardened applications built to protect your data.',
     featured: false,
   },
 ];
