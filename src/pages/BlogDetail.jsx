@@ -34,11 +34,11 @@ export default function BlogDetail() {
           <ArrowLeft size={18} /> Back to Blog
         </Link>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <div className="relative overflow-hidden rounded-3xl">
+          <div className="relative overflow-hidden rounded-3xl bg-slate-100 dark:bg-slate-900">
             <img
               src={post.cover}
               alt={`${post.title} cover image`}
-              className="aspect-[16/10] max-h-[280px] w-full object-cover sm:aspect-auto sm:max-h-[420px]"
+              className="aspect-[16/9] max-h-[360px] w-full object-cover sm:aspect-auto sm:max-h-[460px]"
               loading="lazy"
             />
             <span className="absolute bottom-4 left-4 rounded-full bg-stc-primary px-3 py-1 text-xs font-semibold text-white">

@@ -236,6 +236,11 @@ export default function ChatWidget({ open, onOpenChange }) {
     if (action === 'nav_services') {
       onOpenChange(false);
       navigate('/services');
+    } else if (action === 'nav_products') {
+      onOpenChange(false);
+      navigate('/products');
+    } else if (action === 'ext_dailydoubt') {
+      window.open('https://www.dailydoubt.com', '_blank', 'noopener,noreferrer');
     } else if (action === 'nav_portfolio') {
       onOpenChange(false);
       navigate('/portfolio');

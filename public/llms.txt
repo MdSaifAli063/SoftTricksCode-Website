@@ -9,6 +9,7 @@ Soft Tricks Code is founded by Md Saif Ali and Ashwini T Gadad, operating global
 - [Home](https://softtrickscode.com/): Comprehensive overview of services, company mission, technology stack, featured client work, transparent pricing, and client reviews.
 - [About Us](https://softtrickscode.com/about): Discover our company mission, core engineering values, executive leadership, founders, and expert technical team.
 - [Services](https://softtrickscode.com/services): In-depth software engineering and development services including custom websites, web applications, mobile app development, digital marketing, AI automation, and brand identity design.
+- [Products](https://softtrickscode.com/products): Proprietary software products built and launched by Soft Tricks Code, including Dailydoubt (www.dailydoubt.com) — a 3-number digital business ledger and GST invoicing app for Indian retail merchants.
 - [Portfolio](https://softtrickscode.com/portfolio): Case studies, live demonstrations, open-source repositories, and digital applications built for healthcare, ecommerce, agriculture, and enterprise sectors.
 - [Pricing](https://softtrickscode.com/pricing): Transparent, customizable software development pricing plans ranging from starter landing pages to enterprise platforms with free consultation calls.
 - [Blog](https://softtrickscode.com/blog): Technical articles, engineering tutorials, industry insights, best practices in modern web development, AI integration, and mobile app design.
@@ -29,6 +30,8 @@ Soft Tricks Code is founded by Md Saif Ali and Ashwini T Gadad, operating global
 - [How AI Chatbots Transform Customer Support](https://softtrickscode.com/blog/ai-chatbots-for-business): Learn how custom GPT-powered chatbots reduce response times and improve customer satisfaction.
 - [Building HIPAA-Aware Healthcare Software](https://softtrickscode.com/blog/healthcare-software-guide): A practical guide to security, compliance, and architecture for healthcare applications.
 - [Why We Choose Vite Over Webpack in 2025](https://softtrickscode.com/blog/vite-vs-webpack-2025): Faster dev server, smaller bundles, and better DX — here is why Vite wins for modern projects.
+- [Building Dailydoubt: Offline-First Shop Ledger for Indian Retailers](https://softtrickscode.com/blog/building-dailydoubt-offline-first-shop-ledger): How we engineered Dailydoubt to solve daily bookkeeping, automated GST tax calculations, and trilingual accounting for Indian merchants.
+- [From Services to Software Products: Building Our In-House Lab](https://softtrickscode.com/blog/from-services-to-software-products-innovation-lab): Why Soft Tricks Code invests in proprietary software products alongside client engineering, and how firsthand product ownership elevates every client project.
 
 ## Extended Documentation
 

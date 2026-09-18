@@ -16,8 +16,8 @@ export default function Hero() {
         </h1>
 
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-stc-gray sm:text-lg">
-          Innovate with Soft Tricks Code — your software partner for websites, mobile apps, AI tools,
-          and custom platforms across healthcare, agriculture, education, and more.
+          Innovate with Soft Tricks Code — your software partner for proprietary digital products,
+          high-performance websites, mobile apps, AI tools, and custom enterprise platforms.
         </p>
 
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

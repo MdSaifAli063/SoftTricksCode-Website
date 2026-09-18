@@ -18,11 +18,11 @@ export default function BlogCard({ post }) {
   return (
     <article className="group">
       <Link to={`/blog/${post.slug}`} className="block">
-        <div className="relative overflow-hidden rounded-2xl">
+        <div className="relative overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-900">
           <img
             src={post.cover}
             alt={post.title}
-            className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
+            className="aspect-[16/9] w-full object-cover transition duration-500 group-hover:scale-105"
             loading="lazy"
           />
           <div className="absolute right-3 top-3 rounded-lg bg-stc-black/75 px-2.5 py-2 text-center text-white backdrop-blur-sm">

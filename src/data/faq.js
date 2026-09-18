@@ -5,6 +5,21 @@ export const faqItems = [
       'We use modern stacks including React, Next.js, Node.js, Python, React Native, Flutter, PostgreSQL, MongoDB, AWS, Docker, and AI frameworks like TensorFlow and OpenAI APIs.',
   },
   {
+    question: 'What proprietary software products has Soft Tricks Code developed?',
+    answer:
+      'Alongside bespoke client engineering, we actively architect and operate our own independent software products. Our flagship product is Dailydoubt (www.dailydoubt.com) — a fast, offline-first digital business ledger and GST invoicing app built for Indian retail merchants and small businesses. We also have upcoming developer tools in our product lab, including the STC UI Builder.',
+  },
+  {
+    question: 'Can we license or white-label your software products?',
+    answer:
+      'Yes. We offer commercial licensing, custom white-label deployments, API integrations, and strategic technology partnerships for our proprietary digital products. Reach out through our contact page or book a call to discuss collaboration options.',
+  },
+  {
+    question: 'How does your product division benefit your client engineering services?',
+    answer:
+      'Running our own production software products gives our engineers firsthand product ownership experience. When engineering client applications, we apply battle-tested architectures, payment gateway integrations, app store compliance standards, and cloud cost containment learned directly from operating live products.',
+  },
+  {
     question: 'How long does a typical project take?',
     answer:
       'Landing pages take 1–2 weeks, business websites 3–6 weeks, and complex platforms 2–4 months. We provide a detailed timeline after the free consultation.',
