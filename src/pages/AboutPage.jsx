@@ -7,8 +7,8 @@ export default function AboutPage() {
   return (
     <>
       <Seo
-        title="About — Soft Tricks Code"
-        description="Meet the Soft Tricks Code founders and team behind modern web, AI, and full-stack software solutions."
+        title="About Soft Tricks Code | Company, Founders & Leadership"
+        description="Meet the Soft Tricks Code leadership and engineering team building modern web apps, AI tools, and full-stack software solutions for high-growth companies."
         pathname="/about"
       />
       <PageBanner

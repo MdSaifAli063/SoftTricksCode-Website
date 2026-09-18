@@ -6,8 +6,8 @@ export default function PortfolioPage() {
   return (
     <>
       <Seo
-        title="Portfolio — Soft Tricks Code"
-        description="See Soft Tricks Code website, AI, SaaS, and product design case studies delivering measurable business impact."
+        title="Portfolio & Case Studies"
+        description="Explore Soft Tricks Code portfolio case studies showcasing high-performance websites, AI solutions, SaaS platforms, and digital products driving client ROI."
         pathname="/portfolio"
       />
       <PageBanner

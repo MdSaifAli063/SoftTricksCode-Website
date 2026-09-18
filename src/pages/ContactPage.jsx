@@ -7,7 +7,7 @@ export default function ContactPage() {
     <>
       <Seo
         title="Contact — Soft Tricks Code"
-        description="Contact Soft Tricks Code for website development, AI solutions, SaaS, and software consulting with fast response times."
+        description="Contact Soft Tricks Code for custom website development, mobile apps, AI solutions, and software consulting. Get a free project quote and fast consultation."
         pathname="/contact"
       />
       <PageBanner

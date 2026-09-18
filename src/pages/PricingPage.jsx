@@ -92,7 +92,7 @@ export default function PricingPage() {
     <>
       <Seo
         title="Pricing — Soft Tricks Code"
-        description="Discover transparent, negotiable pricing for web development, mobile apps (Android & iOS), SaaS, and custom software from Soft Tricks Code."
+        description="Discover transparent, negotiable pricing for custom web development, mobile apps, AI tools, and full-stack SaaS platforms from Soft Tricks Code engineering."
         pathname="/pricing"
       />
 

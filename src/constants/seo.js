@@ -15,7 +15,7 @@ export const SEO_CONFIG = {
     "Soft Tricks Code | Software Development & AI Solutions",
 
   defaultDescription:
-    "Soft Tricks Code provides custom web development, mobile apps, SaaS platforms, AI solutions, and software consulting for startups and businesses.",
+    "Soft Tricks Code provides custom web development, mobile apps, SaaS platforms, AI solutions, and software consulting engineered for growing global businesses.",
 
   keywords:
     "Software Development Company, Web Development, Mobile App Development, AI Solutions, SaaS Development, Cloud Services, Full Stack Development, UI UX Design, Software Consulting, Custom Software Development",
