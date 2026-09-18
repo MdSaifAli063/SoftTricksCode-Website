@@ -6,8 +6,8 @@ export default function ServicesPage() {
   return (
     <>
       <Seo
-        title="Services — Soft Tricks Code"
-        description="Comprehensive web development, AI solutions, full-stack, SaaS, UI/UX, and cloud services from Soft Tricks Code."
+        title="Software Development & AI Services"
+        description="Explore custom web development, mobile apps, AI solutions, full-stack SaaS engineering, UI/UX design, and cloud consulting services from Soft Tricks Code."
         pathname="/services"
       />
       <PageBanner

@@ -80,7 +80,7 @@ export default function TermsPage() {
     <>
       <Seo
         title="Terms of Service — Soft Tricks Code"
-        description="Review the Terms of Service for Soft Tricks Code. Clear guidelines regarding custom software agreements, milestone payments, source code ownership, and warranties."
+        description="Review Terms of Service for Soft Tricks Code. Guidelines covering custom software agreements, milestone payments, source code ownership, and warranties."
         pathname="/terms"
       />
 

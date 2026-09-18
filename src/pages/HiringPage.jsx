@@ -92,7 +92,7 @@ export default function HiringPage() {
     <>
       <Seo
         title="Careers — Soft Tricks Code"
-        description="Join Soft Tricks Code for frontend, backend, AI, cloud, and product engineering roles. Remote-friendly hiring from startups to enterprise projects."
+        description="Join the Soft Tricks Code engineering team for frontend, backend, AI, and cloud roles. Work remotely on impactful software projects for global businesses."
         pathname="/careers"
         robots="noindex, follow"
       />

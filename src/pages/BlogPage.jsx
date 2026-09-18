@@ -9,7 +9,7 @@ export default function BlogPage() {
     <>
       <Seo
         title="Blog — Soft Tricks Code"
-        description="Read about web development, AI solutions, full-stack product strategy, and software best practices from Soft Tricks Code."
+        description="Explore expert articles on modern web development, AI integration, full-stack product strategy, React, and software engineering insights from Soft Tricks Code."
         pathname="/blog"
       />
 
