@@ -157,6 +157,11 @@ export default function Seo({
       <meta name="author" content={pageAuthor} />
       <meta name="robots" content={robots} />
 
+      {/* Search Engine Verification (Default/Home Page) */}
+      {(!pathname || pathname === '/') && (
+        <meta name="msvalidate.01" content="56786DEDABF2F37D95D12490E0F7DDE2" />
+      )}
+
       {/* Open Graph */}
       <meta property="og:type" content={type === 'article' ? 'article' : 'website'} />
       <meta property="og:title" content={pageTitle} />
