@@ -89,6 +89,7 @@ export const upcomingProducts = [
     badge: 'Coming Soon',
     description:
       'Next-generation visual interface builder empowering developers, creators, and businesses to assemble high-converting web layouts, responsive UI components, and export clean, production-ready React, Tailwind CSS, and HTML code in seconds.',
+    image: '/images/products/ui-builder-showcase.jpg',
     tech: ['React', 'Tailwind CSS', 'TypeScript', 'Canvas Engine', 'Node.js'],
   },
 ];

@@ -142,11 +142,11 @@ export default function ProductsPage() {
                   </div>
                 </div>
 
-                {/* Action Buttons - Always visible in front view! */}
-                <div className="mt-4 sm:mt-5 flex flex-wrap items-center gap-2.5 sm:gap-3">
+                {/* Action Buttons - Responsive stacking on mobile */}
+                <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3">
                   <GlowButton
                     href={flagship.websiteUrl}
-                    className="gap-2 shadow-fly justify-center py-2 px-4 sm:py-2.5 sm:px-5 text-xs sm:text-sm"
+                    className="w-full sm:w-auto gap-2 shadow-fly justify-center py-2.5 px-4 sm:px-5 text-xs sm:text-sm"
                   >
                     <span>Visit www.dailydoubt.com</span>
                     <ExternalLink size={14} />
@@ -155,7 +155,7 @@ export default function ProductsPage() {
                   <GlowButton
                     href={flagship.downloadUrl}
                     variant="outline"
-                    className="gap-2 justify-center py-2 px-4 sm:py-2.5 sm:px-5 text-xs sm:text-sm"
+                    className="w-full sm:w-auto gap-2 justify-center py-2.5 px-4 sm:px-5 text-xs sm:text-sm"
                   >
                     <Download size={14} />
                     <span>Download Android App</span>
@@ -283,75 +283,94 @@ export default function ProductsPage() {
               </p>
             </div>
 
-            <div className="mx-auto mt-6 sm:mt-8 max-w-3xl">
+            <div className="mx-auto mt-6 sm:mt-8 max-w-4xl">
               {upcomingProducts.map((product) => (
                 <div
                   key={product.id}
-                  className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-white p-5 sm:p-8 lg:p-10 shadow-lg shadow-slate-200/50 transition duration-300 hover:border-stc-primary/40 hover:shadow-xl"
+                  className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-white p-5 sm:p-7 lg:p-8 shadow-lg shadow-slate-200/50 transition duration-300 hover:border-stc-primary/40 hover:shadow-xl"
                 >
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-300 bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-800">
-                      <Sparkles size={12} />
-                      {product.badge}
-                    </span>
-                    <span className="text-xs font-medium text-slate-500">{product.category}</span>
-                  </div>
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                    <div className={product.image ? 'lg:col-span-7' : 'lg:col-span-12'}>
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-300 bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-800">
+                          <Sparkles size={12} />
+                          {product.badge}
+                        </span>
+                        <span className="text-xs font-medium text-slate-500">{product.category}</span>
+                      </div>
 
-                  <h4 className="mt-3 sm:mt-4 font-serif text-xl xs:text-2xl sm:text-3xl font-bold text-slate-900">
-                    {product.name}
-                  </h4>
-                  <p className="mt-1 text-sm sm:text-base font-semibold text-stc-primary">
-                    {product.tagline}
-                  </p>
-                  <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm lg:text-base leading-relaxed text-slate-600">
-                    {product.description}
-                  </p>
+                      <h4 className="mt-3 sm:mt-4 font-serif text-xl xs:text-2xl sm:text-3xl font-bold text-slate-900">
+                        {product.name}
+                      </h4>
+                      <p className="mt-1 text-sm sm:text-base font-semibold text-stc-primary">
+                        {product.tagline}
+                      </p>
+                      <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm lg:text-base leading-relaxed text-slate-600">
+                        {product.description}
+                      </p>
 
-                  <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-2 border-t border-slate-200 pt-4 sm:pt-5">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 mr-1">
-                      Tech Stack:
-                    </span>
-                    {product.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-full bg-slate-100 px-2.5 py-0.5 sm:px-3 sm:py-1 text-xs font-medium text-slate-700"
-                      >
-                        {t}
-                      </span>
-                    ))}
+                      <div className="mt-4 sm:mt-5 flex flex-wrap items-center gap-1.5 sm:gap-2 border-t border-slate-100 pt-3.5 sm:pt-4">
+                        <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 mr-1">
+                          Tech Stack:
+                        </span>
+                        {product.tech.map((t) => (
+                          <span
+                            key={t}
+                            className="rounded-full bg-slate-100 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[11px] sm:text-xs font-medium text-slate-700"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {product.image && (
+                      <div className="lg:col-span-5">
+                        <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200/80 shadow-md aspect-[16/10] bg-slate-950">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            width="600"
+                            height="375"
+                            className="w-full h-full object-cover object-top"
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Bottom Consultation CTA - Responsive Buttons & Typography */}
+          {/* Bottom Consultation CTA - Responsive Buttons & Visible White Typography */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-14 sm:mt-20 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-stc-navy via-stc-black to-stc-navy p-6 sm:p-10 lg:p-12 text-center shadow-2xl"
+            className="dark-card mt-12 sm:mt-16 md:mt-20 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-stc-navy via-stc-black to-stc-navy p-5 sm:p-8 md:p-10 lg:p-12 text-center shadow-2xl border border-white/10"
           >
-            <Layers className="mx-auto text-stc-primary-light" size={36} />
-            <h3 className="mt-3.5 sm:mt-4 font-serif text-xl xs:text-2xl sm:text-3xl font-bold text-white">
+            <Layers className="mx-auto text-stc-primary-light" size={32} />
+            <h3 className="mt-3 sm:mt-4 font-serif text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold !text-white leading-snug">
               Have a Proprietary Product Idea You Want Built?
             </h3>
-            <p className="mx-auto mt-2.5 sm:mt-3 max-w-2xl text-xs sm:text-sm lg:text-base text-blue-100/90 leading-relaxed">
+            <p className="mx-auto mt-2 sm:mt-3 max-w-2xl text-xs sm:text-sm md:text-base !text-blue-100/90 leading-relaxed">
               Soft Tricks Code partners with startups and enterprises to build full-scale SaaS,
               mobile platforms, and AI engines from discovery to market launch.
             </p>
-            <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
+            <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row flex-wrap justify-center items-stretch sm:items-center gap-3 sm:gap-4">
               <GlowButton
                 onClick={openBooking}
-                className="w-full sm:w-auto gap-2 justify-center py-3"
+                className="w-full sm:w-auto gap-2 justify-center py-2.5 sm:py-3 text-xs sm:text-sm"
               >
                 <span>Book a Free Product Discovery Call</span>
-                <ArrowRight size={16} />
+                <ArrowRight size={15} />
               </GlowButton>
               <GlowButton
                 to="/services"
                 variant="outline"
-                className="w-full sm:w-auto justify-center py-3"
+                className="w-full sm:w-auto justify-center py-2.5 sm:py-3 text-xs sm:text-sm"
               >
                 <span>Explore Custom Engineering Services</span>
               </GlowButton>

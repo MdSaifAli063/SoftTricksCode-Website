@@ -150,7 +150,16 @@
   .section-light [class*='from-[#0'] h3,
   .section-light [class*='bg-[#0'] h1,
   .section-light [class*='bg-[#0'] h2,
-  .section-light [class*='bg-[#0'] h3 {
+  .section-light [class*='bg-[#0'] h3,
+  .section-light [class*='stc-navy'] h1,
+  .section-light [class*='stc-navy'] h2,
+  .section-light [class*='stc-navy'] h3,
+  .section-light [class*='stc-black'] h1,
+  .section-light [class*='stc-black'] h2,
+  .section-light [class*='stc-black'] h3,
+  .section-light .dark-card h1,
+  .section-light .dark-card h2,
+  .section-light .dark-card h3 {
     color: #ffffff !important;
   }
 

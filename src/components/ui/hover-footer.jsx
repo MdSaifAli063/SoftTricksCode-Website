@@ -103,13 +103,14 @@ export const TextHoverEffect = ({
           </mask>
         </defs>
 
-        {/* Primary Glowing Neon Cyan Brand Stroke */}
+        {/* Primary Glowing Neon Cyan Brand Stroke with Brand Color Fills */}
         <motion.text
           x="50%"
           y="50%"
           textAnchor="middle"
           dominantBaseline="central"
           strokeWidth="1.6"
+          paintOrder="stroke fill"
           fontSize="72"
           fontWeight="900"
           fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
@@ -117,13 +118,15 @@ export const TextHoverEffect = ({
           stroke="#00d4ff"
           strokeLinecap="round"
           strokeLinejoin="round"
-          fill="none"
           initial={{ strokeDashoffset: 3500, strokeDasharray: 3500 }}
           animate={{ strokeDashoffset: 0, strokeDasharray: 3500 }}
           transition={{ duration: 2.2, ease: 'easeInOut' }}
           className="select-none"
+          xmlSpace="preserve"
         >
-          {text}
+          <tspan fill="#ffffff">SOFT </tspan>
+          <tspan fill="#3b82f6">TRICKS </tspan>
+          <tspan fill="#ffffff">CODE</tspan>
         </motion.text>
 
         {/* Rainbow Gradient Reveal Layer under touch/mouse spotlight */}
