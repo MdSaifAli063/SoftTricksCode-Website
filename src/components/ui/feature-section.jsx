@@ -15,24 +15,32 @@ export function FeatureSteps({
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
+  // Advance feature on autoPlayInterval
   useEffect(() => {
     if (isPaused || !features.length) return;
 
+    const timer = setInterval(() => {
+      setCurrentFeature((curr) => (curr + 1) % features.length);
+      setProgress(0);
+    }, autoPlayInterval);
+
+    return () => clearInterval(timer);
+  }, [features.length, autoPlayInterval, isPaused]);
+
+  // Increment progress bar between steps
+  useEffect(() => {
+    if (isPaused || !features.length) return;
+
+    setProgress(0);
     const intervalTime = 100;
     const step = 100 / (autoPlayInterval / intervalTime);
 
     const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev + step >= 100) {
-          setCurrentFeature((curr) => (curr + 1) % features.length);
-          return 0;
-        }
-        return prev + step;
-      });
+      setProgress((prev) => (prev + step >= 100 ? 100 : prev + step));
     }, intervalTime);
 
     return () => clearInterval(timer);
-  }, [features.length, autoPlayInterval, isPaused]);
+  }, [currentFeature, features.length, autoPlayInterval, isPaused]);
 
   const handleStepClick = (index) => {
     setCurrentFeature(index);
@@ -133,14 +141,14 @@ export function FeatureSteps({
                       )}
                     </div>
 
-                    <h4
+                    <h3
                       className={cn(
                         'font-serif text-sm sm:text-lg md:text-xl lg:text-2xl font-bold mt-1 sm:mt-1.5 transition-colors leading-snug',
                         isActive ? 'text-slate-950' : 'text-slate-800 group-hover:text-slate-950'
                       )}
                     >
                       {feature.title}
-                    </h4>
+                    </h3>
 
                     <p
                       className={cn(
@@ -186,7 +194,7 @@ export function FeatureSteps({
                         className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
                         width="1200"
                         height="1000"
-                        loading="eager"
+                        loading={index === 0 ? 'eager' : 'lazy'}
                       />
 
                       {/* Glossy top reflection highlight */}

@@ -7,7 +7,7 @@ const productFeatures = [
     title: 'Intelligent SaaS & AI Workflow Automation',
     content:
       'We architect intuitive, high-speed SaaS dashboards powered by real-time analytics, automated AI workflows, and proactive decision intelligence.',
-    image: '/images/products/feature-step-1.jpg',
+    image: '/images/products/feature-step-1.webp',
   },
   {
     step: 'Phase 02',
@@ -15,7 +15,7 @@ const productFeatures = [
     title: 'High-Throughput Cloud & Micro-Service Mesh',
     content:
       'Distributed multi-region infrastructure engineered with sub-50ms API response targets, automated load balancing, and fault-tolerant failovers.',
-    image: '/images/products/feature-step-2.jpg',
+    image: '/images/products/feature-step-2.webp',
   },
   {
     step: 'Phase 03',
@@ -23,7 +23,7 @@ const productFeatures = [
     title: 'Unified Cross-Device Ecosystem & Live Sync',
     content:
       'End-to-end synchronized digital products spanning native mobile applications, responsive web portals, and offline-first cloud databases.',
-    image: '/images/products/feature-step-3.jpg',
+    image: '/images/products/feature-step-3.webp',
   },
 ];
 
