@@ -8,6 +8,12 @@ import CircleArrowBtn from '../ui/CircleArrowBtn';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
+const SWIPER_MODULES = [Navigation];
+const SWIPER_NAVIGATION = {
+  prevEl: '.testimonial-prev',
+  nextEl: '.testimonial-next',
+};
+
 const CLIENT_BRANDS = [
   {
     name: 'Computer World',
@@ -68,16 +74,13 @@ export default function Testimonials() {
               />
 
               <Swiper
-                modules={[Navigation]}
+                modules={SWIPER_MODULES}
                 spaceBetween={0}
                 slidesPerView={1}
                 observer={true}
                 observeParents={true}
                 loop
-                navigation={{
-                  prevEl: '.testimonial-prev',
-                  nextEl: '.testimonial-next',
-                }}
+                navigation={SWIPER_NAVIGATION}
                 className="relative z-10 w-full min-w-0"
               >
                 {testimonials.map((t) => (

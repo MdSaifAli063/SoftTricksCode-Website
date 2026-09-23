@@ -17,6 +17,13 @@ import clsx from 'clsx';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
+const TEAM_SWIPER_MODULES = [Navigation];
+const TEAM_SWIPER_NAV = { prevEl: '.team-prev', nextEl: '.team-next' };
+const TEAM_SWIPER_BREAKPOINTS = {
+  640: { slidesPerView: 2 },
+  1024: { slidesPerView: 3 },
+};
+
 const SOCIAL_ICONS = [
   { key: 'github', Icon: FaGithub },
   { key: 'youtube', Icon: FaYoutube },
@@ -177,14 +184,11 @@ export default function Team() {
         </div>
 
         <Swiper
-          modules={[Navigation]}
+          modules={TEAM_SWIPER_MODULES}
           spaceBetween={24}
           slidesPerView={1}
-          navigation={{ prevEl: '.team-prev', nextEl: '.team-next' }}
-          breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
+          navigation={TEAM_SWIPER_NAV}
+          breakpoints={TEAM_SWIPER_BREAKPOINTS}
         >
           {team.map((member) => (
             <SwiperSlide key={member.id} className="!h-auto">
