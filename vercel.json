@@ -6,11 +6,28 @@
   "installCommand": "npm install",
   "rewrites": [
     {
-      "source": "/((?!api|assets|favicon.png|favicon.ico|favicon-16.png|favicon-32.png|favicon-48.png|favicon-256.png|favicon-512.png|apple-touch-icon.png|icon-192.png|icon-256.png|icon-512.png|icon-maskable-512.png|logo-mark.png|logo-mark-on-dark.png|og-image.png|robots.txt|sitemap.xml|manifest.webmanifest|ai-catalog.json).*)",
+      "source": "/((?!api|assets|\\.well-known|favicon.*|apple-touch-icon.*|icon-.*|logo-.*|og-image.*|robots\\.txt|sitemap\\.xml|manifest\\.webmanifest|ai-catalog\\.json|ard\\.json|llms.*).*)",
       "destination": "/index.html"
     }
   ],
   "headers": [
+    {
+      "source": "/(ai-catalog\\.json|\\.well-known/(.*)|ard\\.json)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, must-revalidate"
+        }
+      ]
+    },
     {
       "source": "/assets/(.*)",
       "headers": [

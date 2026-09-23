@@ -12,8 +12,8 @@ export const founders = [
     imageVariant: "portrait",
     mobileCropPosition: "center 30%",
     cropPosition: "center 70%",
-    phone: "+91 90312 28966",
-    phoneTel: "+919031228966",
+    phone: "+91 83108 29379",
+    phoneTel: "+918310829379",
     skills: ["React", "Node.js", "Python", "AI/ML"],
     social: {
       github: "https://github.com/MdSaifAli063",

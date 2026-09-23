@@ -209,7 +209,9 @@ export default function Services({
                       {service.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full bg-stc-primary/15 px-2.5 py-0.5 text-xs text-stc-primary-light font-medium"
+                          className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                            pageMode ? 'bg-blue-100 text-blue-700' : 'bg-stc-primary/15 text-blue-300'
+                          }`}
                         >
                           {tag}
                         </span>

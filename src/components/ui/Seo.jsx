@@ -168,7 +168,7 @@ export default function Seo({
       ],
       contactPoint: {
         '@type': 'ContactPoint',
-        telephone: '+91-90312-28966',
+        telephone: '+91-83108-29379',
         contactType: 'customer service',
         email: SEO_CONFIG.contactEmail,
         areaServed: 'Worldwide',
@@ -184,7 +184,7 @@ export default function Seo({
       url: SITE_URL,
       logo: SEO_CONFIG.logo,
       email: SEO_CONFIG.contactEmail,
-      telephone: '+91-90312-28966',
+      telephone: '+91-83108-29379',
       priceRange: '$$',
       address: {
         '@type': 'PostalAddress',

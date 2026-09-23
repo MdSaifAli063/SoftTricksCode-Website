@@ -537,7 +537,7 @@ Every project includes responsive design, custom architecture, and 100% full sou
 • **Connect**:
   - GitHub: [github.com/MdSaifAli063](${saif?.social?.github || 'https://github.com/MdSaifAli063'})
   - LinkedIn: [Md Saif Ali LinkedIn](${saif?.social?.linkedin || 'https://www.linkedin.com/in/mdsaifali063'})
-  - Phone / WhatsApp: \`${saif?.phone || '+91 90312 28966'}\``,
+  - Phone / WhatsApp: \`${saif?.phone || '+91 83108 29379'}\``,
       actions: [
         { label: 'WhatsApp Saif', action: 'whatsapp_saif' },
         { label: 'Book Free Call', action: 'book_call' },
@@ -590,7 +590,7 @@ Every project includes responsive design, custom architecture, and 100% full sou
 1. **${saif?.name || 'Md Saif Ali'}** — **Founder & CEO**
 • Lead Full-Stack & AI Systems Architect.
 • Creator of the YouTube channel \`@SoftTricksCode\` (25K+ developers).
-• Direct: \`${saif?.phone || '+91 90312 28966'}\`
+• Direct: \`${saif?.phone || '+91 83108 29379'}\`
 
 2. **${ashwini?.name || 'Ashwini T Gadad'}** — **Co-Founder & COO**
 • Operations, Product Strategy & Client Delivery Success.

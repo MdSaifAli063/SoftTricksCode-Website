@@ -29,7 +29,10 @@ export default defineConfig({
             if (id.includes('lucide-react') || id.includes('react-icons')) {
               return 'vendor-icons';
             }
-            if (id.includes('swiper') || id.includes('vanilla-tilt') || id.includes('react-hot-toast')) {
+            if (id.includes('swiper')) {
+              return 'vendor-swiper';
+            }
+            if (id.includes('vanilla-tilt') || id.includes('react-hot-toast')) {
               return 'vendor-ui';
             }
             if (

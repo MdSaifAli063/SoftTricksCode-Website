@@ -25,10 +25,12 @@ export default function StatsBar() {
       <div className="relative mx-auto max-w-7xl">
         <div className="relative overflow-hidden rounded-4xl sm:rounded-5xl">
           <img
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&h=500&q=75"
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&h=400&q=75&fm=webp"
+            srcSet="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=480&h=240&q=75&fm=webp 480w, https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&h=400&q=75&fm=webp 800w, https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&h=500&q=75&fm=webp 1200w"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 800px, 1200px"
             alt="Team meeting"
-            width="1200"
-            height="500"
+            width="800"
+            height="400"
             decoding="async"
             className="h-64 w-full object-cover sm:h-80 md:h-[420px]"
             loading="lazy"

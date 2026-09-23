@@ -9,7 +9,8 @@ export default function CustomCursor() {
 
     // Only enable on desktop with fine mouse pointer (disable on touch / mobile / responsive)
     const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
-    if (!mediaQuery.matches || window.innerWidth < 1024) return;
+    let isDesktop = mediaQuery.matches && window.innerWidth >= 1024;
+    if (!isDesktop) return;
 
     const dot = dotRef.current;
     const ring = ringRef.current;
@@ -23,18 +24,21 @@ export default function CustomCursor() {
     let rafId = null;
     let isHovered = false;
 
-    const onMouseMove = (e) => {
-      // Re-verify width in case of resize
-      if (window.innerWidth < 1024) {
+    const onResize = () => {
+      isDesktop = mediaQuery.matches && window.innerWidth >= 1024;
+      if (!isDesktop) {
         dot.style.opacity = '0';
         ring.style.opacity = '0';
-        return;
       }
+    };
+
+    const onMouseMove = (e) => {
+      if (!isDesktop) return;
 
       mouseX = e.clientX;
       mouseY = e.clientY;
 
-      dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+      dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) scale(${isHovered ? 1.4 : 1})`;
       dot.style.opacity = '1';
       ring.style.opacity = '1';
 
@@ -58,19 +62,13 @@ export default function CustomCursor() {
       ) {
         if (!isHovered) {
           isHovered = true;
-          ring.style.width = '44px';
-          ring.style.height = '44px';
           ring.style.borderColor = '#60a5fa';
           ring.style.backgroundColor = 'rgba(59, 130, 246, 0.18)';
-          dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) scale(1.4)`;
         }
       } else if (isHovered) {
         isHovered = false;
-        ring.style.width = '32px';
-        ring.style.height = '32px';
         ring.style.borderColor = 'rgba(59, 130, 246, 0.6)';
         ring.style.backgroundColor = 'rgba(59, 130, 246, 0.08)';
-        dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) scale(1)`;
       }
     };
 
@@ -81,15 +79,15 @@ export default function CustomCursor() {
     };
 
     const onMouseDown = () => {
-      if (window.innerWidth < 1024) return;
+      if (!isDesktop) return;
       dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) scale(0.7)`;
       ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%) scale(0.85)`;
     };
 
     const onMouseUp = () => {
-      if (window.innerWidth < 1024) return;
+      if (!isDesktop) return;
       dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) scale(${isHovered ? 1.4 : 1})`;
-      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%) scale(1)`;
+      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%) scale(${isHovered ? 1.375 : 1})`;
     };
 
     const renderRing = () => {
@@ -98,7 +96,7 @@ export default function CustomCursor() {
       ringX += dx * 0.22;
       ringY += dy * 0.22;
 
-      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%) scale(${isHovered ? 1.375 : 1})`;
 
       if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
         rafId = requestAnimationFrame(renderRing);
@@ -107,12 +105,14 @@ export default function CustomCursor() {
       }
     };
 
+    window.addEventListener('resize', onResize, { passive: true });
     window.addEventListener('mousemove', onMouseMove, { passive: true });
     window.addEventListener('mousedown', onMouseDown, { passive: true });
     window.addEventListener('mouseup', onMouseUp, { passive: true });
     document.addEventListener('mouseleave', onMouseLeave, { passive: true });
 
     return () => {
+      window.removeEventListener('resize', onResize);
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('mouseup', onMouseUp);
