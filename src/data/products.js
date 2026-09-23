@@ -9,8 +9,8 @@ export const products = [
     status: 'Live & Active',
     websiteUrl: 'https://www.dailydoubt.com',
     downloadUrl:
-      'https://expo.dev/accounts/softtrickscode/projects/dailydoubt/builds/7406947d-d161-44c9-b9da-1d88c0b385be',
-    image: '/images/products/dailydoubt.png',
+      'https://expo.dev/accounts/softtrickscode/projects/dailydoubt/builds/560786a7-31ae-453f-b127-891592814ae7',
+    image: '/images/products/dailydoubt.webp',
     heroDescription:
       'Dailydoubt helps Indian shopkeepers, retailers, and small businesses track daily collections, categorized expenses, and net profit — with built-in GST tax invoicing, a smart business calculator, and multi-lingual support.',
     story:
@@ -89,7 +89,7 @@ export const upcomingProducts = [
     badge: 'Coming Soon',
     description:
       'Next-generation visual interface builder empowering developers, creators, and businesses to assemble high-converting web layouts, responsive UI components, and export clean, production-ready React, Tailwind CSS, and HTML code in seconds.',
-    image: '/images/products/ui-builder-showcase.jpg',
+    image: '/images/products/ui-builder-showcase.webp',
     tech: ['React', 'Tailwind CSS', 'TypeScript', 'Canvas Engine', 'Node.js'],
   },
 ];

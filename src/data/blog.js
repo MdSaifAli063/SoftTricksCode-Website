@@ -126,7 +126,7 @@ Rollup-powered production builds deliver optimized, tree-shaken output.
     excerpt:
       "How we engineered Dailydoubt to solve daily bookkeeping, automated GST tax calculations, and trilingual accounting for Indian merchants.",
     category: "Products",
-    cover: "/images/products/dailydoubt.png",
+    cover: "/images/products/dailydoubt.webp",
     date: "2025-02-15",
     readTime: "7 min read",
     author: defaultAuthor.name,
@@ -155,7 +155,7 @@ Retail storefronts frequently experience network dips. Dailydoubt uses an embedd
     excerpt:
       "Why Soft Tricks Code invests in proprietary software products alongside client engineering, and how firsthand product ownership elevates every client project.",
     category: "Products",
-    cover: "/images/products/products-lab-preview.jpg",
+    cover: "/images/products/products-lab-preview.webp",
     date: "2025-01-25",
     readTime: "6 min read",
     author: defaultAuthor.name,
