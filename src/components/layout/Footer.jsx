@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect, lazy, Suspense } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaGithub, FaYoutube, FaLinkedin, FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';
 import { Mail, Send } from 'lucide-react';
@@ -8,7 +8,48 @@ import { SITE } from '../../constants/site';
 import BrandLogo from '../ui/BrandLogo';
 import { useBooking } from '../../context/BookingContext';
 import clsx from 'clsx';
-import { TextHoverEffect, FooterBackgroundGradient } from '../ui/hover-footer';
+import { TextHoverEffect } from '../ui/hover-footer';
+
+// Lazy-load the Three.js footer background — only loads when footer scrolls into view
+const FooterBg3D = lazy(() => import('../ui/footer-bg-3d'));
+
+/**
+ * LazyFooterBg — mounts the 3D background only when the footer
+ * is about to enter the viewport (IntersectionObserver rootMargin: 300px).
+ * This keeps Three.js completely out of the initial JS parse budget.
+ */
+function LazyFooterBg() {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '300px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+      {/* Static CSS fallback gradient — always visible, zero cost */}
+      <div className="absolute inset-0 bg-gradient-to-b from-stc-black via-[#070d1f] to-stc-black opacity-90" />
+      {visible && (
+        <Suspense fallback={null}>
+          <FooterBg3D />
+        </Suspense>
+      )}
+    </div>
+  );
+}
 
 const quickLinks = [
   { to: '/about', label: 'About Us' },
@@ -225,7 +266,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <FooterBackgroundGradient />
+      <LazyFooterBg />
     </footer>
   );
 }

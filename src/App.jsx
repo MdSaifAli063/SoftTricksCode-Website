@@ -2,7 +2,6 @@ import { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import ErrorBoundary from './components/ui/ErrorBoundary';
-import Preloader from './components/ui/Preloader';
 import { initEmailJS } from './utils/emailService';
 import Home from './pages/Home';
 
@@ -33,9 +32,7 @@ export default function App() {
   }, []);
 
   return (
-    <>
-      <Preloader />
-      <ErrorBoundary>
+    <ErrorBoundary>
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Layout />}>
@@ -58,6 +55,5 @@ export default function App() {
           </Routes>
         </Suspense>
       </ErrorBoundary>
-    </>
   );
 }
