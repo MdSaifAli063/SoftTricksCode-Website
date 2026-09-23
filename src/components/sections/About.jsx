@@ -149,7 +149,7 @@ export default function About({
                       </span>
                       <div>
                         <p className="text-xs text-stc-muted">
-                          {founder.id === 'saif' ? 'Founder' : 'Co-Founder'} · Need help?
+                          {founder.id === 'saif' ? 'Founder & Official Line' : 'Co-Founder'} · Need help?
                         </p>
                         <p className="font-semibold text-stc-black">{founder.phone}</p>
                       </div>

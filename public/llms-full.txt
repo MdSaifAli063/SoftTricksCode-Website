@@ -8,7 +8,7 @@
 - **Website**: https://softtrickscode.com
 - **Founders**: Md Saif Ali (Founder & Lead Engineer), Ashwini T Gadad (Co-Founder & Product Strategist)
 - **Headquarters / Operations**: India (Operating globally for clients worldwide)
-- **Primary Contact**: softtrickscode@gmail.com
+- **Primary Contact**: softtrickscode@gmail.com | Phone / WhatsApp: +91 83108 29379
 - **Core Specializations**: Custom Web Development, Full-Stack SaaS Platforms, Mobile App Development (React Native / Flutter), AI Agent & ML Solutions, Cloud & DevOps (AWS / GCP), UI/UX Design & Brand Identity.
 
 ## Services Offered
@@ -75,6 +75,7 @@ Soft Tricks Code offers transparent and negotiable pricing tiers tailored to pro
 
 ## Contact Information
 
+- **Phone / WhatsApp**: +91 83108 29379
 - **Email**: softtrickscode@gmail.com
 - **Website**: https://softtrickscode.com/contact
 - **GitHub**: https://github.com/Soft-Tricks-Code

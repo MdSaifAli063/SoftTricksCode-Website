@@ -17,6 +17,7 @@ import PageBanner from '../components/ui/PageBanner';
 import SectionBadge from '../components/ui/SectionBadge';
 import Pricing from '../components/sections/Pricing';
 import { useBooking } from '../context/BookingContext';
+import { SITE } from '../constants/site';
 import clsx from 'clsx';
 
 const WEB_COMPARISON_ROWS = [
@@ -367,7 +368,7 @@ export default function PricingPage() {
                   </button>
 
                   <a
-                    href="https://wa.me/919142512606?text=Hi%20Soft%20Tricks%20Code,%20I'd%20like%20to%20discuss%20pricing%20and%20scope%20for%20my%20project."
+                    href={`https://wa.me/${SITE.phoneTel.replace(/[^0-9]/g, '')}?text=${encodeURIComponent("Hi Soft Tricks Code, I'd like to discuss pricing and scope for my project.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-full border border-emerald-500/50 bg-emerald-950/60 px-5 py-3.5 sm:px-6 text-sm font-bold text-emerald-300 transition hover:bg-emerald-900/70 active:scale-[0.98] whitespace-nowrap"

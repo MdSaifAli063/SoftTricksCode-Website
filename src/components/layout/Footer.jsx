@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, lazy, Suspense } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaGithub, FaYoutube, FaLinkedin, FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';
-import { Mail, Send } from 'lucide-react';
+import { Mail, Send, Phone } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { sendEmail, TEMPLATE_IDS } from '../../utils/emailService';
 import { SITE } from '../../constants/site';
@@ -110,20 +110,36 @@ export default function Footer() {
           >
             Do you need free Consultation?
           </button>
-          <a
-            href={`mailto:${SITE.email}`}
-            className="flex w-full max-w-full items-center gap-3 transition hover:opacity-90 sm:w-auto sm:gap-4"
-          >
-            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-stc-primary sm:h-14 sm:w-14">
-              <Mail size={24} />
-            </span>
-            <div className="min-w-0 text-left">
-              <span className="block text-xs font-medium text-white">Send E-mail</span>
-              <span className="break-anywhere text-sm font-semibold text-white sm:text-lg">
-                {SITE.email}
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6">
+            <a
+              href={`tel:${SITE.phoneTel}`}
+              className="flex items-center gap-3 transition hover:opacity-90"
+            >
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-stc-primary sm:h-14 sm:w-14">
+                <Phone size={22} />
               </span>
-            </div>
-          </a>
+              <div className="min-w-0 text-left">
+                <span className="block text-xs font-medium text-white/90">Call / WhatsApp</span>
+                <span className="break-anywhere text-sm font-semibold text-white sm:text-base">
+                  {SITE.phone}
+                </span>
+              </div>
+            </a>
+            <a
+              href={`mailto:${SITE.email}`}
+              className="flex items-center gap-3 transition hover:opacity-90"
+            >
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-stc-primary sm:h-14 sm:w-14">
+                <Mail size={22} />
+              </span>
+              <div className="min-w-0 text-left">
+                <span className="block text-xs font-medium text-white/90">Send E-mail</span>
+                <span className="break-anywhere text-sm font-semibold text-white sm:text-base">
+                  {SITE.email}
+                </span>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -136,6 +152,20 @@ export default function Footer() {
                 Building world-class software that solves real problems. Founded by Md Saif Ali &
                 Ashwini T Gadad — serving clients worldwide from India.
               </p>
+              <div className="mt-4 flex flex-col gap-1.5 text-xs text-slate-400">
+                <p>
+                  <span className="font-semibold text-white">Call / WhatsApp:</span>{' '}
+                  <a href={`tel:${SITE.phoneTel}`} className="text-stc-primary-light hover:underline font-medium">
+                    {SITE.phone}
+                  </a>
+                </p>
+                <p>
+                  <span className="font-semibold text-white">Email:</span>{' '}
+                  <a href={`mailto:${SITE.email}`} className="text-slate-300 hover:underline">
+                    {SITE.email}
+                  </a>
+                </p>
+              </div>
               <div className="mt-6 flex gap-2">
                 {[
                   { href: 'https://github.com/Soft-Tricks-Code', icon: FaGithub, label: 'GitHub' },

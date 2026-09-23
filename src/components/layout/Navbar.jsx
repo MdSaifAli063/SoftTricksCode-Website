@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 import BrandLogo from '../ui/BrandLogo';
 import { useBooking } from '../../context/BookingContext';
+import { SITE } from '../../constants/site';
 import clsx from 'clsx';
 
 const links = [
@@ -138,15 +139,21 @@ export default function Navbar({ onChatOpen }) {
                 </motion.div>
               ))}
               <div className="mt-4 flex flex-col gap-3">
+                <a
+                  href={`tel:${SITE.phoneTel}`}
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-stc-primary py-3.5 font-semibold text-white transition hover:bg-stc-primary-light"
+                >
+                  Call Us ({SITE.phone}) <Phone size={18} />
+                </a>
                 <button
                   type="button"
                   onClick={() => {
                     setMobileOpen(false);
                     openBooking();
                   }}
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-stc-primary py-3.5 font-semibold text-white"
+                  className="flex w-full items-center justify-center gap-2 rounded-full border border-white/20 py-3.5 font-semibold text-white transition hover:bg-white/10"
                 >
-                  Let&apos;s Talk <Phone size={18} />
+                  Book Free Call <Phone size={18} />
                 </button>
                 <button
                   type="button"
@@ -154,7 +161,7 @@ export default function Navbar({ onChatOpen }) {
                     setMobileOpen(false);
                     onChatOpen?.();
                   }}
-                  className="flex w-full items-center justify-center gap-2 rounded-full border border-white/20 py-3.5 font-semibold text-white"
+                  className="flex w-full items-center justify-center gap-2 rounded-full border border-white/20 py-3.5 font-semibold text-white transition hover:bg-white/10"
                 >
                   Live Chat <MessageCircle size={18} />
                 </button>

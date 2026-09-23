@@ -141,12 +141,15 @@ function ContactInfo({ pageMode }) {
             <Phone size={20} />
           </span>
           <div>
-            <p className="font-semibold text-stc-black">Phone</p>
-            <a href={`tel:${SITE.phoneTel}`} className={`block ${linkHover}`}>
-              {SITE.founderName}: {SITE.phone}
+            <p className="font-semibold text-stc-black">Phone / WhatsApp</p>
+            <a href={`tel:${SITE.phoneTel}`} className={`block font-semibold text-stc-primary ${linkHover}`}>
+              Official: {SITE.phone}
             </a>
-            <a href={`tel:${SITE.coFounder.phoneTel}`} className={`block ${linkHover}`}>
-              {SITE.coFounder.name}: {SITE.coFounder.phone}
+            <a href={`tel:${SITE.phoneTel}`} className={`block text-xs text-slate-600 ${linkHover}`}>
+              {SITE.founderName} (CEO): {SITE.phone}
+            </a>
+            <a href={`tel:${SITE.coFounder.phoneTel}`} className={`block text-xs text-slate-600 ${linkHover}`}>
+              {SITE.coFounder.name} (COO): {SITE.coFounder.phone}
             </a>
           </div>
         </li>
