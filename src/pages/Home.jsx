@@ -1,7 +1,6 @@
 import Seo from '../components/ui/Seo';
 import Hero from '../components/sections/Hero';
 import ServiceHighlights from '../components/sections/ServiceHighlights';
-import About from '../components/sections/About';
 import ClientLogos from '../components/sections/ClientLogos';
 import Services from '../components/sections/Services';
 import ProductsTeaser from '../components/sections/ProductsTeaser';
@@ -9,6 +8,7 @@ import WhyChoose from '../components/sections/WhyChoose';
 import StatsBar from '../components/sections/StatsBar';
 import Portfolio from '../components/sections/Portfolio';
 import Pricing from '../components/sections/Pricing';
+import About from '../components/sections/About';
 import Testimonials from '../components/sections/Testimonials';
 import FAQ from '../components/sections/FAQ';
 import Contact from '../components/sections/Contact';
@@ -38,3 +38,4 @@ export default function Home() {
     </>
   );
 }
+
