@@ -23,6 +23,14 @@ import clsx from 'clsx';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
+const PORTFOLIO_SWIPER_MODULES = [Navigation, Autoplay];
+const PORTFOLIO_SWIPER_AUTOPLAY = { delay: 5000, disableOnInteraction: false };
+const PORTFOLIO_SWIPER_NAV = {
+  prevEl: '.portfolio-prev',
+  nextEl: '.portfolio-next',
+};
+const PORTFOLIO_SWIPER_BREAKPOINTS = { 640: { spaceBetween: 24 } };
+
 const categoryIcons = {
   Web: Globe,
   Mobile: Smartphone,
@@ -192,17 +200,14 @@ export default function Portfolio({ limit, showAllLink = true, pageMode = false 
 
           <div className="overflow-hidden">
           <Swiper
-            modules={[Navigation, Autoplay]}
+            modules={PORTFOLIO_SWIPER_MODULES}
             spaceBetween={16}
             slidesPerView={1}
             observer={true}
             observeParents={true}
-            autoplay={{ delay: 5000, disableOnInteraction: false }}
-            navigation={{
-              prevEl: '.portfolio-prev',
-              nextEl: '.portfolio-next',
-            }}
-            breakpoints={{ 640: { spaceBetween: 24 } }}
+            autoplay={PORTFOLIO_SWIPER_AUTOPLAY}
+            navigation={PORTFOLIO_SWIPER_NAV}
+            breakpoints={PORTFOLIO_SWIPER_BREAKPOINTS}
             className="!overflow-hidden pb-4"
           >
             {carouselItems.map((project) => {

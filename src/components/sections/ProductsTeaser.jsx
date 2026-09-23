@@ -21,7 +21,7 @@ const PRODUCT_STAGES = [
     title: 'Scalable Platform (PaaS) & Cloud Infrastructure',
     content:
       'Engineered multi-region cloud platform infrastructure with enterprise PaaS orchestration, automated load balancing, and resilient micro-service meshes.',
-    image: '/images/products/feature-step-1.jpg',
+    image: '/images/products/feature-step-1.webp',
   },
   {
     step: 'Phase 02',
@@ -29,7 +29,7 @@ const PRODUCT_STAGES = [
     title: 'Intelligent SaaS & Multi-Device Software',
     content:
       'We architect intuitive, high-speed SaaS products connected seamlessly across mobile applications, desktop portals, cloud databases, and application servers.',
-    image: '/images/products/feature-step-2.jpg',
+    image: '/images/products/feature-step-2.webp',
   },
   {
     step: 'Phase 03',
@@ -37,14 +37,14 @@ const PRODUCT_STAGES = [
     title: 'Full-Tier Cloud Ecosystem & Live Sync',
     content:
       'End-to-end synchronized digital products connecting physical cloud infrastructure, containerized code, and real-time user dashboards.',
-    image: '/images/products/feature-step-3.jpg',
+    image: '/images/products/feature-step-3.webp',
   },
 ];
 
 const PRODUCT_SLIDES = [
   {
     id: 'dailydoubt',
-    src: '/images/products/dailydoubt-showcase.jpg',
+    src: '/images/products/dailydoubt-showcase.webp',
     alt: 'Dailydoubt — Digital Business & Shop Ledger developed by Soft Tricks Code',
     title: 'Dailydoubt',
     badge: 'Live & Active',
@@ -57,7 +57,7 @@ const PRODUCT_SLIDES = [
   },
   {
     id: 'ui-builder',
-    src: '/images/products/ui-builder-showcase.jpg',
+    src: '/images/products/ui-builder-showcase.webp',
     alt: 'STC UI Builder — Visual Drag-and-Drop Website & UI Builder Studio',
     title: 'STC UI Builder',
     badge: 'Coming Soon',
