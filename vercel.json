@@ -6,8 +6,58 @@
   "installCommand": "npm install",
   "rewrites": [
     {
-      "source": "/((?!api|assets|favicon.png|favicon.ico|favicon-16.png|favicon-32.png|favicon-48.png|favicon-256.png|favicon-512.png|apple-touch-icon.png|icon-192.png|icon-256.png|icon-512.png|icon-maskable-512.png|logo-mark.png|logo-mark-on-dark.png|og-image.png|robots.txt|sitemap.xml|manifest.webmanifest).*)",
+      "source": "/((?!api|assets|favicon.png|favicon.ico|favicon-16.png|favicon-32.png|favicon-48.png|favicon-256.png|favicon-512.png|apple-touch-icon.png|icon-192.png|icon-256.png|icon-512.png|icon-maskable-512.png|logo-mark.png|logo-mark-on-dark.png|og-image.png|robots.txt|sitemap.xml|manifest.webmanifest|ai-catalog.json).*)",
       "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*\\.(?:png|jpg|jpeg|webp|avif|gif|ico|svg|woff|woff2|ttf|eot))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*\\.(?:json|webmanifest|txt|xml))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
     }
   ]
 }
