@@ -1,0 +1,64 @@
+{
+  "@context": "https://schema.org",
+  "catalogVersion": "1.0",
+  "provider": {
+    "name": "Soft Tricks Code",
+    "url": "https://softtrickscode.com",
+    "email": "softtrickscode@gmail.com",
+    "phone": "+91-90312-28966",
+    "description": "Soft Tricks Code provides custom web development, mobile apps, SaaS platforms, AI solutions, and software consulting engineered for growing global businesses."
+  },
+  "products": [
+    {
+      "id": "dailydoubt",
+      "name": "Dailydoubt",
+      "url": "https://www.dailydoubt.com",
+      "category": "FinTech & Retail Management",
+      "status": "Live & Active",
+      "description": "Dailydoubt helps Indian shopkeepers, retailers, and small businesses track daily collections, categorized expenses, and net profit — with built-in GST tax invoicing, a smart business calculator, and multi-lingual support.",
+      "platforms": ["Android App", "Web Platform"],
+      "languages": ["English", "Hindi", "Kannada"]
+    },
+    {
+      "id": "ui-builder",
+      "name": "STC UI Builder",
+      "url": "https://softtrickscode.com/products",
+      "category": "Developer Tools & SaaS",
+      "status": "Coming Soon",
+      "description": "Next-generation visual interface builder empowering developers, creators, and businesses to assemble high-converting web layouts, responsive UI components, and export clean, production-ready React, Tailwind CSS, and HTML code in seconds.",
+      "techStack": ["React", "Tailwind CSS", "TypeScript", "Canvas Engine", "Node.js"]
+    }
+  ],
+  "services": [
+    {
+      "title": "Custom Web Application Development",
+      "category": "Web Engineering",
+      "description": "Full-stack React, Next.js, and Node.js enterprise-grade web development tailored for high scalability, conversion, and performance."
+    },
+    {
+      "title": "Mobile App Development",
+      "category": "Mobile Engineering",
+      "description": "Cross-platform mobile applications with React Native and Flutter delivering native feel and high reliability."
+    },
+    {
+      "title": "AI & Machine Learning Solutions",
+      "category": "Artificial Intelligence",
+      "description": "Intelligent AI workflows, custom LLM integrations, conversational agents, and automated data pipelines."
+    },
+    {
+      "title": "SaaS Platform Engineering",
+      "category": "Cloud & SaaS",
+      "description": "Multi-tenant cloud architectures, subscription billing, sub-50ms APIs, and distributed cloud systems."
+    },
+    {
+      "title": "Cloud Infrastructure & DevOps",
+      "category": "Cloud & DevOps",
+      "description": "Docker containerization, CI/CD automation, serverless compute, and microservice mesh orchestration."
+    },
+    {
+      "title": "UI/UX Design & Product Strategy",
+      "category": "Design & UX",
+      "description": "Modern product discovery, design systems, conversion-driven visual experiences, and interactive prototypes."
+    }
+  ]
+}
