@@ -1,14 +1,9 @@
-import { useRef, useEffect, useState, Suspense } from 'react';
+import { useRef, useState } from 'react';
 import {
   motion,
-  useMotionTemplate,
-  useMotionValue,
-  animate,
 } from 'framer-motion';
-import { Stars } from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
 import clsx from 'clsx';
-import ErrorBoundary from './ErrorBoundary';
+
 
 export const TextHoverEffect = ({
   text = 'Soft Tricks Code',
@@ -16,25 +11,24 @@ export const TextHoverEffect = ({
   className = '',
 }) => {
   const svgRef = useRef(null);
-  const [cursor, setCursor] = useState({ x: null, y: null });
   const [hovered, setHovered] = useState(false);
   const [maskPosition, setMaskPosition] = useState({ cx: 480, cy: 60 });
 
-  useEffect(() => {
-    if (svgRef.current && cursor.x !== null && cursor.y !== null) {
+  const updatePosition = (clientX, clientY) => {
+    if (svgRef.current) {
       const svgRect = svgRef.current.getBoundingClientRect();
       if (svgRect.width > 0 && svgRect.height > 0) {
-        const cx = Math.max(0, Math.min(960, ((cursor.x - svgRect.left) / svgRect.width) * 960));
-        const cy = Math.max(0, Math.min(120, ((cursor.y - svgRect.top) / svgRect.height) * 120));
+        const cx = Math.max(0, Math.min(960, ((clientX - svgRect.left) / svgRect.width) * 960));
+        const cy = Math.max(0, Math.min(120, ((clientY - svgRect.top) / svgRect.height) * 120));
         setMaskPosition({ cx, cy });
       }
     }
-  }, [cursor]);
+  };
 
   const handleTouch = (e) => {
     if (e.touches && e.touches[0]) {
       setHovered(true);
-      setCursor({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+      updatePosition(e.touches[0].clientX, e.touches[0].clientY);
     }
   };
 
@@ -50,7 +44,7 @@ export const TextHoverEffect = ({
         onMouseLeave={() => setHovered(false)}
         onMouseMove={(e) => {
           setHovered(true);
-          setCursor({ x: e.clientX, y: e.clientY });
+          updatePosition(e.clientX, e.clientY);
         }}
         onTouchStart={handleTouch}
         onTouchMove={handleTouch}
@@ -154,51 +148,4 @@ export const TextHoverEffect = ({
   );
 };
 
-const AURORA_COLORS = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
-
-export const FooterBackgroundGradient = () => {
-  const color = useMotionValue(AURORA_COLORS[0]);
-
-  useEffect(() => {
-    const controls = animate(color, AURORA_COLORS, {
-      ease: 'easeInOut',
-      duration: 10,
-      repeat: Infinity,
-      repeatType: 'mirror',
-    });
-    return () => controls.stop();
-  }, [color]);
-
-  const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 10%, #030712 50%, ${color})`;
-
-  return (
-    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
-      {/* Animated Aurora Radial Glow */}
-      <motion.div
-        style={{ backgroundImage }}
-        className="absolute inset-0 opacity-40 transition-opacity"
-      />
-
-      {/* 3D Twinkling Starfield */}
-      <div className="absolute inset-0 opacity-55">
-        <ErrorBoundary fallback={null}>
-          <Suspense fallback={null}>
-            <Canvas
-              camera={{ position: [0, 0, 1] }}
-              gl={{ antialias: false, alpha: true }}
-              dpr={[1, 1.5]}
-            >
-              <Stars radius={50} count={2000} factor={4} fade speed={1.5} />
-            </Canvas>
-          </Suspense>
-        </ErrorBoundary>
-      </div>
-
-      {/* Subtle blend vignette */}
-      <div className="absolute inset-0 bg-gradient-to-b from-stc-black/40 via-transparent to-stc-black/60 pointer-events-none" />
-    </div>
-  );
-};
-
 export default TextHoverEffect;
-
