@@ -54,7 +54,7 @@ export default function ProductsPage() {
       />
 
       {/* Main Content Area in Light Theme (Like Services Page) - Fully Responsive */}
-      <section className="section-light py-6 sm:py-10 md:py-12 relative overflow-hidden">
+      <section className="section-light pt-6 pb-16 sm:pt-10 sm:pb-24 md:pt-12 md:pb-28 relative overflow-hidden">
         <div className="container-page relative z-10">
           {/* Flagship Product Showcase Card (Dark blue/navy style, fully mobile responsive) */}
           <motion.div

@@ -127,10 +127,11 @@
   <link rel="dns-prefetch" href="https://images.unsplash.com" />
   <link rel="dns-prefetch" href="https://ik.imagekit.io" />
 
-  <!-- Preload LCP Hero Image for instant discovery -->
+  <!-- Preload LCP Hero Image for instant discovery with responsive sizes -->
   <link rel="preload" as="image"
-    href="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&h=600&q=70&fm=webp"
-    imagesizes="100vw"
+    href="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=300&q=70&fm=webp"
+    imagesrcset="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=300&q=70&fm=webp 600w, https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&h=450&q=70&fm=webp 900w, https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&h=600&q=70&fm=webp 1200w"
+    imagesizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
     fetchpriority="high" />
 
   <!-- Fonts: non-blocking via media=print trick; no preload to avoid LCP contention -->
@@ -142,28 +143,39 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" />
   </noscript>
 
-  <!-- Google tag (gtag.js) - deferred to idle after load to avoid LCP / TBT contention -->
+  <!-- Google tag (gtag.js) - deferred to first user interaction or idle fallback to avoid TBT / LCP contention -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
-    function loadGtag() {
-      var s = document.createElement('script');
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-37Z8YBEPL2';
-      s.async = true;
-      document.head.appendChild(s);
-      gtag('config', 'G-37Z8YBEPL2');
-    }
-    if ('requestIdleCallback' in window) {
-      window.addEventListener('load', function() {
-        requestIdleCallback(loadGtag, { timeout: 2000 });
+    (function() {
+      var loaded = false;
+      function loadGtag() {
+        if (loaded) return;
+        loaded = true;
+        ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function(e) {
+          window.removeEventListener(e, loadGtag, { passive: true });
+        });
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-37Z8YBEPL2';
+        s.async = true;
+        document.head.appendChild(s);
+        gtag('config', 'G-37Z8YBEPL2');
+      }
+      ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function(e) {
+        window.addEventListener(e, loadGtag, { once: true, passive: true });
       });
-    } else {
       window.addEventListener('load', function() {
-        setTimeout(loadGtag, 1000);
+        setTimeout(function() {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadGtag, { timeout: 2000 });
+          } else {
+            loadGtag();
+          }
+        }, 3500);
       });
-    }
+    })();
   </script>
 </head>
 

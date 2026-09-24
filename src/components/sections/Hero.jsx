@@ -2,7 +2,11 @@ import GlowButton from '../ui/GlowButton';
 import ExploreBadge from '../ui/ExploreBadge';
 import { useBooking } from '../../context/BookingContext';
 
-const HERO_IMAGE =
+const HERO_IMAGE_600 =
+  'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=300&q=70&fm=webp';
+const HERO_IMAGE_900 =
+  'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&h=450&q=70&fm=webp';
+const HERO_IMAGE_1200 =
   'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&h=600&q=70&fm=webp';
 
 export default function Hero() {
@@ -33,7 +37,9 @@ export default function Hero() {
       <div className="container-page relative z-10 pb-16 sm:pb-20">
         <div className="relative overflow-hidden rounded-4xl border border-white/10 shadow-fly-lg sm:rounded-5xl">
           <img
-            src={HERO_IMAGE}
+            src={HERO_IMAGE_1200}
+            srcSet={`${HERO_IMAGE_600} 600w, ${HERO_IMAGE_900} 900w, ${HERO_IMAGE_1200} 1200w`}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
             alt="Soft Tricks Code team collaborating on software projects"
             width="1200"
             height="600"

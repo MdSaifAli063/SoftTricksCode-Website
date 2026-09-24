@@ -99,42 +99,42 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative mt-20 bg-stc-black">
+    <footer className="relative mt-12 sm:mt-20 lg:mt-24 bg-stc-black">
       {/* Overlapping consultation CTA */}
-      <div className="container-page relative z-20 -translate-y-1/2">
-        <div className="flex flex-col items-center justify-between gap-6 rounded-2xl bg-stc-primary px-4 py-6 shadow-fly-lg sm:flex-row sm:px-10 sm:py-7">
+      <div className="container-page relative z-20 translate-y-0 sm:-translate-y-1/2 mb-8 sm:mb-0">
+        <div className="flex flex-col items-center justify-between gap-6 rounded-2xl bg-gradient-to-r from-stc-primary-dark via-stc-primary to-stc-primary-dark px-5 py-6 shadow-fly-lg lg:flex-row lg:px-10 lg:py-7">
           <button
             type="button"
             onClick={openBooking}
-            className="max-w-full text-center font-serif text-lg font-bold leading-snug text-white sm:text-left sm:text-2xl"
+            className="max-w-full text-center font-serif text-lg font-bold leading-snug text-white transition hover:opacity-90 sm:text-xl md:text-2xl lg:text-left"
           >
             Do you need free Consultation?
           </button>
-          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-center lg:justify-end gap-4 sm:gap-6 lg:gap-8 w-fit max-w-full mx-auto lg:mx-0">
             <a
               href={`tel:${SITE.phoneTel}`}
-              className="flex items-center gap-3 transition hover:opacity-90"
+              className="group flex items-center gap-3 sm:gap-3.5 transition hover:opacity-90 active:scale-[0.98]"
             >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-stc-primary sm:h-14 sm:w-14">
-                <Phone size={22} />
+              <span className="flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full bg-white text-stc-primary shadow-sm group-hover:scale-105 transition-transform duration-200">
+                <Phone size={20} className="sm:w-[22px] sm:h-[22px]" />
               </span>
               <div className="min-w-0 text-left">
-                <span className="block text-xs font-medium text-white/90">Call / WhatsApp</span>
-                <span className="break-anywhere text-sm font-semibold text-white sm:text-base">
+                <span className="block text-xs font-bold text-white tracking-wide">Call / WhatsApp</span>
+                <span className="block text-sm sm:text-base font-semibold text-white tracking-tight whitespace-nowrap">
                   {SITE.phone}
                 </span>
               </div>
             </a>
             <a
               href={`mailto:${SITE.email}`}
-              className="flex items-center gap-3 transition hover:opacity-90"
+              className="group flex items-center gap-3 sm:gap-3.5 transition hover:opacity-90 active:scale-[0.98]"
             >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-stc-primary sm:h-14 sm:w-14">
-                <Mail size={22} />
+              <span className="flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full bg-white text-stc-primary shadow-sm group-hover:scale-105 transition-transform duration-200">
+                <Mail size={20} className="sm:w-[22px] sm:h-[22px]" />
               </span>
               <div className="min-w-0 text-left">
-                <span className="block text-xs font-medium text-white/90">Send E-mail</span>
-                <span className="break-anywhere text-sm font-semibold text-white sm:text-base">
+                <span className="block text-xs font-bold text-white tracking-wide">Send E-mail</span>
+                <span className="block text-xs xs:text-sm sm:text-base font-semibold text-white tracking-tight whitespace-nowrap truncate max-w-[210px] xs:max-w-none">
                   {SITE.email}
                 </span>
               </div>
@@ -143,7 +143,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="footer-waves relative border-t border-white/10 pt-28 sm:pt-32">
+      <div className="footer-waves relative border-t border-white/10 pt-10 sm:pt-24 lg:pt-28">
         <div className="section-padding mx-auto max-w-7xl !pt-0 relative z-10">
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
             <div>

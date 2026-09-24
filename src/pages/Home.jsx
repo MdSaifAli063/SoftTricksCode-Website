@@ -3,6 +3,7 @@ import Seo from '../components/ui/Seo';
 import Hero from '../components/sections/Hero';
 import ServiceHighlights from '../components/sections/ServiceHighlights';
 import ClientLogos from '../components/sections/ClientLogos';
+import LazySection from '../components/ui/LazySection';
 
 const Services = lazy(() => import('../components/sections/Services'));
 const ProductsTeaser = lazy(() => import('../components/sections/ProductsTeaser'));
@@ -33,12 +34,24 @@ export default function Home() {
         <ProductsTeaser />
         <WhyChoose />
         <StatsBar />
-        <Portfolio limit={3} />
-        <Pricing compact />
-        <About />
-        <Testimonials />
-        <FAQ />
-        <Contact showHeading={false} />
+        <LazySection minHeight="400px">
+          <Portfolio limit={3} />
+        </LazySection>
+        <LazySection minHeight="400px">
+          <Pricing compact />
+        </LazySection>
+        <LazySection minHeight="300px">
+          <About />
+        </LazySection>
+        <LazySection minHeight="300px">
+          <Testimonials />
+        </LazySection>
+        <LazySection minHeight="300px">
+          <FAQ />
+        </LazySection>
+        <LazySection minHeight="400px">
+          <Contact showHeading={false} />
+        </LazySection>
       </Suspense>
     </>
   );

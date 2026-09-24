@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BRAND_ASSETS } from '../../constants/brand';
 
-export default function Preloader({ onFinish, minDuration = 1000 }) {
+export default function Preloader({ onFinish, minDuration = 600 }) {
   const [progress, setProgress] = useState(0);
   const [shouldRender, setShouldRender] = useState(true);
 
@@ -18,7 +18,7 @@ export default function Preloader({ onFinish, minDuration = 1000 }) {
         setTimeout(() => {
           setShouldRender(false);
           if (onFinish) onFinish();
-        }, 120);
+        }, 40);
       }
     }, 16);
 
@@ -31,8 +31,8 @@ export default function Preloader({ onFinish, minDuration = 1000 }) {
         <motion.div
           key="stc-preloader"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.02 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          exit={{ opacity: 0, scale: 1.01 }}
+          transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#030712] select-none"
           style={{ pointerEvents: shouldRender ? 'auto' : 'none' }}
         >

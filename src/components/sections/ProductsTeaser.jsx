@@ -227,6 +227,7 @@ export default function ProductsTeaser() {
                       activeSlide === idx ? 'z-10' : 'z-0'
                     )}
                     loading={idx === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
                   />
                 ))}
 
