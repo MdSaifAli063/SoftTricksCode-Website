@@ -184,7 +184,7 @@ function ChatFab({ onClick }) {
             <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 translate-y-px" strokeWidth={2} />
           </span>
           <span
-            className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 sm:h-5 sm:min-w-5 items-center justify-center rounded-full border-[1.5px] sm:border-2 border-stc-black bg-emerald-500 px-0.5 sm:px-1 text-[8px] sm:text-[10px] font-bold text-white shadow-sm"
+            className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 sm:h-5 sm:min-w-5 items-center justify-center rounded-full border-[1.5px] sm:border-2 border-stc-black bg-emerald-400 px-0.5 sm:px-1 text-[8px] sm:text-[10px] font-black text-slate-950 shadow-sm"
             aria-hidden
           >
             AI

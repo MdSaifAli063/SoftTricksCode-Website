@@ -12,7 +12,6 @@ export function FeatureSteps({
   imageHeight = '',
 }) {
   const [currentFeature, setCurrentFeature] = useState(0);
-  const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
   // Advance feature on autoPlayInterval
@@ -21,30 +20,13 @@ export function FeatureSteps({
 
     const timer = setInterval(() => {
       setCurrentFeature((curr) => (curr + 1) % features.length);
-      setProgress(0);
     }, autoPlayInterval);
 
     return () => clearInterval(timer);
   }, [features.length, autoPlayInterval, isPaused]);
 
-  // Increment progress bar between steps
-  useEffect(() => {
-    if (isPaused || !features.length) return;
-
-    setProgress(0);
-    const intervalTime = 100;
-    const step = 100 / (autoPlayInterval / intervalTime);
-
-    const timer = setInterval(() => {
-      setProgress((prev) => (prev + step >= 100 ? 100 : prev + step));
-    }, intervalTime);
-
-    return () => clearInterval(timer);
-  }, [currentFeature, features.length, autoPlayInterval, isPaused]);
-
   const handleStepClick = (index) => {
     setCurrentFeature(index);
-    setProgress(0);
   };
 
   return (
@@ -97,10 +79,14 @@ export function FeatureSteps({
               >
                 {/* Active progress bar indicator along the left edge */}
                 {isActive && (
-                  <div className="absolute left-0 top-0 bottom-0 w-1 sm:w-1.5 bg-slate-200">
+                  <div className="absolute left-0 top-0 bottom-0 w-1 sm:w-1.5 bg-slate-200 overflow-hidden">
                     <div
-                      className="w-full bg-gradient-to-b from-stc-primary via-blue-500 to-stc-cyan transition-all duration-100 ease-linear shadow-[0_0_10px_rgba(0,212,255,0.9)]"
-                      style={{ height: `${progress}%` }}
+                      key={`progress-${currentFeature}`}
+                      className="h-full w-full origin-top bg-gradient-to-b from-stc-primary via-blue-500 to-stc-cyan shadow-[0_0_10px_rgba(0,212,255,0.9)]"
+                      style={{
+                        animation: `featureProgress ${autoPlayInterval}ms linear forwards`,
+                        animationPlayState: isPaused ? 'paused' : 'running',
+                      }}
                     />
                   </div>
                 )}
@@ -192,9 +178,10 @@ export function FeatureSteps({
                         src={feature.image}
                         alt={feature.title || feature.step}
                         className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
-                        width="1200"
-                        height="1000"
-                        loading={index === 0 ? 'eager' : 'lazy'}
+                        width="880"
+                        height="733"
+                        loading="lazy"
+                        decoding="async"
                       />
 
                       {/* Glossy top reflection highlight */}
