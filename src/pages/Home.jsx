@@ -1,20 +1,17 @@
-import { lazy, Suspense } from 'react';
 import Seo from '../components/ui/Seo';
 import Hero from '../components/sections/Hero';
 import ServiceHighlights from '../components/sections/ServiceHighlights';
 import ClientLogos from '../components/sections/ClientLogos';
-import LazySection from '../components/ui/LazySection';
-
-const Services = lazy(() => import('../components/sections/Services'));
-const ProductsTeaser = lazy(() => import('../components/sections/ProductsTeaser'));
-const WhyChoose = lazy(() => import('../components/sections/WhyChoose'));
-const StatsBar = lazy(() => import('../components/sections/StatsBar'));
-const Portfolio = lazy(() => import('../components/sections/Portfolio'));
-const Pricing = lazy(() => import('../components/sections/Pricing'));
-const About = lazy(() => import('../components/sections/About'));
-const Testimonials = lazy(() => import('../components/sections/Testimonials'));
-const FAQ = lazy(() => import('../components/sections/FAQ'));
-const Contact = lazy(() => import('../components/sections/Contact'));
+import Services from '../components/sections/Services';
+import ProductsTeaser from '../components/sections/ProductsTeaser';
+import WhyChoose from '../components/sections/WhyChoose';
+import StatsBar from '../components/sections/StatsBar';
+import Portfolio from '../components/sections/Portfolio';
+import Pricing from '../components/sections/Pricing';
+import About from '../components/sections/About';
+import Testimonials from '../components/sections/Testimonials';
+import FAQ from '../components/sections/FAQ';
+import Contact from '../components/sections/Contact';
 
 export default function Home() {
   return (
@@ -28,31 +25,16 @@ export default function Home() {
       <Hero />
       <ServiceHighlights />
       <ClientLogos />
-      
-      <Suspense fallback={null}>
-        <Services limit={6} showFeatured />
-        <ProductsTeaser />
-        <WhyChoose />
-        <StatsBar />
-        <LazySection minHeight="400px">
-          <Portfolio limit={3} />
-        </LazySection>
-        <LazySection minHeight="400px">
-          <Pricing compact />
-        </LazySection>
-        <LazySection minHeight="300px">
-          <About />
-        </LazySection>
-        <LazySection minHeight="300px">
-          <Testimonials />
-        </LazySection>
-        <LazySection minHeight="300px">
-          <FAQ />
-        </LazySection>
-        <LazySection minHeight="400px">
-          <Contact showHeading={false} />
-        </LazySection>
-      </Suspense>
+      <Services limit={6} showFeatured />
+      <ProductsTeaser />
+      <WhyChoose />
+      <StatsBar />
+      <Portfolio limit={3} />
+      <Pricing compact />
+      <About />
+      <Testimonials />
+      <FAQ />
+      <Contact showHeading={false} />
     </>
   );
 }
